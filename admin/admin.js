@@ -8,7 +8,10 @@ const REPO = 'liga-del-este-web';
 const BRANCH = 'main';
 const NEWS_DIR = 'contenido/noticias';
 const PHOTO_DIR = 'fotos/noticias';
-const TOKEN_KEY = 'lde-admin-clave';
+const TOKEN_KEY = 'lde-admin-clave';          // versión anterior: clave sin cifrar (se migra al PIN)
+const PIN_KEY = 'lde-admin-clave-cifrada';     // clave de GitHub cifrada con el PIN
+const TRIES_KEY = 'lde-admin-intentos';
+const MAX_TRIES = 5;
 const TIPOS = { aviso: 'Aviso', jornada: 'Jornada', evento: 'Evento', institucional: 'La liga' };
 
 const $ = (s) => document.querySelector(s);
@@ -92,8 +95,8 @@ async function achicar(file, max = 1600, calidad = 0.82) {
 /* ---------- Vistas ---------- */
 
 function ver(nombre) {
-  ['entrar', 'lista', 'editor'].forEach((v) => { $(`#vista-${v}`).hidden = v !== nombre; });
-  $('#salir').hidden = nombre === 'entrar';
+  ['entrar', 'pin-crear', 'pin', 'lista', 'editor'].forEach((v) => { $(`#vista-${v}`).hidden = v !== nombre; });
+  $('#salir').hidden = !['lista', 'editor'].includes(nombre);
   window.scrollTo(0, 0);
 }
 
@@ -104,25 +107,124 @@ function mensajeError(e) {
   return `No se pudo guardar: ${e.message}`;
 }
 
-async function entrar(clave) {
+/* ---------- PIN: la clave de GitHub se guarda cifrada con el PIN ---------- */
+
+const store = {
+  get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+  set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* sin almacenamiento */ } },
+  del: (k) => { try { localStorage.removeItem(k); } catch (e) { /* sin almacenamiento */ } }
+};
+const aB64 = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf)));
+const deB64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+
+async function llaveDePin(pin, sal) {
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pin), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: sal, iterations: 310000, hash: 'SHA-256' },
+    base, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+}
+async function cifrar(texto, pin) {
+  const sal = crypto.getRandomValues(new Uint8Array(16));
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const datos = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, await llaveDePin(pin, sal), new TextEncoder().encode(texto));
+  return JSON.stringify({ sal: aB64(sal), iv: aB64(iv), datos: aB64(datos) });
+}
+async function descifrar(guardado, pin) {
+  const g = JSON.parse(guardado);
+  const datos = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: deB64(g.iv) }, await llaveDePin(pin, deB64(g.sal)), deB64(g.datos));
+  return new TextDecoder().decode(datos);
+}
+
+// Revisa que la clave de GitHub funcione y tenga permiso para guardar.
+async function validarClave(clave) {
   token = clave.trim();
+  const repo = await gh(`/repos/${OWNER}/${REPO}`);
+  if (repo.permissions && !repo.permissions.push) throw new ErrorGH(403, 'sin permiso de escritura');
+}
+
+function volverAClave(aviso) {
+  store.del(PIN_KEY); store.del(TOKEN_KEY); store.del(TRIES_KEY);
+  token = ''; $('#token').value = '';
+  $('#entrar-aviso').textContent = aviso || '';
+  $('#entrar-aviso').hidden = !aviso;
+  ver('entrar');
+}
+
+async function entrar(clave) {
   const err = $('#entrar-error');
   err.hidden = true;
-  if (!token) { err.textContent = 'Pega tu clave de acceso.'; err.hidden = false; return; }
+  if (!clave.trim()) { err.textContent = 'Pega tu clave de acceso.'; err.hidden = false; return; }
   $('#entrar').disabled = true; $('#entrar').textContent = 'Revisando…';
   try {
-    const repo = await gh(`/repos/${OWNER}/${REPO}`);
-    if (repo.permissions && !repo.permissions.push) throw new ErrorGH(403, 'sin permiso de escritura');
-    try { localStorage.setItem(TOKEN_KEY, token); } catch (e) { /* sin almacenamiento */ }
-    await cargarLista();
-    ver('lista');
+    await validarClave(clave);
+    $('#pin-nuevo').value = ''; $('#pin-nuevo2').value = ''; $('#pin-crear-error').hidden = true;
+    ver('pin-crear');
+    $('#pin-nuevo').focus();
   } catch (e) {
     token = '';
     err.textContent = e.status === 401 ? 'Esa clave no es válida o ya venció.' : mensajeError(e);
     err.hidden = false;
-    ver('entrar');
   } finally {
     $('#entrar').disabled = false; $('#entrar').textContent = 'Entrar';
+  }
+}
+
+async function crearPin(e) {
+  e.preventDefault();
+  const err = $('#pin-crear-error');
+  const pin = $('#pin-nuevo').value;
+  err.hidden = true;
+  if (pin.length < 6) { err.textContent = 'El PIN debe tener al menos 6 caracteres.'; err.hidden = false; return; }
+  if (pin !== $('#pin-nuevo2').value) { err.textContent = 'Los dos no coinciden. Escríbelo otra vez.'; err.hidden = false; return; }
+  if (!window.crypto || !crypto.subtle) { err.textContent = 'Abre el panel desde la dirección segura (que empieza con https://).'; err.hidden = false; return; }
+  $('#pin-guardar').disabled = true;
+  try {
+    store.set(PIN_KEY, await cifrar(token, pin));
+    store.del(TOKEN_KEY); store.del(TRIES_KEY);
+    await cargarLista();
+    ver('lista');
+  } catch (ex) {
+    err.textContent = mensajeError(ex); err.hidden = false;
+  } finally {
+    $('#pin-guardar').disabled = false;
+  }
+}
+
+async function entrarConPin(e) {
+  e.preventDefault();
+  const err = $('#pin-error');
+  err.hidden = true;
+  const pin = $('#pin').value;
+  if (!pin) { err.textContent = 'Escribe tu PIN.'; err.hidden = false; return; }
+  $('#pin-entrar').disabled = true; $('#pin-entrar').textContent = 'Revisando…';
+  try {
+    let clave;
+    try {
+      clave = await descifrar(store.get(PIN_KEY), pin);
+    } catch (ex) {
+      const n = Number(store.get(TRIES_KEY) || 0) + 1;
+      if (n >= MAX_TRIES) {
+        volverAClave(`Por seguridad, después de ${MAX_TRIES} intentos se borró el acceso guardado. Pega tu clave de GitHub otra vez y crea un PIN nuevo.`);
+        return;
+      }
+      store.set(TRIES_KEY, String(n));
+      err.textContent = `PIN incorrecto. Te quedan ${MAX_TRIES - n} intentos.`; err.hidden = false;
+      $('#pin').value = ''; $('#pin').focus();
+      return;
+    }
+    store.del(TRIES_KEY);
+    try {
+      await validarClave(clave);
+    } catch (ex) {
+      if (ex.status === 401) { volverAClave('Tu clave de GitHub venció o fue borrada. Crea una nueva (abajo explica cómo), pégala y elige tu PIN.'); return; }
+      throw ex;
+    }
+    $('#pin').value = '';
+    await cargarLista();
+    ver('lista');
+  } catch (ex) {
+    err.textContent = mensajeError(ex); err.hidden = false;
+  } finally {
+    $('#pin-entrar').disabled = false; $('#pin-entrar').textContent = 'Entrar';
   }
 }
 
@@ -291,10 +393,14 @@ async function borrar() {
 
 $('#entrar').addEventListener('click', () => entrar($('#token').value));
 $('#token').addEventListener('keydown', (e) => { if (e.key === 'Enter') entrar($('#token').value); });
+// Salir: cierra la sesión pero deja el PIN guardado en este dispositivo.
 $('#salir').addEventListener('click', () => {
-  try { localStorage.removeItem(TOKEN_KEY); } catch (e) { /* sin almacenamiento */ }
-  token = ''; $('#token').value = ''; ver('entrar');
+  token = ''; $('#lista-ok').hidden = true;
+  ver(store.get(PIN_KEY) ? 'pin' : 'entrar');
 });
+$('#vista-pin-crear').addEventListener('submit', crearPin);
+$('#vista-pin').addEventListener('submit', entrarConPin);
+$('#pin-olvide').addEventListener('click', () => volverAClave('Pega tu clave de GitHub y elige un PIN nuevo.'));
 $('#nueva').addEventListener('click', () => { $('#lista-ok').hidden = true; abrirEditor(null); });
 $('#lista').addEventListener('click', (e) => {
   const b = e.target.closest('[data-editar]');
@@ -336,6 +442,14 @@ $('#borrar-si').addEventListener('click', borrar);
 
 /* ---------- Inicio ---------- */
 
-let guardada = '';
-try { guardada = localStorage.getItem(TOKEN_KEY) || ''; } catch (e) { /* sin almacenamiento */ }
-if (guardada) { $('#token').value = guardada; entrar(guardada); } else { ver('entrar'); }
+const anterior = store.get(TOKEN_KEY);   // quien ya entró antes del PIN: se le pide crear uno
+if (store.get(PIN_KEY)) {
+  ver('pin');
+  $('#pin').focus();
+} else if (anterior) {
+  validarClave(anterior)
+    .then(() => { ver('pin-crear'); $('#pin-nuevo').focus(); })
+    .catch(() => volverAClave(''));
+} else {
+  ver('entrar');
+}

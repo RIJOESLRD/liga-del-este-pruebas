@@ -60,11 +60,12 @@
   <!-- ===== Entrar ===== -->
   <section class="adm-card" id="vista-entrar" hidden>
     <h1>Entrar al panel</h1>
-    <p>Para publicar necesitas tu <strong>clave de acceso de GitHub</strong>. Se crea una sola vez y queda guardada en este teléfono o computadora.</p>
+    <p>Para publicar necesitas tu <strong>clave de acceso de GitHub</strong>. La pegas una sola vez y después eliges un PIN para entrar.</p>
     <div class="field">
       <label for="token">Clave de acceso</label>
       <input id="token" type="password" autocomplete="off" placeholder="github_pat_…">
     </div>
+    <p class="adm-msg adm-msg--info" id="entrar-aviso" role="status" hidden></p>
     <p class="adm-msg adm-msg--err" id="entrar-error" role="alert" hidden></p>
     <div class="adm-row"><button type="button" class="btn btn--red btn--plain adm-btn" id="entrar">Entrar</button></div>
     <details>
@@ -80,6 +81,37 @@
       <p class="adm-help">La clave solo sirve para la web de la liga. No la compartas. Si la pierdes o cambias de teléfono, crea otra igual.</p>
     </details>
   </section>
+
+  <!-- ===== Crear PIN ===== -->
+  <form class="adm-card" id="vista-pin-crear" hidden novalidate>
+    <h1>Crea tu PIN</h1>
+    <p>Elige un PIN o una contraseña para entrar al panel en este teléfono o computadora. Así no tienes que volver a pegar la clave de GitHub.</p>
+    <div class="field">
+      <label for="pin-nuevo">PIN o contraseña <span class="field__opt">(mínimo 6 caracteres)</span></label>
+      <input id="pin-nuevo" type="password" autocomplete="new-password" minlength="6">
+    </div>
+    <div class="field">
+      <label for="pin-nuevo2">Repítelo</label>
+      <input id="pin-nuevo2" type="password" autocomplete="new-password" minlength="6">
+    </div>
+    <p class="adm-msg adm-msg--err" id="pin-crear-error" role="alert" hidden></p>
+    <div class="adm-row"><button type="submit" class="btn btn--red btn--plain adm-btn" id="pin-guardar">Guardar PIN y entrar</button></div>
+    <p class="adm-help">El PIN solo sirve en este dispositivo. Guarda bien tu clave de GitHub por si olvidas el PIN.</p>
+  </form>
+
+  <!-- ===== Entrar con PIN ===== -->
+  <form class="adm-card" id="vista-pin" hidden novalidate>
+    <h1>Entrar al panel</h1>
+    <div class="field">
+      <label for="pin">Tu PIN o contraseña</label>
+      <input id="pin" type="password" autocomplete="current-password">
+    </div>
+    <p class="adm-msg adm-msg--err" id="pin-error" role="alert" hidden></p>
+    <div class="adm-row">
+      <button type="submit" class="btn btn--red btn--plain adm-btn" id="pin-entrar">Entrar</button>
+      <button type="button" class="nl-skip" id="pin-olvide">Olvidé mi PIN</button>
+    </div>
+  </form>
 
   <!-- ===== Lista ===== -->
   <section class="adm-card" id="vista-lista" hidden>
