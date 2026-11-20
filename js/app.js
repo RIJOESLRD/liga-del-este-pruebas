@@ -439,8 +439,8 @@ function bindLightbox() {
 function renderEditions() {
   $('#editions-grid').innerHTML = EDITIONS.map((ed) =>
     `<article class="edition${ed.current ? ' edition--current' : ''}">
-      <span class="edition__label">${ed.current ? 'EDICIÓN ACTUAL' : 'EDICIÓN'}</span>
-      <span class="edition__num">${ed.num}</span>
+      <span class="edition__label">${esc(ed.label || (ed.current ? 'EDICIÓN ACTUAL' : 'EDICIÓN'))}</span>
+      <span class="edition__num">${esc(ed.num)}</span>
       <span class="edition__dates">${esc(ed.dates)}</span>
       <span class="edition__note">${esc(ed.note)}</span>
     </article>`).join('');

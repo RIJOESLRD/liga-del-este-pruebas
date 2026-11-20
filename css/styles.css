@@ -1304,3 +1304,5 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 .nl-form--compact .nl-form__submit { align-self: end; }
 .footer__bottom a { color: var(--soft); text-decoration: underline; }
 .footer__bottom a:hover { color: var(--white); }
+/* Línea del tiempo: las tarjetas se reparten todo el ancho */
+.editions__grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }

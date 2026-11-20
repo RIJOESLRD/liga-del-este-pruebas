@@ -258,20 +258,14 @@ export const GALLERY_SLOTS_HOME = 6;
 export const GALLERY_SLOTS_HISTORY = 14;
 
 /* =========================================================
-   HISTORIA
-   Completa los datos de cada edición. Lo que está entre [CORCHETES]
-   es un espacio para llenar con la información real.
+   HISTORIA: línea del tiempo de la página Historia.
+   Cada tarjeta: num (lo grande), label (lo pequeño de arriba), dates, note.
+   current: true resalta la tarjeta en rojo (la edición actual).
    ========================================================= */
 export const EDITIONS = [
-  { num: 'I', dates: '[AÑO]', note: '[Primera edición: cuántos equipos, dónde se jugó]' },
-  { num: 'II', dates: '[AÑO]', note: '[Hito o campeón de la edición]' },
-  { num: 'III', dates: '[AÑO]', note: '[Hito o campeón de la edición]' },
-  { num: 'IV', dates: '[AÑO]', note: '[Hito o campeón de la edición]' },
-  { num: 'V', dates: '[AÑO]', note: '[Hito o campeón de la edición]' },
-  { num: 'VI', dates: '[AÑO]', note: '[Hito o campeón de la edición]' },
-  { num: 'VII', dates: '[AÑO]', note: '[Hito o campeón de la edición]' },
-  { num: 'VIII', dates: '[AÑO]', note: '[Hito o campeón de la edición]' },
-  { num: 'IX', dates: '24 oct 2026 — 19 jun 2027', note: '72 equipos en 3 divisiones y 11 categorías.', current: true }
+  { num: '2021', label: 'EL INICIO', dates: 'Nace la Liga del Este', note: 'La primera competición organizada de fútbol para niños y jóvenes de la región este del país.' },
+  { num: 'I–VIII', label: 'EDICIONES', dates: 'Crecer junto a las academias', note: 'Con academias de fútbol colaboradoras, la liga se consolida y gana popularidad en las comunidades del este.' },
+  { num: 'IX', label: 'EDICIÓN ACTUAL', dates: '24 oct 2026 — 19 jun 2027', note: '72 equipos en 3 divisiones y 11 categorías.', current: true }
 ];
 
 export const VENUES = [
