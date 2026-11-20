@@ -209,7 +209,7 @@
   <div class="sponsors__inner">
     <span class="kicker">PATROCINADORES OFICIALES</span>
     <div class="sponsors__row" id="sponsor-row"></div>
-    <button type="button" class="sponsors__cta" id="sponsor-open" aria-haspopup="dialog">¿Quieres que tu marca esté aquí? Hazte patrocinador →</button>
+    <button type="button" class="sponsors__cta" data-form="patrocinio" aria-haspopup="dialog">¿Quieres que tu marca esté aquí? Hazte patrocinador →</button>
   </div>
 </section>
 
@@ -238,9 +238,9 @@
       </div>
       <div class="footer__col">
         <span class="footer__col-title">Información</span>
-        <a href="#contacto">Reglamento</a>
-        <a href="#contacto">Inscripciones</a>
-        <a href="#contacto">Preguntas frecuentes</a>
+        <a href="https://drive.google.com/drive/folders/1HwOxD4nwaL37IVl1x7W2x7lbtNRferh2?usp=sharing" data-link="reglamento" target="_blank" rel="noopener">Reglamento</a>
+        <a href="#inscripciones" data-form="inscripcion">Inscripciones</a>
+        <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
         <a href="#tv">Highlights</a>
       </div>
       <div class="footer__col footer__col--contact">
@@ -252,55 +252,10 @@
     </div>
     <div class="footer__bottom">
       <span>© 2026 Liga del Este · ligadeleste.eslrd.com</span>
-      <span>Resultados y tablas con datos de Dribbli</span>
+      <span>Resultados y tablas con datos de Dribbli · <a href="privacidad.html">Política de privacidad</a></span>
     </div>
   </div>
 </footer>
-
-<dialog class="form-dialog" id="sponsor-dialog" aria-labelledby="sponsor-title">
-  <button type="button" class="form-dialog__close" id="sponsor-close" aria-label="Cerrar">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-  </button>
-  <form id="sponsor-form" class="form-dialog__form" novalidate>
-    <span class="kicker">PATROCINIOS</span>
-    <h2 class="form-dialog__title" id="sponsor-title">Pon tu marca en la Liga del Este</h2>
-    <p class="form-dialog__lead">Déjanos tus datos y se abre WhatsApp con el mensaje listo para enviarlo a la liga.</p>
-    <div class="field">
-      <label for="sp-name">Nombre</label>
-      <input id="sp-name" name="nombre" type="text" autocomplete="name" required>
-    </div>
-    <div class="field">
-      <label for="sp-company">Empresa o marca</label>
-      <input id="sp-company" name="empresa" type="text" autocomplete="organization" required>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label for="sp-phone">Teléfono</label>
-        <input id="sp-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="809-000-0000" required>
-      </div>
-      <div class="field">
-        <label for="sp-email">Correo <span class="field__opt">(opcional)</span></label>
-        <input id="sp-email" name="correo" type="email" autocomplete="email" placeholder="nombre@empresa.com">
-      </div>
-    </div>
-    <div class="field">
-      <label for="sp-msg">Mensaje <span class="field__opt">(opcional)</span></label>
-      <textarea id="sp-msg" name="mensaje" rows="3" placeholder="Ej.: me interesa patrocinar una categoría o la transmisión en vivo"></textarea>
-    </div>
-    <p class="form-dialog__error" id="sponsor-error" role="alert" hidden></p>
-    <button type="submit" class="btn btn--wa">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.5-.3z"/></svg>
-      Enviar por WhatsApp
-    </button>
-    <p class="form-dialog__alt">¿Prefieres escribir directo? WhatsApp <a href="https://wa.me/18097906157" target="_blank" rel="noopener">809-790-6157</a> · Correo <span style="user-select:all">cm@eslrd.com</span></p>
-  </form>
-  <div class="form-dialog__done" id="sponsor-done" hidden>
-    <span class="kicker">CASI LISTO</span>
-    <h2 class="form-dialog__title">Falta enviar el mensaje</h2>
-    <p class="form-dialog__lead" id="sponsor-done-text">Se abrió WhatsApp con tu mensaje listo. Toca Enviar en WhatsApp para que llegue a la liga.</p>
-    <a class="btn btn--wa" id="sponsor-wa-link" href="https://wa.me/18097906157" target="_blank" rel="noopener">Abrir WhatsApp</a>
-  </div>
-</dialog>
 
 <dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
   <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Cerrar foto">

@@ -167,6 +167,12 @@ export const SPONSORS = [
    CONTACTO DE LA LIGA
    whatsapp: el mismo número con el código del país (1) y sin guiones.
    ========================================================= */
+/* Enlaces que usan los botones de la web. El reglamento debe estar compartido en
+   Google Drive como "Cualquier persona con el enlace" para que los padres lo puedan abrir. */
+export const LINKS = {
+  reglamento: 'https://drive.google.com/drive/folders/1HwOxD4nwaL37IVl1x7W2x7lbtNRferh2?usp=sharing'
+};
+
 export const CONTACT = {
   phone: '809-790-6157',
   whatsapp: '18097906157',

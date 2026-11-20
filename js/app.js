@@ -1,10 +1,11 @@
 import {
   DIVISIONS, HERO_CRESTS, STATS, VIDEOS, SPONSOR_SLOTS, SPONSORS, LEAGUE_LOGO, SOCIAL,
-  GALLERY, GALLERY_SLOTS_HOME, GALLERY_SLOTS_HISTORY, HERO_PHOTO, CONTACT, EDITIONS, VENUES
+  GALLERY, GALLERY_SLOTS_HOME, GALLERY_SLOTS_HISTORY, HERO_PHOTO, LINKS, EDITIONS, VENUES
 } from './data.js';
 import {
   loadLeague, catLabel, recentResults, nextMatchday, clubs, totals, updatedLabel, dateLong, venueShort
 } from './league.js';
+import { initForms, waLink } from './forms.js';
 
 const L = await loadLeague();
 const team = (id) => L.teams[id] || { name: 'Por definir', ini: '?', color: '#94A3B8', logo: '' };
@@ -350,56 +351,17 @@ function bindMenu() {
   });
 }
 
-/* ---------- WhatsApp y formulario de patrocinio ---------- */
-
-const waLink = (text) => `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(text)}`;
+/* ---------- Enlaces de WhatsApp y enlaces configurables ---------- */
 
 function bindWhatsappLinks() {
   document.querySelectorAll('[data-whatsapp]').forEach((a) => { a.href = waLink(a.dataset.whatsapp); });
 }
 
-function bindSponsorForm() {
-  const dlg = $('#sponsor-dialog');
-  if (!dlg) return;
-  const form = $('#sponsor-form');
-  const done = $('#sponsor-done');
-  const err = $('#sponsor-error');
-  const open = () => { form.hidden = false; done.hidden = true; err.hidden = true; dlg.showModal(); $('#sp-name').focus(); };
-  $('#sponsor-open').addEventListener('click', open);
-  $('#sponsor-close').addEventListener('click', () => dlg.close());
-  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
-
-  form.addEventListener('input', () => { err.hidden = true; });
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const v = (id) => $(id).value.trim();
-    const missing = [];
-    if (!v('#sp-name')) missing.push('tu nombre');
-    if (!v('#sp-company')) missing.push('la empresa o marca');
-    if (v('#sp-phone').replace(/\D/g, '').length < 7) missing.push('un teléfono válido');
-    if (v('#sp-email') && !$('#sp-email').checkValidity()) missing.push('un correo válido');
-    if (missing.length) {
-      err.textContent = `Falta ${missing.join(', ')}.`;
-      err.hidden = false;
-      return;
-    }
-    const lines = [
-      'Hola, quiero ser patrocinador de la Liga del Este.',
-      `Nombre: ${v('#sp-name')}`,
-      `Empresa o marca: ${v('#sp-company')}`,
-      `Teléfono: ${v('#sp-phone')}`
-    ];
-    if (v('#sp-email')) lines.push(`Correo: ${v('#sp-email')}`);
-    if (v('#sp-msg')) lines.push(`Mensaje: ${v('#sp-msg')}`);
-    const url = waLink(lines.join('\n'));
-    $('#sponsor-wa-link').href = url;
-    const w = window.open(url, '_blank');
-    if (w) w.opener = null;
-    $('#sponsor-done-text').textContent = w
-      ? 'Se abrió WhatsApp con tu mensaje listo. Toca Enviar en WhatsApp para que llegue a la liga.'
-      : 'Toca el botón para abrir WhatsApp con tu mensaje listo, y luego toca Enviar.';
-    form.hidden = true;
-    done.hidden = false;
+// Enlaces que se configuran en data.js (LINKS), por ejemplo el reglamento en Google Drive.
+function bindConfigLinks() {
+  document.querySelectorAll('[data-link]').forEach((a) => {
+    const url = LINKS[a.dataset.link];
+    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
   });
 }
 
@@ -496,4 +458,5 @@ bindMenu();
 bindLightbox();
 bindVideoDialog();
 bindWhatsappLinks();
-bindSponsorForm();
+bindConfigLinks();
+initForms();

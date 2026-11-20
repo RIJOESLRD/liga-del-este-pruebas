@@ -1029,3 +1029,81 @@ a.sponsor-slot--logo:hover { border-color: var(--blue); }
   .form-dialog__form, .form-dialog__done { padding: 24px 20px; }
   .form-dialog__title { font-size: 28px; padding-right: 40px; }
 }
+
+/* =========================================================
+   Páginas de texto (preguntas frecuentes, privacidad)
+   ========================================================= */
+.hero--page .hero__band { display: none; }
+.page-head { position: relative; padding-top: 56px; padding-bottom: 64px; display: flex; flex-direction: column; gap: 22px; }
+.page-head__title { font-size: clamp(40px, 8vw, 88px); }
+
+.faq { padding-top: 64px; padding-bottom: 20px; max-width: 900px; display: flex; flex-direction: column; gap: 12px; }
+.faq__item { background: var(--white); border-radius: 18px; border: 1px solid var(--line); }
+.faq__item[open] { box-shadow: 0 12px 30px rgba(14, 27, 61, .08); }
+.faq__q {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 60px 20px 24px;
+  font-weight: 700;
+  font-size: 18px;
+  position: relative;
+  min-height: 44px;
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after {
+  content: "";
+  position: absolute;
+  right: 24px; top: 50%;
+  width: 10px; height: 10px;
+  border-right: 2.5px solid var(--red);
+  border-bottom: 2.5px solid var(--red);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform .2s;
+}
+.faq__item[open] .faq__q::after { transform: translateY(-30%) rotate(-135deg); }
+.faq__q:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 18px; }
+.faq__a { padding: 0 24px 22px; color: var(--ink-2); line-height: 1.6; font-size: 16px; }
+.faq__a p { margin: 0 0 10px; }
+.faq__a p:last-child { margin-bottom: 0; }
+.faq__a ul { margin: 0 0 10px; padding-left: 20px; }
+.faq__a a { font-weight: 600; }
+
+.prose { padding-top: 64px; padding-bottom: 90px; max-width: 760px; color: var(--ink-2); line-height: 1.7; font-size: 17px; }
+.prose h2 { font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1.05; text-transform: uppercase; color: var(--navy); margin: 40px 0 12px; }
+.prose h3 { font-size: 18px; color: var(--navy); margin: 24px 0 6px; }
+.prose p { margin: 0 0 12px; }
+.prose ul { padding-left: 20px; margin: 0 0 12px; }
+.prose__updated { font-size: 14px; color: var(--muted); }
+
+/* Partes que la liga debe completar antes de publicar */
+mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 4px; font-style: italic; }
+
+/* =========================================================
+   Formularios con opciones (inscripción)
+   ========================================================= */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-grid > * { grid-column: 1 / -1; }
+.form-grid > .field--half { grid-column: auto; }
+@media (max-width: 520px) { .form-grid > .field--half { grid-column: 1 / -1; } }
+.field__hint { font-size: 13px; color: var(--muted); }
+.field--choices { border: none; padding: 0; margin: 0; min-width: 0; }
+.field--choices legend { font-size: 13px; font-weight: 700; letter-spacing: .02em; padding: 0; margin-bottom: 8px; }
+.choices { display: flex; flex-wrap: wrap; gap: 8px; }
+.choice { position: relative; cursor: pointer; }
+.choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.choice span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 2px solid var(--line-2);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  background: var(--white);
+}
+.choice input:checked + span { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.choice input:focus-visible + span { outline: 3px solid var(--blue); outline-offset: 2px; }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; cursor: pointer; }
+.consent input { width: 22px; height: 22px; margin: 0; flex-shrink: 0; accent-color: var(--navy); }
+.form-dialog__form .btn--wa { margin-top: 4px; }
