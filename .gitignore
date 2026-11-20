@@ -1,0 +1,5 @@
+# Vistas previas de un solo archivo y paquetes para Netlify Drop (se generan aparte)
+vista-previa*.html
+*.zip
+__pycache__/
+.DS_Store

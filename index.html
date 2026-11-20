@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liga del Este — Inicio</title>
+<meta name="description" content="Liga del Este: fútbol formativo para niños y jóvenes del este de República Dominicana. Resultados, partidos y tabla.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+
+<!-- ===== CINTILLO DE RESULTADOS ===== -->
+<div class="ticker" aria-label="Últimos resultados">
+  <div class="ticker__label"><span class="ticker__dot" aria-hidden="true"></span>RESULTADOS</div>
+  <div class="ticker__viewport"><div class="ticker__track" id="ticker-track"></div></div>
+</div>
+
+<!-- ===== PORTADA ===== -->
+<header class="hero">
+  <div class="hero__band" aria-hidden="true"></div>
+
+  <div class="container hero__navwrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="brand" href="#inicio">
+        <span class="brand__badge">LDE</span>
+        <span class="brand__text">
+          <span class="brand__name">LIGA DEL ESTE</span>
+          <span class="brand__tag">FÚTBOL FORMATIVO · RD</span>
+        </span>
+      </a>
+      <div class="nav__links" id="nav-links">
+        <a href="#inicio" aria-current="page">Inicio</a>
+        <a href="#competicion">Competiciones</a>
+        <a href="#clubes">Equipos</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#tv">Highlights</a>
+        <a href="historia.html">Historia</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="nav__spacer"></div>
+      <button class="nav__menubtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1B3D" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+      </button>
+      <a class="btn btn--dark btn--sm nav__cta" href="#competicion">
+        <span class="btn__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        Tabla y resultados
+      </a>
+    </nav>
+  </div>
+
+  <div id="inicio" class="container hero__main">
+    <div class="hero__copy">
+      <div class="edition-chip"><span class="edition-chip__tag">IX EDICIÓN</span>24 OCT 2026 — 19 JUN 2027</div>
+      <h1 class="hero__title">Promoviendo <span class="accent-red">el fútbol</span> que une al <span class="accent-blue">este</span> del país</h1>
+      <p class="hero__lead">Llevamos a niños y jóvenes de la región los beneficios del fútbol como deporte integral: competencia, formación y valores, cada fin de semana.</p>
+      <div class="hero__actions">
+        <a class="btn btn--dark btn--lg" href="#competicion">
+          <span class="btn__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+          Ver la jornada
+        </a>
+        <div class="crest-stack">
+          <div class="crest-stack__list" id="hero-crests"></div>
+          <div class="crest-stack__text"><strong id="hero-teams">+72 equipos</strong><br>en esta edición</div>
+        </div>
+      </div>
+
+      <div class="stats" id="hero-stats">
+        <a class="spin-link" href="#competicion" aria-label="Explora la jornada">
+          <svg class="spin-link__ring" width="116" height="116" viewBox="0 0 116 116" aria-hidden="true">
+            <defs><path id="lde-circ" d="M58,58 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"></path></defs>
+            <text fill="#FFFFFF" font-family="Inter, sans-serif" font-size="11.5" font-weight="700" letter-spacing="3.2"><textPath href="#lde-circ">EXPLORA LA JORNADA • IX EDICIÓN •</textPath></text>
+          </svg>
+          <span class="spin-link__arrow">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Foto principal: reemplazar el SVG por <img src="..." alt="..."> con una foto de jornada -->
+    <div class="hero__photo" id="hero-photo" role="img" aria-label="Espacio para foto de acción de una jornada">
+      <svg viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="400" height="560" fill="#1A44B8"></rect>
+        <g fill="none" stroke="#FFFFFF" stroke-opacity=".22" stroke-width="3">
+          <rect x="30" y="30" width="340" height="500"></rect>
+          <line x1="30" y1="280" x2="370" y2="280"></line>
+          <circle cx="200" cy="280" r="62"></circle>
+          <rect x="110" y="30" width="180" height="90"></rect>
+          <rect x="110" y="440" width="180" height="90"></rect>
+          <rect x="160" y="30" width="80" height="34"></rect>
+          <rect x="160" y="496" width="80" height="34"></rect>
+        </g>
+        <circle cx="200" cy="280" r="5" fill="#FFFFFF" fill-opacity=".4"></circle>
+      </svg>
+      <div class="hero__caption">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="12" cy="12" r="3.5"></circle><path d="M8 5l1.5-2h5L16 5"></path></svg>
+        <div><strong>Foto de jornada</strong><br><span>Reemplazar por una foto de acción con la valla de la liga</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== CENTRO DE COMPETICIÓN ===== -->
+<section id="competicion" class="container competition">
+  <div class="section-head">
+    <div class="section-head__text">
+      <span class="kicker">CENTRO DE COMPETICIÓN</span>
+      <h2 class="section-title">Resultados, partidos <span class="accent-blue">y tabla</span></h2>
+    </div>
+    <p class="competition__intro">Elige la división y la categoría. Los datos vienen de Dribbli, donde árbitros y entrenadores cargan cada partido.</p>
+  </div>
+
+  <div class="div-tabs" id="div-tabs" role="tablist" aria-label="División"></div>
+  <div class="cat-pills" id="cat-pills" role="group" aria-label="Categoría"></div>
+
+  <div class="panel">
+    <div class="panel__head">
+      <div class="panel__id">
+        <div class="panel__badge" id="panel-badge"></div>
+        <div style="display:flex;flex-direction:column">
+          <span class="panel__title" id="panel-title"></span>
+          <span class="panel__meta" id="panel-meta"></span>
+        </div>
+      </div>
+      <div class="view-tabs" id="view-tabs" role="tablist" aria-label="Vista"></div>
+    </div>
+
+    <div id="panel-body" aria-live="polite"></div>
+
+    <div class="panel__foot">
+      <span class="panel__source" id="panel-source">Fuente: Dribbli · Liga del Este RD · Actualizado 19 nov 2026</span>
+      <a class="btn btn--plain" id="dribbli-link" href="https://app.dribbli.com/" target="_blank" rel="noopener">Calendario completo en Dribbli</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRÓXIMA JORNADA ===== -->
+<section id="eventos" class="container banner-section">
+  <div class="banner">
+    <div class="banner__text">
+      <span class="banner__kicker" id="banner-kicker">ESTE FIN DE SEMANA</span>
+      <span class="banner__title" id="banner-title">Super Copa U12 y Primera División en acción</span>
+      <span class="banner__lead" id="banner-lead">Sábado 21 de noviembre · La Estación (La Romana), Ciudad Deportiva Downtown (Punta Cana) y FC Ramsar.</span>
+    </div>
+    <a class="btn btn--light btn--md" href="#competicion">
+      <span class="btn__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+      Ver la programación
+    </a>
+  </div>
+</section>
+
+<!-- ===== DIVISIONES ===== -->
+<section id="divisiones" class="container divisions">
+  <div class="section-head__text" style="margin-bottom:36px">
+    <span class="kicker">LAS COMPETICIONES</span>
+    <h2 class="section-title">Un torneo para <span class="accent-blue">cada etapa</span></h2>
+  </div>
+  <div class="div-grid" id="div-grid"></div>
+</section>
+
+<!-- ===== LIGA DEL ESTE TV ===== -->
+<section id="tv" class="tv">
+  <div class="container tv__inner">
+    <div class="tv__copy">
+      <span class="kicker">LIGA DEL ESTE TV</span>
+      <h2 class="section-title">Míralo en vivo, <span class="accent-red">revívelo</span> después</h2>
+      <p class="tv__lead">Transmisiones en directo, resúmenes de cada jornada y los mejores goles de la temporada en nuestro canal de YouTube.</p>
+      <a class="btn btn--red btn--md" id="youtube-channel" href="#tv">
+        <span class="btn__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="#D7263D" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span>
+        Ir al canal
+      </a>
+    </div>
+    <div class="tv__grid" id="tv-grid"></div>
+  </div>
+</section>
+
+<!-- ===== GALERÍA DE JORNADAS ===== -->
+<section id="galeria" class="container gallery-section">
+  <div class="section-head" style="gap:20px">
+    <div class="section-head__text">
+      <span class="kicker">GALERÍA</span>
+      <h2 class="section-title">Así se vive <span class="accent-blue">cada jornada</span></h2>
+    </div>
+    <a class="clubs__all" href="historia.html#galeria">Ver galería completa →</a>
+  </div>
+  <div class="gallery" id="gallery-home"></div>
+</section>
+
+<!-- ===== CLUBES ===== -->
+<section id="clubes" class="container clubs">
+  <div class="section-head" style="gap:20px">
+    <div class="section-head__text">
+      <span class="kicker">CLUBES PARTICIPANTES</span>
+      <h2 class="section-title">Los que hacen <span class="accent-blue">la liga</span></h2>
+    </div>
+    <a class="clubs__all" href="#clubes">Ver todos los equipos →</a>
+  </div>
+  <div class="club-grid" id="club-grid"></div>
+</section>
+
+<!-- ===== PATROCINADORES ===== -->
+<section class="container sponsors" aria-label="Patrocinadores">
+  <div class="sponsors__inner">
+    <span class="kicker">PATROCINADORES OFICIALES</span>
+    <div class="sponsors__row" id="sponsor-row"></div>
+    <button type="button" class="sponsors__cta" id="sponsor-open" aria-haspopup="dialog">¿Quieres que tu marca esté aquí? Hazte patrocinador →</button>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== PIE ===== -->
+<footer id="contacto" class="footer">
+  <div class="container footer__inner">
+    <div class="footer__cols">
+      <div class="footer__about">
+        <div class="footer__brand"><span class="brand__badge">LDE</span><span>LIGA DEL ESTE</span></div>
+        <p>Promoviendo el fútbol que une al este del país. Fútbol formativo para niños y jóvenes de la región.</p>
+        <div class="socials">
+          <a href="#contacto" data-social="instagram" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".6" fill="#FFFFFF"></circle></svg></a>
+          <a href="#contacto" data-social="tiktok" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"></path><path d="M14 3c.5 2.6 2.4 4.4 5 4.6"></path></svg></a>
+          <a href="#contacto" data-social="youtube" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="M10.5 9.5l4 2.5-4 2.5z" fill="#FFFFFF"></path></svg></a>
+          <a href="#contacto" data-social="facebook" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 8h-2a2 2 0 0 0-2 2v11M8 13h6"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">La liga</span>
+        <a href="historia.html">Historia</a>
+        <a href="#competicion">Competiciones</a>
+        <a href="#clubes">Equipos</a>
+        <a href="#eventos">Eventos</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Información</span>
+        <a href="#contacto">Reglamento</a>
+        <a href="#contacto">Inscripciones</a>
+        <a href="#contacto">Preguntas frecuentes</a>
+        <a href="#tv">Highlights</a>
+      </div>
+      <div class="footer__col footer__col--contact">
+        <span class="footer__col-title">Contacto</span>
+        <span>Tel. y WhatsApp: <a class="footer__contact" href="https://wa.me/18097906157" target="_blank" rel="noopener">809-790-6157</a></span>
+        <span>Correo: <span class="footer__contact" style="user-select:all">cm@eslrd.com</span></span>
+        <a class="btn btn--red btn--plain" data-whatsapp="Hola, quiero información sobre la Liga del Este." href="https://wa.me/18097906157" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Liga del Este · ligadeleste.eslrd.com</span>
+      <span>Resultados y tablas con datos de Dribbli</span>
+    </div>
+  </div>
+</footer>
+
+<dialog class="form-dialog" id="sponsor-dialog" aria-labelledby="sponsor-title">
+  <button type="button" class="form-dialog__close" id="sponsor-close" aria-label="Cerrar">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+  <form id="sponsor-form" class="form-dialog__form" novalidate>
+    <span class="kicker">PATROCINIOS</span>
+    <h2 class="form-dialog__title" id="sponsor-title">Pon tu marca en la Liga del Este</h2>
+    <p class="form-dialog__lead">Déjanos tus datos y se abre WhatsApp con el mensaje listo para enviarlo a la liga.</p>
+    <div class="field">
+      <label for="sp-name">Nombre</label>
+      <input id="sp-name" name="nombre" type="text" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="sp-company">Empresa o marca</label>
+      <input id="sp-company" name="empresa" type="text" autocomplete="organization" required>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="sp-phone">Teléfono</label>
+        <input id="sp-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="809-000-0000" required>
+      </div>
+      <div class="field">
+        <label for="sp-email">Correo <span class="field__opt">(opcional)</span></label>
+        <input id="sp-email" name="correo" type="email" autocomplete="email" placeholder="nombre@empresa.com">
+      </div>
+    </div>
+    <div class="field">
+      <label for="sp-msg">Mensaje <span class="field__opt">(opcional)</span></label>
+      <textarea id="sp-msg" name="mensaje" rows="3" placeholder="Ej.: me interesa patrocinar una categoría o la transmisión en vivo"></textarea>
+    </div>
+    <p class="form-dialog__error" id="sponsor-error" role="alert" hidden></p>
+    <button type="submit" class="btn btn--wa">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.5-.3z"/></svg>
+      Enviar por WhatsApp
+    </button>
+    <p class="form-dialog__alt">¿Prefieres escribir directo? WhatsApp <a href="https://wa.me/18097906157" target="_blank" rel="noopener">809-790-6157</a> · Correo <span style="user-select:all">cm@eslrd.com</span></p>
+  </form>
+  <div class="form-dialog__done" id="sponsor-done" hidden>
+    <span class="kicker">CASI LISTO</span>
+    <h2 class="form-dialog__title">Falta enviar el mensaje</h2>
+    <p class="form-dialog__lead" id="sponsor-done-text">Se abrió WhatsApp con tu mensaje listo. Toca Enviar en WhatsApp para que llegue a la liga.</p>
+    <a class="btn btn--wa" id="sponsor-wa-link" href="https://wa.me/18097906157" target="_blank" rel="noopener">Abrir WhatsApp</a>
+  </div>
+</dialog>
+
+<dialog class="lightbox" id="lightbox" aria-label="Foto ampliada">
+  <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Cerrar foto">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E1B3D" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox__caption" id="lightbox-caption"></p>
+</dialog>
+
+<dialog class="lightbox video-dialog" id="video-dialog" aria-label="Video">
+  <button type="button" class="lightbox__close" id="video-close" aria-label="Cerrar video">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E1B3D" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+  <div class="video-dialog__frame" id="video-frame"></div>
+</dialog>
+
+</body>
+</html>

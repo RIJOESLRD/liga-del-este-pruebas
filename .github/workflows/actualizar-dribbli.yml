@@ -1,0 +1,42 @@
+# Actualiza resultados, partidos, tablas, líderes y escudos desde Dribbli.
+# Corre solo los lunes y martes a las 6:00 a. m. (hora de República Dominicana),
+# y también se puede correr a mano desde la pestaña "Actions" de GitHub.
+name: Actualizar datos de Dribbli
+
+on:
+  schedule:
+    - cron: '0 10 * * 1,2'   # 10:00 UTC = 6:00 a. m. en RD, lunes y martes
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-dribbli
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Leer Dribbli
+        run: python3 scripts/sync_dribbli.py
+
+      - name: Guardar cambios (solo si hubo)
+        run: |
+          git add data/dribbli.json logos/dribbli
+          if git diff --cached --quiet; then
+            echo "Sin cambios en Dribbli."
+            exit 0
+          fi
+          git config user.name "Actualización automática"
+          git config user.email "actions@users.noreply.github.com"
+          git commit -m "Datos de Dribbli actualizados $(date -u +%Y-%m-%d)"
+          git push
