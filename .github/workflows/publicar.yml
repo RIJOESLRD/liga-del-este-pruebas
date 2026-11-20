@@ -1,0 +1,64 @@
+# Publica la web de la Liga del Este en GitHub Pages.
+#
+# - Cada vez que se sube un cambio (por ejemplo, una noticia desde el panel /admin).
+# - Lunes y martes a las 6:00 a. m. (hora de RD): primero actualiza los datos de Dribbli.
+# - A mano: pestaña "Actions" → "Publicar la web" → "Run workflow".
+name: Publicar la web
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 10 * * 1,2'   # 10:00 UTC = 6:00 a. m. en RD, lunes y martes
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Leer Dribbli (solo lunes, martes o a mano)
+        if: github.event_name != 'push'
+        run: |
+          python3 scripts/sync_dribbli.py || echo "No se pudo leer Dribbli; se publica con los datos anteriores."
+          git add data/dribbli.json logos/dribbli
+          if git diff --cached --quiet; then
+            echo "Sin cambios en Dribbli."
+          else
+            git config user.name "Actualización automática"
+            git config user.email "actions@users.noreply.github.com"
+            git commit -m "Datos de Dribbli actualizados $(date -u +%Y-%m-%d)"
+            git pull --rebase origin main
+            git push
+          fi
+
+      - name: Armar la web
+        run: python3 scripts/build_site.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Publicar en GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

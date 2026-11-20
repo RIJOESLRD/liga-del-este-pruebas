@@ -1,5 +1,16 @@
 # Cómo actualizar la web de la Liga del Este
 
+**Dirección de la web:** https://rijoeslrd.github.io/liga-del-este-web/
+**Panel de noticias:** https://rijoeslrd.github.io/liga-del-este-web/admin/
+
+## Noticias (desde el panel, sin tocar código)
+1. Entra al panel de noticias desde el celular o la computadora.
+2. La primera vez pega tu clave de acceso de GitHub (el panel explica cómo crearla).
+3. Toca **Nueva noticia**: título, fecha, tipo, resumen, texto y fotos. Toca **Publicar**.
+4. La noticia sale en la web en 1 o 2 minutos. Las 3 más recientes salen en la portada.
+5. **Aviso urgente:** marca la casilla y elige hasta qué fecha se ve la franja roja arriba de la web.
+Para corregir o borrar una noticia, tócala en la lista del panel y usa **Guardar cambios** o **Borrar noticia**.
+
 Todo lo que cambia se edita en **un solo archivo: `js/data.js`**. Las imágenes van en estas carpetas:
 
 | Qué | Carpeta | Formato recomendado |
@@ -47,9 +58,9 @@ Las primeras 6 salen en la portada; todas salen en la página Historia.
 Salen de Dribbli. El programa `scripts/sync_dribbli.py` lee las 11 categorías de la IX edición,
 descarga los escudos y guarda todo en `data/dribbli.json`.
 
-- **Automático:** en GitHub, `.github/workflows/actualizar-dribbli.yml` lo corre cada **lunes y martes a las 6:00 a. m.**
-  Si nada cambió en Dribbli, no toca la web.
-- **A mano (cuando quieras, ej. el domingo en la noche):** en GitHub → pestaña *Actions* → *Actualizar datos de Dribbli* → *Run workflow*.
+- **Automático:** en GitHub, `.github/workflows/publicar.yml` lo corre cada **lunes y martes a las 6:00 a. m.**
+  y vuelve a publicar la web. Si nada cambió en Dribbli, la publica igual con los datos que ya tenía.
+- **A mano (cuando quieras, ej. el domingo en la noche):** en GitHub → pestaña *Actions* → *Publicar la web* → *Run workflow*.
   O en una computadora con Python: `python3 scripts/sync_dribbli.py`
 - El aviso rojo de "Próxima jornada", el cintillo, los números de la portada y la lista de clubes también se calculan solos.
 

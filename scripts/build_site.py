@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+"""
+Arma la web para publicarla en GitHub Pages.
+
+1. Lee las noticias de contenido/noticias/*.json (las crea el panel /admin).
+2. Genera data/noticias.json (la lista que usan la portada y la página de Noticias)
+   y una página por noticia: noticia-<nombre>.html, con su vista previa para WhatsApp.
+3. Copia todo lo público a la carpeta _site, que es lo que se publica.
+
+Uso:  python3 scripts/build_site.py            (SITE_BASE opcional, ej. https://ligadeleste.eslrd.com/)
+Solo usa la biblioteca estándar de Python 3.9+.
+"""
+import html
+import json
+import os
+import re
+import shutil
+import sys
+import urllib.parse
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(ROOT, '_site')
+NEWS_DIR = os.path.join(ROOT, 'contenido', 'noticias')
+TEMPLATE = os.path.join(ROOT, 'plantillas', 'noticia.html')
+SITE_BASE = os.environ.get('SITE_BASE', 'https://rijoeslrd.github.io/liga-del-este-web/').rstrip('/') + '/'
+
+# Lo que se publica (todo lo demás —scripts, contenido, plantillas— se queda fuera).
+PUBLIC_DIRS = ['css', 'js', 'data', 'fotos', 'logos', 'admin']
+PUBLIC_FILES_RE = re.compile(r'^[\w-]+\.html$')
+
+MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto',
+          'septiembre', 'octubre', 'noviembre', 'diciembre']
+TIPOS = {'aviso': 'Aviso', 'jornada': 'Jornada', 'evento': 'Evento', 'institucional': 'La liga'}
+
+
+def fecha_larga(iso):
+    try:
+        y, m, d = (int(x) for x in iso.split('-'))
+        return f'{d} de {MONTHS[m - 1]} de {y}'
+    except Exception:  # noqa: BLE001
+        return iso
+
+
+def texto_a_html(texto):
+    """Texto del panel -> HTML: párrafos (línea en blanco), saltos de línea,
+    **negrita**, *cursiva* y enlaces automáticos."""
+    out = []
+    for parrafo in re.split(r'\n\s*\n', (texto or '').strip()):
+        if not parrafo.strip():
+            continue
+        t = html.escape(parrafo.strip())
+        t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
+        t = re.sub(r'(?<![\*\w])\*(?!\s)(.+?)(?<!\s)\*(?!\w)', r'<em>\1</em>', t)
+        t = re.sub(r'(https?://[^\s<]+)', r'<a href="\1" target="_blank" rel="noopener">\1</a>', t)
+        t = t.replace('\n', '<br>\n')
+        out.append(f'<p>{t}</p>')
+    return '\n'.join(out)
+
+
+def leer_noticias():
+    noticias = []
+    if not os.path.isdir(NEWS_DIR):
+        return noticias
+    for nombre in sorted(os.listdir(NEWS_DIR)):
+        if not nombre.endswith('.json'):
+            continue
+        slug = nombre[:-5]
+        if not re.fullmatch(r'[a-z0-9-]+', slug):
+            print(f'  se ignora {nombre}: el nombre solo puede tener letras, números y guiones', file=sys.stderr)
+            continue
+        try:
+            with open(os.path.join(NEWS_DIR, nombre), encoding='utf-8') as f:
+                n = json.load(f)
+        except Exception as e:  # noqa: BLE001
+            print(f'  se ignora {nombre}: {e}', file=sys.stderr)
+            continue
+        if not n.get('titulo') or not n.get('fecha'):
+            print(f'  se ignora {nombre}: falta título o fecha', file=sys.stderr)
+            continue
+        n['slug'] = slug
+        noticias.append(n)
+    noticias.sort(key=lambda n: (n.get('fecha', ''), n['slug']), reverse=True)
+    return noticias
+
+
+def articulo_html(n):
+    tipo = TIPOS.get(n.get('tipo', ''), 'Noticia')
+    portada = n.get('portada') or ''
+    fotos = [f for f in (n.get('fotos') or []) if f]
+    partes = [
+        '<article class="container noticia">',
+        '  <a class="noticia__volver" href="noticias.html">← Todas las noticias</a>',
+        f'  <div class="noticia__meta"><span class="chip chip--{html.escape(n.get("tipo", ""))}">{tipo}</span>'
+        f'<time datetime="{html.escape(n["fecha"])}">{fecha_larga(n["fecha"])}</time></div>',
+        f'  <h1 class="noticia__titulo">{html.escape(n["titulo"])}</h1>',
+    ]
+    if n.get('resumen'):
+        partes.append(f'  <p class="noticia__resumen">{html.escape(n["resumen"])}</p>')
+    if portada:
+        partes.append(f'  <figure class="noticia__portada"><img src="{html.escape(portada)}" alt="{html.escape(n["titulo"])}"></figure>')
+    partes.append(f'  <div class="noticia__texto">{texto_a_html(n.get("texto", ""))}</div>')
+    if fotos:
+        imgs = ''.join(
+            f'<button type="button" class="noticia__foto" data-foto="{html.escape(f)}" aria-label="Ampliar foto {i + 1}">'
+            f'<img src="{html.escape(f)}" alt="Foto {i + 1} de la noticia" loading="lazy"></button>'
+            for i, f in enumerate(fotos))
+        partes.append(f'  <div class="noticia__galeria">{imgs}</div>')
+    url = SITE_BASE + f'noticia-{n["slug"]}.html'
+    wa = html.escape('https://wa.me/?text=' + urllib.parse.quote(f'{n["titulo"]} {url}'))
+    partes.append(
+        '  <div class="noticia__compartir">'
+        '<span>Compartir:</span>'
+        f'<a class="btn btn--wa btn--plain" href="{wa}" target="_blank" rel="noopener">WhatsApp</a>'
+        f'<button type="button" class="btn btn--plain btn--ig" data-copiar="{html.escape(url)}">Copiar enlace</button>'
+        '</div>')
+    partes.append('</article>')
+    return '\n'.join(partes)
+
+
+def pagina_noticia(plantilla, n):
+    imagen = SITE_BASE + (n.get('portada') or 'logos/dribbli/liga.png')
+    reemplazos = {
+        '{{TITULO}}': html.escape(n['titulo']),
+        '{{DESCRIPCION}}': html.escape(n.get('resumen') or n['titulo']),
+        '{{IMAGEN}}': html.escape(imagen),
+        '{{URL}}': html.escape(SITE_BASE + f'noticia-{n["slug"]}.html'),
+        '{{ARTICULO}}': articulo_html(n),
+    }
+    out = plantilla
+    for k, v in reemplazos.items():
+        out = out.replace(k, v)
+    return out
+
+
+def main():
+    noticias = leer_noticias()
+    print(f'{len(noticias)} noticias')
+
+    if os.path.isdir(OUT):
+        shutil.rmtree(OUT)
+    os.makedirs(OUT)
+    for nombre in os.listdir(ROOT):
+        if PUBLIC_FILES_RE.match(nombre) and not nombre.startswith('vista-previa'):
+            shutil.copy2(os.path.join(ROOT, nombre), OUT)
+    for d in PUBLIC_DIRS:
+        if os.path.isdir(os.path.join(ROOT, d)):
+            shutil.copytree(os.path.join(ROOT, d), os.path.join(OUT, d))
+
+    indice = [{
+        'slug': n['slug'], 'url': f'noticia-{n["slug"]}.html', 'titulo': n['titulo'], 'fecha': n['fecha'],
+        'tipo': n.get('tipo', ''), 'resumen': n.get('resumen', ''), 'portada': n.get('portada', ''),
+        'urgente': bool(n.get('urgente')), 'urgente_hasta': n.get('urgente_hasta', ''),
+    } for n in noticias]
+    os.makedirs(os.path.join(OUT, 'data'), exist_ok=True)
+    with open(os.path.join(OUT, 'data', 'noticias.json'), 'w', encoding='utf-8') as f:
+        json.dump(indice, f, ensure_ascii=False, indent=1)
+
+    with open(TEMPLATE, encoding='utf-8') as f:
+        plantilla = f.read()
+    for n in noticias:
+        with open(os.path.join(OUT, f'noticia-{n["slug"]}.html'), 'w', encoding='utf-8') as f:
+            f.write(pagina_noticia(plantilla, n))
+
+    # GitHub Pages: servir los archivos tal cual (sin Jekyll).
+    open(os.path.join(OUT, '.nojekyll'), 'w').close()
+    print(f'Listo: {OUT}')
+
+
+if __name__ == '__main__':
+    main()

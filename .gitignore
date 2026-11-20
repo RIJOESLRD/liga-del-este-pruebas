@@ -3,3 +3,6 @@ vista-previa*.html
 *.zip
 __pycache__/
 .DS_Store
+
+# Web armada para publicar (la genera scripts/build_site.py)
+_site/

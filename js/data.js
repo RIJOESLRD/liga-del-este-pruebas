@@ -204,7 +204,7 @@ export const POPUP = {
    SITE_URL: la dirección que aparece abajo en las imágenes.
    ========================================================= */
 export const SHARE_SPONSOR = { name: 'Rijo Forchue', logo: 'logos/patrocinadores/rijo-forchue.png' };
-export const SITE_URL = 'liga-del-este-web.netlify.app';
+export const SITE_URL = 'rijoeslrd.github.io/liga-del-este-web';
 
 /* =========================================================
    BOLETÍN (Brevo)

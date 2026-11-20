@@ -9,6 +9,7 @@ import { initForms, waLink } from './forms.js';
 import { openShare } from './share.js';
 import { initNewsletter, requireSubscription } from './newsletter.js';
 import { initPopup } from './popup.js';
+import { initNews } from './news.js';
 
 const L = await loadLeague();
 const team = (id) => L.teams[id] || { name: 'Por definir', ini: '?', color: '#94A3B8', logo: '' };
@@ -480,3 +481,4 @@ bindConfigLinks();
 initForms();
 initNewsletter(clubs(L).map((c) => c.name));
 initPopup(LEAGUE_LOGO || L.leagueLogo);
+initNews();
