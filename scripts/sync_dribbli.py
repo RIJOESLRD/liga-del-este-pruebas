@@ -340,6 +340,12 @@ def main():
         }
     out['leagueLogo'] = save_logo(league_logo_src, 'liga')
 
+    # Si nada cambió en Dribbli, se conserva la fecha anterior para no publicar una versión igual.
+    strip = lambda d: {k: v for k, v in d.items() if k != 'updatedAt'}
+    if previous and strip(previous) == strip(json.loads(json.dumps(out))):
+        out['updatedAt'] = previous.get('updatedAt', out['updatedAt'])
+        print('Sin cambios en los datos de Dribbli.')
+
     os.makedirs(os.path.dirname(OUT_JSON), exist_ok=True)
     with open(OUT_JSON, 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
