@@ -1306,3 +1306,8 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 .footer__bottom a:hover { color: var(--white); }
 /* Línea del tiempo: las tarjetas se reparten todo el ancho */
 .editions__grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.faq__table-wrap { overflow-x: auto; margin: 0 0 12px; }
+.faq__table { border-collapse: collapse; min-width: 280px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.faq__table th { text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 6px 18px 6px 0; border-bottom: 2px solid var(--line-2); }
+.faq__table td { padding: 8px 18px 8px 0; border-bottom: 1px solid var(--line); color: var(--navy); }
+.faq__table td:first-child { font-weight: 700; }
