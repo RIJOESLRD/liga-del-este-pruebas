@@ -68,8 +68,8 @@ export const LEAGUE_LOGO = ''; // ej. 'logos/liga.png'  (si se deja vacío, se u
 export const SOCIAL = {
   youtube: 'https://www.youtube.com/@ligadeleste',
   instagram: 'https://www.instagram.com/ligadeleste_rd/',
-  tiktok: '',
-  facebook: ''
+  tiktok: 'https://www.tiktok.com/@ligadeleste',
+  facebook: 'https://www.facebook.com/ligadelesterd/'
 };
 
 const LE = 'La Estación, La Romana';
