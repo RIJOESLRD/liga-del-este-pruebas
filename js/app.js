@@ -7,6 +7,7 @@ import {
 } from './league.js';
 import { initForms, waLink } from './forms.js';
 import { openShare } from './share.js';
+import { initNewsletter, requireSubscription } from './newsletter.js';
 
 const L = await loadLeague();
 const team = (id) => L.teams[id] || { name: 'Por definir', ini: '?', color: '#94A3B8', logo: '' };
@@ -313,7 +314,7 @@ function renderCompetition() {
     : state.tab === 'tabla' ? ((cd.standings[0] || {}).rows || []) : cd.leaders;
   const shareBtn = $('#share-ig');
   shareBtn.hidden = !shareRows.length;
-  shareBtn.onclick = () => openShare({
+  shareBtn.onclick = () => requireSubscription(() => openShare({
     tab: state.tab,
     title: cur.id === 'primera' ? cur.name : `${cur.name} ${catName}`,
     color: cur.color,
@@ -321,7 +322,7 @@ function renderCompetition() {
     leagueLogo: LEAGUE_LOGO || L.leagueLogo,
     team,
     rows: shareRows
-  });
+  }));
 
   const upd = updatedLabel(L);
   $('#panel-source').textContent = `Fuente: Dribbli · Liga del Este RD${upd ? ` · Actualizado ${upd}` : ''}`;
@@ -476,3 +477,4 @@ bindVideoDialog();
 bindWhatsappLinks();
 bindConfigLinks();
 initForms();
+initNewsletter(clubs(L).map((c) => c.name));

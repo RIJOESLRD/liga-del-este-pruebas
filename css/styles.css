@@ -1127,3 +1127,31 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 .share-actions .share-btn { flex: 1 1 180px; justify-content: center; cursor: pointer; border: none; font-family: var(--font-body); font-size: 16px; }
 .share-actions .share-btn[hidden] { display: none; }
 @media (max-width: 520px) { .share-dialog__body { padding: 22px 18px; } }
+
+/* =========================================================
+   Boletín (Brevo)
+   ========================================================= */
+.nl-band {
+  background: var(--white);
+  color: var(--navy);
+  border-radius: 28px;
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  align-items: flex-start;
+}
+.nl-band__text { flex: 1 1 280px; display: flex; flex-direction: column; gap: 10px; }
+.nl-band__text p { margin: 0; color: var(--ink-2); line-height: 1.5; }
+.nl-band__title { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 4vw, 42px); line-height: .98; text-transform: uppercase; }
+.nl-band__form { flex: 2 1 420px; min-width: 0; }
+.nl-form { display: flex; flex-direction: column; gap: 14px; }
+.nl-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 560px) { .nl-form__grid { grid-template-columns: 1fr; } .nl-band { padding: 24px 20px; } }
+.nl-form .consent { color: var(--ink-2); }
+.nl-form .consent a { color: var(--blue); font-weight: 600; }
+.nl-form__submit { border: none; cursor: pointer; font-family: var(--font-body); font-size: 16px; justify-content: center; align-self: flex-start; min-height: 48px; padding: 12px 26px; }
+.nl-form__submit:disabled { opacity: .7; cursor: wait; }
+.nl-done { background: #E7F7EE; border: 1px solid #9ED9B5; color: #0C5A2E; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; line-height: 1.45; }
+.nl-skip { align-self: center; background: none; border: none; color: var(--muted); font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer; padding: 10px; }
+.nl-skip:hover { color: var(--navy); }

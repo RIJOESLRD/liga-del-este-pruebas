@@ -178,6 +178,16 @@ export const SPONSORS = [
 export const SHARE_SPONSOR = { name: 'Rijo Forchue', logo: 'logos/patrocinadores/rijo-forchue.png' };
 export const SITE_URL = 'liga-del-este-web.netlify.app';
 
+/* =========================================================
+   BOLETÍN (Brevo)
+   action: la dirección del formulario "Web Liga del Este" en Brevo
+   (Marketing → Formularios → Compartir → código HTML, el action="..." del <form>).
+   Si se deja vacío, el bloque de suscripción no aparece y las descargas no la piden.
+   ========================================================= */
+export const NEWSLETTER = {
+  action: 'https://8263d021.sibforms.com/serve/MUIFAHltghgP_6Ukeq21lfprEw1eyxtMQNVVQyA0rtOtaILEH-6JJC4wwuvKUqEX9VQWHrtMOKskV5JKu_T7zsUQEUXgV3d5mp3VvcIG2E7wq426-0wsVZfVO9wd55A4uI92_Kce6wwMsf_Er8W2Cx3VY1I2mPjzlifDqi_J-j0R4u1wm7EkmVK6TlVpJAIs01w8qOu9EemnHQpYVQ=='
+};
+
 export const LINKS = {
   reglamento: 'https://drive.google.com/drive/folders/1HwOxD4nwaL37IVl1x7W2x7lbtNRferh2?usp=sharing'
 };
