@@ -6,6 +6,7 @@ import {
   loadLeague, catLabel, recentResults, nextMatchday, clubs, totals, updatedLabel, dateLong, venueShort
 } from './league.js';
 import { initForms, waLink } from './forms.js';
+import { openShare } from './share.js';
 
 const L = await loadLeague();
 const team = (id) => L.teams[id] || { name: 'Por definir', ini: '?', color: '#94A3B8', logo: '' };
@@ -307,6 +308,21 @@ function renderCompetition() {
   const link = $('#dribbli-link');
   link.href = `https://app.dribbli.com/categories/${catId}${paths[state.tab]}`;
   link.innerHTML = `${labels[state.tab]}${ICON_OUT}`;
+  // Botón "Descargar para Instagram": solo si hay algo que mostrar en esta vista.
+  const shareRows = !cd ? [] : state.tab === 'res' ? cd.results : state.tab === 'prox' ? cd.upcoming
+    : state.tab === 'tabla' ? ((cd.standings[0] || {}).rows || []) : cd.leaders;
+  const shareBtn = $('#share-ig');
+  shareBtn.hidden = !shareRows.length;
+  shareBtn.onclick = () => openShare({
+    tab: state.tab,
+    title: cur.id === 'primera' ? cur.name : `${cur.name} ${catName}`,
+    color: cur.color,
+    updated: updatedLabel(L),
+    leagueLogo: LEAGUE_LOGO || L.leagueLogo,
+    team,
+    rows: shareRows
+  });
+
   const upd = updatedLabel(L);
   $('#panel-source').textContent = `Fuente: Dribbli · Liga del Este RD${upd ? ` · Actualizado ${upd}` : ''}`;
 }

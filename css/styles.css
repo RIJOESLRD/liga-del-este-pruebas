@@ -1107,3 +1107,23 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; cursor: pointer; }
 .consent input { width: 22px; height: 22px; margin: 0; flex-shrink: 0; accent-color: var(--navy); }
 .form-dialog__form .btn--wa { margin-top: 4px; }
+
+/* =========================================================
+   Imágenes para Instagram
+   ========================================================= */
+.panel__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn--ig { background: var(--white); color: var(--navy); border: 2px solid var(--line-2); font-family: var(--font-body); cursor: pointer; }
+.btn--ig:hover { border-color: var(--navy); filter: none; }
+.btn--ig[hidden] { display: none; }
+.share-dialog { width: min(620px, calc(100vw - 32px)); }
+.share-dialog__body { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.share-formats { display: flex; gap: 6px; background: var(--bg); border-radius: 999px; padding: 5px; align-self: flex-start; }
+.share-formats .view-tab[aria-pressed="true"] { background: var(--white); color: var(--navy); box-shadow: 0 2px 8px rgba(14, 27, 61, .12); }
+.share-preview { position: relative; background: var(--bg); border-radius: 16px; padding: 12px; display: flex; justify-content: center; min-height: 200px; }
+.share-preview img { max-width: 100%; max-height: 56vh; width: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(14, 27, 61, .2); transition: opacity .2s; }
+.share-preview__loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--muted); }
+.share-preview__loading[hidden] { display: none; }
+.share-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.share-actions .share-btn { flex: 1 1 180px; justify-content: center; cursor: pointer; border: none; font-family: var(--font-body); font-size: 16px; }
+.share-actions .share-btn[hidden] { display: none; }
+@media (max-width: 520px) { .share-dialog__body { padding: 22px 18px; } }

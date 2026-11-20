@@ -67,7 +67,7 @@ export const LEAGUE_LOGO = ''; // ej. 'logos/liga.png'  (si se deja vacío, se u
    ========================================================= */
 export const SOCIAL = {
   youtube: 'https://www.youtube.com/@ligadeleste',
-  instagram: '', // ej. 'https://www.instagram.com/ligadeleste'
+  instagram: 'https://www.instagram.com/ligadeleste_rd/',
   tiktok: '',
   facebook: ''
 };
@@ -169,6 +169,15 @@ export const SPONSORS = [
    ========================================================= */
 /* Enlaces que usan los botones de la web. El reglamento debe estar compartido en
    Google Drive como "Cualquier persona con el enlace" para que los padres lo puedan abrir. */
+/* =========================================================
+   IMÁGENES PARA INSTAGRAM (botón "Descargar para Instagram")
+   SHARE_SPONSOR: el patrocinador que sale en la franja de abajo de cada imagen.
+   Para quitar la franja, deja:  export const SHARE_SPONSOR = null;
+   SITE_URL: la dirección que aparece abajo en las imágenes.
+   ========================================================= */
+export const SHARE_SPONSOR = { name: 'Rijo Forchue', logo: 'logos/patrocinadores/rijo-forchue.png' };
+export const SITE_URL = 'liga-del-este-web.netlify.app';
+
 export const LINKS = {
   reglamento: 'https://drive.google.com/drive/folders/1HwOxD4nwaL37IVl1x7W2x7lbtNRferh2?usp=sharing'
 };
