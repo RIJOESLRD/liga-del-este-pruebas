@@ -152,62 +152,70 @@ function buildMessage(cfg, vals) {
 
 /* ---------- Arranque ---------- */
 
-export function initForms() {
-  const keys = [...new Set([...document.querySelectorAll('[data-form]')].map((el) => el.dataset.form))]
-    .filter((k) => FORMS[k]);
-  for (const key of keys) {
-    const cfg = FORMS[key];
-    document.body.insertAdjacentHTML('beforeend', dialogHTML(key, cfg));
-    const dlg = document.getElementById(`form-${key}`);
-    const form = dlg.querySelector('form');
-    const done = dlg.querySelector('.form-dialog__done');
-    const err = dlg.querySelector('.form-dialog__error');
+// Crea la ventana del formulario la primera vez que se pide (sirve también para
+// botones que aparecen después, como el del pop-up).
+function ensureFormDialog(key) {
+  const existing = document.getElementById(`form-${key}`);
+  if (existing) return existing;
+  const cfg = FORMS[key];
+  document.body.insertAdjacentHTML('beforeend', dialogHTML(key, cfg));
+  const dlg = document.getElementById(`form-${key}`);
+  const form = dlg.querySelector('form');
+  const done = dlg.querySelector('.form-dialog__done');
+  const err = dlg.querySelector('.form-dialog__error');
 
-    // "Club o academia" pasa a obligatorio solo si se inscribe un club.
-    const syncOptional = () => {
-      const vals = readValues(dlg, key, cfg);
-      cfg.fields.filter((f) => f.requiredWhen).forEach((f) => {
-        const lbl = dlg.querySelector(`[data-field="${f.id}"] [data-opt-label]`);
-        if (lbl) lbl.hidden = isRequired(f, vals);
-      });
-    };
-    form.addEventListener('change', syncOptional);
-    form.addEventListener('input', () => { err.hidden = true; });
-
-    dlg.querySelector('[data-close]').addEventListener('click', () => dlg.close());
-    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const vals = readValues(dlg, key, cfg);
-      const missing = validate(dlg, key, cfg, vals);
-      if (missing.length) {
-        err.textContent = `Falta: ${missing.join(', ')}.`;
-        err.hidden = false;
-        return;
-      }
-      const url = waLink(buildMessage(cfg, vals));
-      dlg.querySelector('[data-wa-link]').href = url;
-      const w = window.open(url, '_blank');
-      if (w) w.opener = null;
-      dlg.querySelector('[data-done-text]').textContent = w
-        ? 'Se abrió WhatsApp con tu mensaje listo. Toca Enviar en WhatsApp para que llegue a la liga.'
-        : 'Toca el botón para abrir WhatsApp con tu mensaje listo, y luego toca Enviar.';
-      form.hidden = true;
-      done.hidden = false;
+  // "Club o academia" pasa a obligatorio solo si se inscribe un club.
+  const syncOptional = () => {
+    const vals = readValues(dlg, key, cfg);
+    cfg.fields.filter((f) => f.requiredWhen).forEach((f) => {
+      const lbl = dlg.querySelector(`[data-field="${f.id}"] [data-opt-label]`);
+      if (lbl) lbl.hidden = isRequired(f, vals);
     });
-  }
+  };
+  form.addEventListener('change', syncOptional);
+  form.addEventListener('input', () => { err.hidden = true; });
 
+  dlg.querySelector('[data-close]').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const vals = readValues(dlg, key, cfg);
+    const missing = validate(dlg, key, cfg, vals);
+    if (missing.length) {
+      err.textContent = `Falta: ${missing.join(', ')}.`;
+      err.hidden = false;
+      return;
+    }
+    const url = waLink(buildMessage(cfg, vals));
+    dlg.querySelector('[data-wa-link]').href = url;
+    const w = window.open(url, '_blank');
+    if (w) w.opener = null;
+    dlg.querySelector('[data-done-text]').textContent = w
+      ? 'Se abrió WhatsApp con tu mensaje listo. Toca Enviar en WhatsApp para que llegue a la liga.'
+      : 'Toca el botón para abrir WhatsApp con tu mensaje listo, y luego toca Enviar.';
+    form.hidden = true;
+    done.hidden = false;
+  });
+  return dlg;
+}
+
+export function openForm(key) {
+  if (!FORMS[key]) return;
+  const dlg = ensureFormDialog(key);
+  dlg.querySelector('form').hidden = false;
+  dlg.querySelector('.form-dialog__done').hidden = true;
+  dlg.querySelector('.form-dialog__error').hidden = true;
+  if (!dlg.open) dlg.showModal();
+  const first = dlg.querySelector('input, textarea');
+  if (first) first.focus();
+}
+
+export function initForms() {
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-form]');
     if (!trigger || !FORMS[trigger.dataset.form]) return;
     e.preventDefault();
-    const dlg = document.getElementById(`form-${trigger.dataset.form}`);
-    dlg.querySelector('form').hidden = false;
-    dlg.querySelector('.form-dialog__done').hidden = true;
-    dlg.querySelector('.form-dialog__error').hidden = true;
-    dlg.showModal();
-    const first = dlg.querySelector('input, textarea');
-    if (first) first.focus();
+    openForm(trigger.dataset.form);
   });
 }

@@ -160,8 +160,36 @@ export const CLUBS = ['rrp', 'efa', 'dsu', 'dsd', 'spa', 'rfc', 'gar', 'ray', 'r
    ========================================================= */
 export const SPONSORS = [
   // { name: 'Nombre de la marca', logo: 'logos/patrocinadores/marca.png', url: 'https://www.marca.com' },
-  { name: 'Rijo Forchue', logo: 'logos/patrocinadores/rijo-forchue.png', url: '' },
+  { name: 'Rijo Forchue', logo: 'logos/patrocinadores/rijo-forchue.png', url: 'https://www.instagram.com/rijoforchuestudio/' },
 ];
+
+/* =========================================================
+   POP-UP (ventana que aparece una vez cada pocos días)
+   - Si hay un patrocinador activo (active: true y dentro de las fechas "desde"/"hasta",
+     si se ponen), sale su anuncio. Si no, sale la invitación al Instagram de la liga.
+   - Para apagar el pop-up del todo: enabled: false
+   - Fechas en formato 'AAAA-MM-DD'. Vacías = sin límite.
+   ========================================================= */
+export const POPUP = {
+  enabled: true,
+  delaySeconds: 9,      // segundos antes de aparecer
+  everyDays: 3,         // no vuelve a salir a la misma persona antes de estos días
+  sponsor: {
+    active: true,
+    name: 'Rijo Forchue',
+    logo: 'logos/patrocinadores/rijo-forchue.png',
+    text: 'Rijo Forchue apoya el fútbol formativo del este. Conoce su trabajo.',
+    button: 'Ver en Instagram',
+    url: 'https://www.instagram.com/rijoforchuestudio/',
+    desde: '',
+    hasta: ''
+  },
+  instagram: {
+    title: 'Síguenos en Instagram',
+    text: 'Resultados, fotos y videos de cada jornada en @ligadeleste_rd.',
+    button: 'Seguir en Instagram'
+  }
+};
 
 /* =========================================================
    CONTACTO DE LA LIGA

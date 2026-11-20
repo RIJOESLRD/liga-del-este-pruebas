@@ -1155,3 +1155,57 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 .nl-done { background: #E7F7EE; border: 1px solid #9ED9B5; color: #0C5A2E; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; line-height: 1.45; }
 .nl-skip { align-self: center; background: none; border: none; color: var(--muted); font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer; padding: 10px; }
 .nl-skip:hover { color: var(--navy); }
+
+/* =========================================================
+   Pop-up (tarjeta abajo, no tapa la página)
+   ========================================================= */
+.popup {
+  position: fixed;
+  z-index: 50;
+  right: max(20px, env(safe-area-inset-right, 0px));
+  bottom: max(20px, env(safe-area-inset-bottom, 0px));
+  width: min(360px, calc(100vw - 40px));
+  background: var(--white);
+  color: var(--navy);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(11, 21, 48, .35);
+  padding: 24px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .25s, transform .25s;
+}
+.popup.is-in { opacity: 1; transform: none; }
+.popup--patrocinador { border-top: 6px solid var(--red); }
+.popup--instagram { border-top: 6px solid var(--blue); }
+.popup__close {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.popup__close:focus-visible, .popup__link:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.popup__kicker { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--red); padding-right: 48px; }
+.popup__head { display: flex; align-items: center; gap: 12px; padding-right: 48px; }
+.popup__logo--league { width: 48px; height: 48px; border-radius: 50%; background: var(--white); box-shadow: 0 0 0 1px var(--line); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+.popup__logo--league img { width: 90%; height: 90%; object-fit: contain; }
+.popup__logo--sponsor { display: flex; justify-content: center; padding: 6px 0; }
+.popup__logo--sponsor img { max-height: 76px; max-width: 220px; object-fit: contain; }
+.popup__title { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1; text-transform: uppercase; }
+.popup__text { margin: 0; color: var(--ink-2); line-height: 1.45; font-size: 15px; }
+.popup__cta { justify-content: center; gap: 8px; min-height: 48px; }
+.popup__link { background: none; border: none; font: inherit; font-size: 13px; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 6px; align-self: center; }
+.popup__link:hover { color: var(--navy); }
+@media (max-width: 560px) {
+  .popup { left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); bottom: max(12px, env(safe-area-inset-bottom, 0px)); width: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .popup { transition: none; } }
