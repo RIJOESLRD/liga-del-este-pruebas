@@ -1266,3 +1266,41 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 .aviso-urgente__text span { white-space: nowrap; opacity: .9; font-weight: 600; }
 .aviso-urgente__close { width: 44px; height: 44px; flex-shrink: 0; border: none; border-radius: 50%; background: rgba(255, 255, 255, .15); color: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; }
 @media (max-width: 560px) { .aviso-urgente__inner { padding-left: 16px; } }
+
+/* Franja del boletín: delgada y oscura, integrada al pie (reemplaza la tarjeta blanca) */
+.nl-band {
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .12);
+  color: var(--white);
+  border-radius: 18px;
+  padding: 18px 22px;
+  gap: 14px 28px;
+  align-items: center;
+}
+.nl-band__text { flex: 0 1 250px; gap: 4px; }
+.nl-band__title { font-size: 24px; line-height: 1; color: var(--white); }
+.nl-band__text p { color: var(--soft); font-size: 14px; line-height: 1.4; }
+.nl-band__form { flex: 1 1 520px; }
+.nl-form--compact { gap: 8px; }
+.nl-form--compact .nl-form__grid { grid-template-columns: 1fr 1.25fr 1fr auto; gap: 10px; align-items: end; }
+.nl-form--compact .field { gap: 4px; }
+.nl-form--compact .field label { font-size: 12px; color: var(--soft); }
+.nl-form--compact .field__opt { color: var(--tick-label); }
+.nl-form--compact .field input { min-height: 44px; padding: 8px 12px; font-size: 15px; background: var(--white); border-color: transparent; }
+.nl-form--compact .nl-form__submit { min-height: 44px; padding: 10px 20px; font-size: 15px; white-space: nowrap; }
+.nl-form--compact .consent { color: var(--soft); font-size: 12px; line-height: 1.4; gap: 8px; }
+.nl-form--compact .consent input { width: 18px; height: 18px; }
+.nl-form--compact .consent a { color: var(--white); }
+.nl-band .nl-done { background: rgba(19, 206, 102, .12); border-color: rgba(19, 206, 102, .4); color: #CFF5DE; padding: 12px 16px; font-size: 14px; }
+.nl-band .form-dialog__error { font-size: 13px; color: #FFC9D1; }
+@media (max-width: 860px) {
+  .nl-form--compact .nl-form__grid { grid-template-columns: 1fr 1fr; }
+  .nl-form--compact .nl-form__submit { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .nl-band { padding: 16px; }
+  .nl-form--compact .nl-form__grid { grid-template-columns: 1fr; }
+}
+.nl-form--compact .nl-form__submit { align-self: end; }
+.footer__bottom a { color: var(--soft); text-decoration: underline; }
+.footer__bottom a:hover { color: var(--white); }

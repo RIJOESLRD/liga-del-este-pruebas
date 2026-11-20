@@ -47,39 +47,41 @@ async function sendToBrevo(v) {
 
 /* ---------- Formulario (se usa en el pie y en la ventana) ---------- */
 
-function formHTML(id, compact) {
-  return `<form class="nl-form${compact ? ' nl-form--compact' : ''}" data-nl novalidate>
-    <div class="nl-form__grid">
-      <div class="field"><label for="${id}-nombre">Nombre</label>
-        <input id="${id}-nombre" type="text" autocomplete="name" required></div>
-      <div class="field"><label for="${id}-email">Correo</label>
-        <input id="${id}-email" type="email" autocomplete="email" placeholder="nombre@correo.com" required></div>
-      <div class="field"><label for="${id}-wa">WhatsApp <span class="field__opt">(opcional)</span></label>
-        <input id="${id}-wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="809-000-0000"></div>
-      <div class="field"><label for="${id}-club">Club que sigues <span class="field__opt">(opcional)</span></label>
-        <input id="${id}-club" type="text" list="nl-clubs" autocomplete="off" placeholder="Ej.: Academia Real Romana"></div>
-    </div>
+const CONSENT = 'Soy mayor de 18 años y acepto recibir noticias de la Liga del Este por correo y WhatsApp. Puedo darme de baja cuando quiera.';
+
+// mode: 'full' (ventana de descarga), 'compact' (franja del pie) o 'quick' (solo correo: "ya me suscribí").
+function formHTML(id, mode = 'full') {
+  const nombre = `<div class="field"><label for="${id}-nombre">Nombre</label>
+        <input id="${id}-nombre" type="text" autocomplete="name" required></div>`;
+  const email = `<div class="field"><label for="${id}-email">Correo</label>
+        <input id="${id}-email" type="email" autocomplete="email" placeholder="nombre@correo.com" required></div>`;
+  const wa = `<div class="field"><label for="${id}-wa">WhatsApp <span class="field__opt">(opcional)</span></label>
+        <input id="${id}-wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="809-000-0000"></div>`;
+  const club = `<div class="field"><label for="${id}-club">Club que sigues <span class="field__opt">(opcional)</span></label>
+        <input id="${id}-club" type="text" list="nl-clubs" autocomplete="off" placeholder="Ej.: Academia Real Romana"></div>`;
+  const campos = mode === 'quick' ? email : mode === 'compact' ? nombre + email + wa : nombre + email + wa + club;
+  const boton = mode === 'quick' ? 'Continuar' : 'Suscribirme gratis';
+  return `<form class="nl-form nl-form--${mode}" data-nl novalidate>
+    <div class="nl-form__grid">${campos}${mode === 'compact' ? `<button type="submit" class="btn btn--red btn--plain nl-form__submit">${boton}</button>` : ''}</div>
     <label class="consent"><input type="checkbox" id="${id}-ok">
-      <span>Soy mayor de 18 años y acepto recibir noticias de la Liga del Este por correo y WhatsApp. Puedo darme de baja cuando quiera. <a href="privacidad.html">Política de privacidad</a>.</span></label>
+      <span>${CONSENT} <a href="privacidad.html">Política de privacidad</a>.</span></label>
     <p class="form-dialog__error" role="alert" hidden></p>
-    <button type="submit" class="btn btn--red btn--plain nl-form__submit">Suscribirme gratis</button>
+    ${mode === 'compact' ? '' : `<button type="submit" class="btn btn--red btn--plain nl-form__submit">${boton}</button>`}
   </form>`;
 }
 
 function bindForm(form, id, onDone) {
   const err = form.querySelector('.form-dialog__error');
   const btn = form.querySelector('.nl-form__submit');
+  const btnTexto = btn.textContent;
   form.addEventListener('input', () => { err.hidden = true; });
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const v = {
-      nombre: form.querySelector(`#${id}-nombre`).value.trim(),
-      email: form.querySelector(`#${id}-email`).value.trim(),
-      whatsapp: form.querySelector(`#${id}-wa`).value.trim(),
-      club: form.querySelector(`#${id}-club`).value.trim()
-    };
+    const val = (k) => { const el = form.querySelector(`#${id}-${k}`); return el ? el.value.trim() : null; };
+    const v = { nombre: val('nombre'), email: val('email'), whatsapp: val('wa') || '', club: val('club') || '' };
     const missing = [];
-    if (!v.nombre) missing.push('tu nombre');
+    if (v.nombre === '') missing.push('tu nombre');
+    v.nombre = v.nombre || '';
     if (!v.email || !form.querySelector(`#${id}-email`).checkValidity()) missing.push('un correo válido');
     if (v.whatsapp && v.whatsapp.replace(/\D/g, '').length < 10) missing.push('el WhatsApp completo con 809, 829 u 849');
     if (!form.querySelector(`#${id}-ok`).checked) missing.push('marcar la casilla de aceptación');
@@ -93,7 +95,7 @@ function bindForm(form, id, onDone) {
       err.textContent = `${ex.message} Revisa tus datos e inténtalo otra vez.`;
       err.hidden = false;
     } finally {
-      btn.disabled = false; btn.textContent = 'Suscribirme gratis';
+      btn.disabled = false; btn.textContent = btnTexto;
     }
   });
 }
@@ -107,18 +109,21 @@ const doneHTML = (nombre) => `<div class="nl-done" role="status">
 
 function renderFooterBlock() {
   const inner = document.querySelector('.footer__inner');
-  if (!inner || !NEWSLETTER.action) return;
+  // Quien ya se suscribió en este dispositivo no vuelve a ver la franja.
+  if (!inner || !NEWSLETTER.action || isSubscribed()) return;
   const id = `nl${++counter}`;
   inner.insertAdjacentHTML('afterbegin', `<section class="nl-band" id="boletin" aria-labelledby="${id}-title">
     <div class="nl-band__text">
-      <span class="kicker">BOLETÍN</span>
-      <h2 class="nl-band__title" id="${id}-title">Recibe los resultados y noticias de la liga</h2>
-      <p>Cada semana: tablas, resultados, próximos partidos y avisos importantes. Gratis.</p>
+      <h2 class="nl-band__title" id="${id}-title">Boletín de la liga</h2>
+      <p>Resultados, tablas y avisos cada semana. Gratis.</p>
     </div>
-    <div class="nl-band__form">${isSubscribed() ? doneHTML('') : formHTML(id, true)}</div>
+    <div class="nl-band__form">${formHTML(id, 'compact')}</div>
   </section>`);
-  const form = inner.querySelector('.nl-band [data-nl]');
-  if (form) bindForm(form, id, (v) => { form.outerHTML = doneHTML(v.nombre); });
+  const band = inner.querySelector('.nl-band');
+  bindForm(band.querySelector('[data-nl]'), id, (v) => {
+    band.querySelector('.nl-band__form').innerHTML = doneHTML(v.nombre);
+    setTimeout(() => band.remove(), 6000);
+  });
 }
 
 /* ---------- Ventana: suscripción antes de descargar ---------- */
@@ -136,7 +141,7 @@ export function requireSubscription(next) {
       <span class="kicker">DESCARGA GRATIS</span>
       <h2 class="form-dialog__title" id="${id}-title">Suscríbete para descargar</h2>
       <p class="form-dialog__lead">Solo esta vez. Después descargas todas las imágenes que quieras y recibes cada semana los resultados de la liga.</p>
-      ${formHTML(id, false)}
+      <div data-nl-box>${formHTML(id, 'full')}</div>
       <button type="button" class="nl-skip" data-already>Ya me suscribí antes</button>
     </div>
   </dialog>`);
@@ -144,7 +149,17 @@ export function requireSubscription(next) {
   const go = () => { dlg.close(); dlg.remove(); next(); };
   dlg.querySelector('[data-close]').addEventListener('click', () => dlg.close());
   dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
-  dlg.querySelector('[data-already]').addEventListener('click', () => { markSubscribed(); go(); });
+  // "Ya me suscribí": se pide el correo y se envía a Brevo igual. Si ya estaba, Brevo no lo
+  // duplica; si no estaba, queda suscrito. Así nadie descarga sin estar en la lista.
+  dlg.querySelector('[data-already]').addEventListener('click', (e) => {
+    const qid = `nl${++counter}`;
+    dlg.querySelector('.form-dialog__title').textContent = 'Confirma tu correo';
+    dlg.querySelector('.form-dialog__lead').textContent = 'Escribe el correo con el que te suscribiste y descarga al instante.';
+    dlg.querySelector('[data-nl-box]').innerHTML = formHTML(qid, 'quick');
+    bindForm(dlg.querySelector('[data-nl]'), qid, go);
+    e.currentTarget.remove();
+    dlg.querySelector(`#${qid}-email`).focus();
+  });
   bindForm(dlg.querySelector('[data-nl]'), id, go);
   dlg.showModal();
   dlg.querySelector(`#${id}-nombre`).focus();
