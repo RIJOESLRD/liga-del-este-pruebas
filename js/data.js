@@ -58,7 +58,7 @@ export const TEAM_NAMES = {
    Copia el logo a  logos/liga.png  (o .svg) y escribe la ruta aquí.
    Reemplaza el círculo "LDE" del menú y del pie de página.
    ========================================================= */
-export const LEAGUE_LOGO = ''; // ej. 'logos/liga.png'  (si se deja vacío, se usa el de Dribbli)
+export const LEAGUE_LOGO = 'logos/liga.png'; // logo en alta resolución (si se deja vacío, se usa el de Dribbli)
 
 /* =========================================================
    REDES SOCIALES Y CANAL DE YOUTUBE

@@ -25,7 +25,7 @@ TEMPLATE = os.path.join(ROOT, 'plantillas', 'noticia.html')
 SITE_BASE = os.environ.get('SITE_BASE', 'https://rijoeslrd.github.io/liga-del-este-web/').rstrip('/') + '/'
 
 # Lo que se publica (todo lo demás —scripts, contenido, plantillas— se queda fuera).
-PUBLIC_DIRS = ['css', 'js', 'data', 'fotos', 'logos', 'admin']
+PUBLIC_DIRS = ['css', 'js', 'data', 'fotos', 'logos', 'admin', 'icons']
 PUBLIC_FILES_RE = re.compile(r'^[\w-]+\.html$')
 
 MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto',
@@ -118,7 +118,7 @@ def articulo_html(n):
 
 
 def pagina_noticia(plantilla, n):
-    imagen = SITE_BASE + (n.get('portada') or 'logos/dribbli/liga.png')
+    imagen = SITE_BASE + (n.get('portada') or 'logos/liga.png')
     reemplazos = {
         '{{TITULO}}': html.escape(n['titulo']),
         '{{DESCRIPCION}}': html.escape(n.get('resumen') or n['titulo']),
@@ -139,9 +139,16 @@ def main():
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT)
-    for nombre in os.listdir(ROOT):
+    paginas = []
+    for nombre in sorted(os.listdir(ROOT)):
         if PUBLIC_FILES_RE.match(nombre) and not nombre.startswith('vista-previa'):
-            shutil.copy2(os.path.join(ROOT, nombre), OUT)
+            # %SITE_BASE% = dirección completa de la web (vista previa en WhatsApp, página 404).
+            with open(os.path.join(ROOT, nombre), encoding='utf-8') as f:
+                texto = f.read().replace('%SITE_BASE%', SITE_BASE)
+            with open(os.path.join(OUT, nombre), 'w', encoding='utf-8') as f:
+                f.write(texto)
+            if nombre != '404.html':
+                paginas.append(nombre)
     for d in PUBLIC_DIRS:
         if os.path.isdir(os.path.join(ROOT, d)):
             shutil.copytree(os.path.join(ROOT, d), os.path.join(OUT, d))
@@ -160,6 +167,17 @@ def main():
     for n in noticias:
         with open(os.path.join(OUT, f'noticia-{n["slug"]}.html'), 'w', encoding='utf-8') as f:
             f.write(pagina_noticia(plantilla, n))
+
+    # Para Google: lista de páginas (sitemap.xml) y reglas para buscadores (robots.txt).
+    urls = [(SITE_BASE + ('' if p == 'index.html' else p), '') for p in paginas]
+    urls += [(SITE_BASE + f'noticia-{n["slug"]}.html', n['fecha']) for n in noticias]
+    with open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        for loc, fecha in urls:
+            f.write(f'  <url><loc>{html.escape(loc)}</loc>{f"<lastmod>{fecha}</lastmod>" if fecha else ""}</url>\n')
+        f.write('</urlset>\n')
+    with open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8') as f:
+        f.write(f'User-agent: *\nDisallow: /admin/\nSitemap: {SITE_BASE}sitemap.xml\n')
 
     # GitHub Pages: servir los archivos tal cual (sin Jekyll).
     open(os.path.join(OUT, '.nojekyll'), 'w').close()
