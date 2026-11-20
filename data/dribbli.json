@@ -1,6 +1,6 @@
 {
  "source": "Dribbli",
- "updatedAt": "2026-11-20T01:43:28+00:00",
+ "updatedAt": "2026-11-20T15:09:27+00:00",
  "categories": {
   "3754": {
    "division": "premier",
@@ -2163,9 +2163,9 @@
    "label": "U14",
    "name": "Premier (Male U-14)",
    "teams": 8,
-   "matches": 53,
+   "matches": 54,
    "players": 231,
-   "referees": 13,
+   "referees": 14,
    "schedule": [
     {
      "id": "41255",
@@ -2242,6 +2242,19 @@
      "away": "25135",
      "hs": 0,
      "as": 2,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42902",
+     "round": 1,
+     "date": "2026-11-21",
+     "time": "16:30",
+     "venue": "La Estación, La Romana",
+     "home": "24017",
+     "away": "24576",
+     "hs": null,
+     "as": null,
      "hp": null,
      "ap": null
     },
@@ -2402,19 +2415,6 @@
      "ap": null
     },
     {
-     "id": "41278",
-     "round": 6,
-     "date": "2027-01-23",
-     "time": "10:10",
-     "venue": "Cancha de Fútbol, Seibo",
-     "home": "24778",
-     "away": "24576",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "41276",
      "round": 6,
      "date": "2027-01-23",
@@ -2422,6 +2422,19 @@
      "venue": "La estación, La Romana",
      "home": "25432",
      "away": "24446",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "41278",
+     "round": 6,
+     "date": "2027-01-23",
+     "time": "10:10",
+     "venue": "Cancha de Fútbol, Seibo",
+     "home": "24778",
+     "away": "24576",
      "hs": null,
      "as": null,
      "hp": null,
@@ -2441,19 +2454,6 @@
      "ap": null
     },
     {
-     "id": "41281",
-     "round": 7,
-     "date": "2027-01-30",
-     "time": "10:10",
-     "venue": "La estación, La Romana",
-     "home": "24179",
-     "away": "25432",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "41282",
      "round": 7,
      "date": "2027-01-30",
@@ -2461,6 +2461,19 @@
      "venue": "Los Establos, Cap Cana",
      "home": "24446",
      "away": "24778",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "41281",
+     "round": 7,
+     "date": "2027-01-30",
+     "time": "10:10",
+     "venue": "La estación, La Romana",
+     "home": "24179",
+     "away": "25432",
      "hs": null,
      "as": null,
      "hp": null,
@@ -2519,19 +2532,6 @@
      "ap": null
     },
     {
-     "id": "41286",
-     "round": 8,
-     "date": "2027-02-13",
-     "time": "11:10",
-     "venue": "UAS, Santo Domingo",
-     "home": "25135",
-     "away": "25432",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "41284",
      "round": 8,
      "date": "2027-02-13",
@@ -2539,6 +2539,19 @@
      "venue": "La Salle, Higüey",
      "home": "24576",
      "away": "24017",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "41286",
+     "round": 8,
+     "date": "2027-02-13",
+     "time": "11:10",
+     "venue": "UAS, Santo Domingo",
+     "home": "25135",
+     "away": "25432",
      "hs": null,
      "as": null,
      "hp": null,
@@ -2727,19 +2740,6 @@
      "ap": null
     },
     {
-     "id": "41304",
-     "round": 12,
-     "date": "2027-04-24",
-     "time": "10:10",
-     "venue": "Cancha de Fútbol, Seibo",
-     "home": "24778",
-     "away": "25432",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "41302",
      "round": 12,
      "date": "2027-04-24",
@@ -2753,13 +2753,13 @@
      "ap": null
     },
     {
-     "id": "41300",
+     "id": "41304",
      "round": 12,
-     "date": "2027-05-15",
+     "date": "2027-04-24",
      "time": "10:10",
-     "venue": "La estación, La Romana",
-     "home": "24017",
-     "away": "24115",
+     "venue": "Cancha de Fútbol, Seibo",
+     "home": "24778",
+     "away": "25432",
      "hs": null,
      "as": null,
      "hp": null,
@@ -2786,6 +2786,19 @@
      "venue": "Los Establos, Cap Cana",
      "home": "24446",
      "away": "25432",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "41300",
+     "round": 12,
+     "date": "2027-05-15",
+     "time": "10:10",
+     "venue": "La estación, La Romana",
+     "home": "24017",
+     "away": "24115",
      "hs": null,
      "as": null,
      "hp": null,
@@ -6076,7 +6089,7 @@
    "teams": 6,
    "matches": 27,
    "players": 98,
-   "referees": 4,
+   "referees": 7,
    "schedule": [
     {
      "id": "42110",
@@ -6148,7 +6161,7 @@
      "round": 2,
      "date": "2026-11-21",
      "time": "12:50",
-     "venue": "TBD",
+     "venue": "La Estación, La Romana",
      "home": "25270",
      "away": "24026",
      "hs": null,
