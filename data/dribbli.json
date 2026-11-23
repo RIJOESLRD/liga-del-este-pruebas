@@ -1,6 +1,6 @@
 {
  "source": "Dribbli",
- "updatedAt": "2026-11-20T15:09:27+00:00",
+ "updatedAt": "2026-11-23T10:58:28+00:00",
  "categories": {
   "3754": {
    "division": "premier",
@@ -2253,8 +2253,8 @@
      "venue": "La Estación, La Romana",
      "home": "24017",
      "away": "24576",
-     "hs": null,
-     "as": null,
+     "hs": 2,
+     "as": 0,
      "hp": null,
      "ap": null
     },
@@ -2887,8 +2887,20 @@
        "pts": 6
       },
       {
-       "team": "24778",
+       "team": "24017",
        "pos": 2,
+       "pj": 2,
+       "g": 1,
+       "e": 1,
+       "p": 0,
+       "gf": 3,
+       "gc": 1,
+       "dg": 2,
+       "pts": 4
+      },
+      {
+       "team": "24778",
+       "pos": 3,
        "pj": 2,
        "g": 1,
        "e": 0,
@@ -2900,7 +2912,7 @@
       },
       {
        "team": "24115",
-       "pos": 3,
+       "pos": 4,
        "pj": 1,
        "g": 1,
        "e": 0,
@@ -2912,7 +2924,7 @@
       },
       {
        "team": "24179",
-       "pos": 4,
+       "pos": 5,
        "pj": 2,
        "g": 1,
        "e": 0,
@@ -2921,18 +2933,6 @@
        "gc": 2,
        "dg": -1,
        "pts": 3
-      },
-      {
-       "team": "24017",
-       "pos": 5,
-       "pj": 1,
-       "g": 0,
-       "e": 1,
-       "p": 0,
-       "gf": 1,
-       "gc": 1,
-       "dg": 0,
-       "pts": 1
       },
       {
        "team": "24446",
@@ -2949,13 +2949,13 @@
       {
        "team": "24576",
        "pos": 7,
-       "pj": 0,
+       "pj": 1,
        "g": 0,
        "e": 0,
-       "p": 0,
+       "p": 1,
        "gf": 0,
-       "gc": 0,
-       "dg": 0,
+       "gc": 2,
+       "dg": -2,
        "pts": 0
       },
       {
@@ -3011,6 +3011,12 @@
      "matches": 2
     },
     {
+     "player": "Otoniel Herrera Ruiz",
+     "team": "24017",
+     "goals": 1,
+     "matches": 2
+    },
+    {
      "player": "Ethan Santos Adames",
      "team": "25135",
      "goals": 1,
@@ -3023,16 +3029,10 @@
      "matches": 2
     },
     {
-     "player": "Alexander Cordones Alvarez",
-     "team": "24778",
+     "player": "Oscar Román Valerio Villar",
+     "team": "24017",
      "goals": 1,
-     "matches": 1
-    },
-    {
-     "player": "Jose Rafael De La Cruz Perez",
-     "team": "25135",
-     "goals": 1,
-     "matches": 1
+     "matches": 2
     }
    ]
   },
@@ -4152,7 +4152,7 @@
    "name": "Super Copa (Coed U-10)",
    "teams": 7,
    "matches": 44,
-   "players": 104,
+   "players": 108,
    "referees": 7,
    "schedule": [
     {
@@ -4267,8 +4267,8 @@
      "venue": "FC RAMSAR",
      "home": "25267",
      "away": "24023",
-     "hs": null,
-     "as": null,
+     "hs": 2,
+     "as": 0,
      "hp": null,
      "ap": null
     },
@@ -4293,8 +4293,8 @@
      "venue": "Ciudad Deportiva Downtown, Punta Cana",
      "home": "24310",
      "away": "24739",
-     "hs": null,
-     "as": null,
+     "hs": 0,
+     "as": 1,
      "hp": null,
      "ap": null
     },
@@ -4306,8 +4306,8 @@
      "venue": "Ciudad Deportiva, Downtown, Bavaro",
      "home": "24509",
      "away": "24082",
-     "hs": null,
-     "as": null,
+     "hs": 3,
+     "as": 6,
      "hp": null,
      "ap": null
     },
@@ -4319,8 +4319,8 @@
      "venue": "Ciudad Deportiva, Downtown, Bavaro",
      "home": "24739",
      "away": "24310",
-     "hs": null,
-     "as": null,
+     "hs": 5,
+     "as": 1,
      "hp": null,
      "ap": null
     },
@@ -4332,8 +4332,8 @@
      "venue": "FC RAMSAR",
      "home": "24609",
      "away": "24023",
-     "hs": null,
-     "as": null,
+     "hs": 1,
+     "as": 2,
      "hp": null,
      "ap": null
     },
@@ -4345,6 +4345,19 @@
      "venue": "FC RAMSAR",
      "home": "25267",
      "away": "24609",
+     "hs": 9,
+     "as": 1,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42636",
+     "round": 3,
+     "date": "2026-12-05",
+     "time": "09:00",
+     "venue": "Casa de Campo, La Romana",
+     "home": "24609",
+     "away": "24739",
      "hs": null,
      "as": null,
      "hp": null,
@@ -4358,19 +4371,6 @@
      "venue": "Casa de Campo, La Romana",
      "home": "24023",
      "away": "24082",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "42636",
-     "round": 3,
-     "date": "2026-12-05",
-     "time": "09:00",
-     "venue": "Casa de Campo, La Romana",
-     "home": "24609",
-     "away": "24739",
      "hs": null,
      "as": null,
      "hp": null,
@@ -4403,19 +4403,6 @@
      "ap": null
     },
     {
-     "id": "40610",
-     "round": 3,
-     "date": "2026-12-05",
-     "time": "11:00",
-     "venue": "Casa de Campo, La Romana",
-     "home": "24023",
-     "away": "24609",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "42638",
      "round": 3,
      "date": "2026-12-05",
@@ -4429,6 +4416,19 @@
      "ap": null
     },
     {
+     "id": "40610",
+     "round": 3,
+     "date": "2026-12-05",
+     "time": "11:00",
+     "venue": "Casa de Campo, La Romana",
+     "home": "24023",
+     "away": "24609",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
      "id": "40608",
      "round": 3,
      "date": "2026-12-05",
@@ -4436,32 +4436,6 @@
      "venue": "Parque del Este, Santo Domingo",
      "home": "24509",
      "away": "24739",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "40609",
-     "round": 4,
-     "date": "2027-02-06",
-     "time": "09:00",
-     "venue": "La Salle, Higüey",
-     "home": "24609",
-     "away": "24082",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "40612",
-     "round": 4,
-     "date": "2027-02-06",
-     "time": "09:00",
-     "venue": "La Salle, Higuey",
-     "home": "24082",
-     "away": "24609",
      "hs": null,
      "as": null,
      "hp": null,
@@ -4488,6 +4462,32 @@
      "venue": "Ciudad Deportiva Downtown, Punta Cana",
      "home": "25267",
      "away": "24310",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40609",
+     "round": 4,
+     "date": "2027-02-06",
+     "time": "09:00",
+     "venue": "La Salle, Higüey",
+     "home": "24609",
+     "away": "24082",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40612",
+     "round": 4,
+     "date": "2027-02-06",
+     "time": "09:00",
+     "venue": "La Salle, Higuey",
+     "home": "24082",
+     "away": "24609",
      "hs": null,
      "as": null,
      "hp": null,
@@ -4735,85 +4735,85 @@
       {
        "team": "24739",
        "pos": 1,
-       "pj": 2,
-       "g": 2,
+       "pj": 4,
+       "g": 4,
        "e": 0,
        "p": 0,
-       "gf": 7,
-       "gc": 4,
-       "dg": 3,
-       "pts": 6
-      },
-      {
-       "team": "24082",
-       "pos": 2,
-       "pj": 2,
-       "g": 2,
-       "e": 0,
-       "p": 0,
-       "gf": 7,
+       "gf": 13,
        "gc": 5,
-       "dg": 2,
-       "pts": 6
-      },
-      {
-       "team": "24310",
-       "pos": 3,
-       "pj": 2,
-       "g": 1,
-       "e": 0,
-       "p": 1,
-       "gf": 9,
-       "gc": 4,
-       "dg": 5,
-       "pts": 3
+       "dg": 8,
+       "pts": 12
       },
       {
        "team": "25267",
-       "pos": 4,
-       "pj": 2,
-       "g": 1,
+       "pos": 2,
+       "pj": 4,
+       "g": 3,
        "e": 0,
        "p": 1,
-       "gf": 9,
-       "gc": 4,
-       "dg": 5,
-       "pts": 3
+       "gf": 20,
+       "gc": 5,
+       "dg": 15,
+       "pts": 9
       },
       {
-       "team": "24509",
-       "pos": 5,
-       "pj": 2,
+       "team": "24082",
+       "pos": 3,
+       "pj": 3,
+       "g": 3,
+       "e": 0,
+       "p": 0,
+       "gf": 13,
+       "gc": 8,
+       "dg": 5,
+       "pts": 9
+      },
+      {
+       "team": "24310",
+       "pos": 4,
+       "pj": 4,
        "g": 1,
        "e": 0,
-       "p": 1,
-       "gf": 6,
-       "gc": 11,
-       "dg": -5,
+       "p": 3,
+       "gf": 10,
+       "gc": 10,
+       "dg": 0,
        "pts": 3
       },
       {
        "team": "24023",
+       "pos": 5,
+       "pj": 4,
+       "g": 1,
+       "e": 0,
+       "p": 3,
+       "gf": 8,
+       "gc": 11,
+       "dg": -3,
+       "pts": 3
+      },
+      {
+       "team": "24509",
        "pos": 6,
-       "pj": 2,
-       "g": 0,
+       "pj": 3,
+       "g": 1,
        "e": 0,
        "p": 2,
-       "gf": 6,
-       "gc": 8,
-       "dg": -2,
-       "pts": 0
+       "gf": 9,
+       "gc": 17,
+       "dg": -8,
+       "pts": 3
       },
       {
        "team": "24609",
        "pos": 7,
-       "pj": 2,
+       "pj": 4,
        "g": 0,
        "e": 0,
-       "p": 2,
-       "gf": 2,
-       "gc": 10,
-       "dg": -8,
+       "p": 4,
+       "gf": 4,
+       "gc": 21,
+       "dg": -17,
        "pts": 0
       }
      ]
@@ -4821,10 +4821,46 @@
    ],
    "leaders": [
     {
+     "player": "Angel Manuel Frias",
+     "team": "24082",
+     "goals": 8,
+     "matches": 3
+    },
+    {
+     "player": "Fraily Antonio Bastardo",
+     "team": "25267",
+     "goals": 5,
+     "matches": 4
+    },
+    {
      "player": "Jatniel Leonardo Santana Mercedes",
      "team": "24023",
+     "goals": 5,
+     "matches": 3
+    },
+    {
+     "player": "Ashley Santana Gallego",
+     "team": "25267",
      "goals": 4,
-     "matches": 2
+     "matches": 4
+    },
+    {
+     "player": "Bryant Esteban Adames Sosa",
+     "team": "24509",
+     "goals": 4,
+     "matches": 3
+    },
+    {
+     "player": "Greilyn Ernesto Castillo Feliz",
+     "team": "24509",
+     "goals": 3,
+     "matches": 3
+    },
+    {
+     "player": "Eliam Jaasiel Jhonson",
+     "team": "25267",
+     "goals": 3,
+     "matches": 4
     },
     {
      "player": "Liam David Carmona",
@@ -4833,52 +4869,16 @@
      "matches": 2
     },
     {
-     "player": "Bryant Esteban Adames Sosa",
-     "team": "24509",
-     "goals": 3,
-     "matches": 2
-    },
-    {
-     "player": "Fraily Antonio Bastardo",
-     "team": "25267",
-     "goals": 3,
-     "matches": 2
-    },
-    {
-     "player": "Angel Manuel Frias",
-     "team": "24082",
-     "goals": 3,
-     "matches": 2
-    },
-    {
-     "player": "Axel Matias Baez De Olmo",
-     "team": "24023",
-     "goals": 2,
-     "matches": 2
-    },
-    {
-     "player": "Gabriel Marrera",
-     "team": "24310",
-     "goals": 2,
-     "matches": 2
-    },
-    {
-     "player": "Ian Aníbal Mejía Rodríguez",
+     "player": "Darío Humberto Ramos Quezada",
      "team": "24739",
-     "goals": 2,
-     "matches": 2
+     "goals": 3,
+     "matches": 3
     },
     {
-     "player": "Lucas Montilla",
-     "team": "24310",
-     "goals": 2,
-     "matches": 2
-    },
-    {
-     "player": "Ashley Santana Gallego",
-     "team": "25267",
-     "goals": 2,
-     "matches": 2
+     "player": "Salvatore Nolasco Palazzi",
+     "team": "24739",
+     "goals": 3,
+     "matches": 3
     }
    ]
   },
@@ -4888,7 +4888,7 @@
    "name": "Super Copa (Coed U-12)",
    "teams": 7,
    "matches": 42,
-   "players": 112,
+   "players": 113,
    "referees": 8,
    "schedule": [
     {
@@ -4983,19 +4983,6 @@
      "ap": null
     },
     {
-     "id": "40628",
-     "round": 2,
-     "date": "2026-11-21",
-     "time": "09:00",
-     "venue": "La estación, La Romana",
-     "home": "24080",
-     "away": "25201",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "42574",
      "round": 21,
      "date": "2026-11-21",
@@ -5003,8 +4990,21 @@
      "venue": "FC RAMSAR",
      "home": "25268",
      "away": "24024",
-     "hs": null,
-     "as": null,
+     "hs": 1,
+     "as": 0,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40628",
+     "round": 2,
+     "date": "2026-11-21",
+     "time": "09:00",
+     "venue": "La estación, La Romana",
+     "home": "24080",
+     "away": "25201",
+     "hs": 4,
+     "as": 2,
      "hp": null,
      "ap": null
     },
@@ -5016,8 +5016,8 @@
      "venue": "Ciudad Deportiva Downtown, Punta Cana",
      "home": "24311",
      "away": "23914",
-     "hs": null,
-     "as": null,
+     "hs": 2,
+     "as": 7,
      "hp": null,
      "ap": null
     },
@@ -5029,8 +5029,8 @@
      "venue": "Ciudad Deportiva Downtown, Punta Cana",
      "home": "23914",
      "away": "24311",
-     "hs": null,
-     "as": null,
+     "hs": 4,
+     "as": 3,
      "hp": null,
      "ap": null
     },
@@ -5055,8 +5055,8 @@
      "venue": "FC RAMSAR",
      "home": "24640",
      "away": "25268",
-     "hs": null,
-     "as": null,
+     "hs": 0,
+     "as": 1,
      "hp": null,
      "ap": null
     },
@@ -5113,6 +5113,19 @@
      "ap": null
     },
     {
+     "id": "42624",
+     "round": 3,
+     "date": "2026-12-05",
+     "time": "12:00",
+     "venue": "Parque del Este, Santo Domingo",
+     "home": "24024",
+     "away": "25268",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
      "id": "40633",
      "round": 3,
      "date": "2026-12-05",
@@ -5133,19 +5146,6 @@
      "venue": "Casa de Campo, La Romana",
      "home": "24640",
      "away": "24311",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "42624",
-     "round": 3,
-     "date": "2026-12-05",
-     "time": "12:00",
-     "venue": "Parque del Este, Santo Domingo",
-     "home": "24024",
-     "away": "25268",
      "hs": null,
      "as": null,
      "hp": null,
@@ -5178,19 +5178,6 @@
      "ap": null
     },
     {
-     "id": "40659",
-     "round": 4,
-     "date": "2027-02-06",
-     "time": "09:00",
-     "venue": "Casa de Campo, La Romana",
-     "home": "24024",
-     "away": "23914",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "42626",
      "round": 23,
      "date": "2027-02-06",
@@ -5198,6 +5185,19 @@
      "venue": "La Salle, Higüey",
      "home": "24640",
      "away": "24080",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40659",
+     "round": 4,
+     "date": "2027-02-06",
+     "time": "09:00",
+     "venue": "Casa de Campo, La Romana",
+     "home": "24024",
+     "away": "23914",
      "hs": null,
      "as": null,
      "hp": null,
@@ -5217,19 +5217,6 @@
      "ap": null
     },
     {
-     "id": "42627",
-     "round": 4,
-     "date": "2027-02-06",
-     "time": "10:45",
-     "venue": "La Salle, Higüey",
-     "home": "24080",
-     "away": "24640",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "40661",
      "round": 4,
      "date": "2027-02-06",
@@ -5237,6 +5224,19 @@
      "venue": "Casa de Campo, La Romana",
      "home": "25201",
      "away": "23914",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42627",
+     "round": 4,
+     "date": "2027-02-06",
+     "time": "10:45",
+     "venue": "La Salle, Higüey",
+     "home": "24080",
+     "away": "24640",
      "hs": null,
      "as": null,
      "hp": null,
@@ -5445,85 +5445,85 @@
       {
        "team": "23914",
        "pos": 1,
-       "pj": 2,
-       "g": 2,
+       "pj": 4,
+       "g": 4,
        "e": 0,
        "p": 0,
-       "gf": 18,
-       "gc": 2,
-       "dg": 16,
+       "gf": 29,
+       "gc": 7,
+       "dg": 22,
+       "pts": 12
+      },
+      {
+       "team": "24080",
+       "pos": 2,
+       "pj": 3,
+       "g": 2,
+       "e": 0,
+       "p": 1,
+       "gf": 13,
+       "gc": 8,
+       "dg": 5,
        "pts": 6
       },
       {
        "team": "24311",
-       "pos": 2,
-       "pj": 2,
+       "pos": 3,
+       "pj": 4,
        "g": 2,
        "e": 0,
-       "p": 0,
-       "gf": 12,
-       "gc": 2,
-       "dg": 10,
+       "p": 2,
+       "gf": 17,
+       "gc": 13,
+       "dg": 4,
        "pts": 6
       },
       {
-       "team": "24080",
-       "pos": 3,
-       "pj": 2,
-       "g": 1,
+       "team": "25268",
+       "pos": 4,
+       "pj": 4,
+       "g": 2,
        "e": 0,
-       "p": 1,
-       "gf": 9,
-       "gc": 6,
-       "dg": 3,
-       "pts": 3
+       "p": 2,
+       "gf": 6,
+       "gc": 16,
+       "dg": -10,
+       "pts": 6
       },
       {
        "team": "25201",
-       "pos": 4,
-       "pj": 2,
+       "pos": 5,
+       "pj": 3,
        "g": 1,
        "e": 0,
-       "p": 1,
-       "gf": 10,
-       "gc": 9,
-       "dg": 1,
+       "p": 2,
+       "gf": 12,
+       "gc": 13,
+       "dg": -1,
        "pts": 3
       },
       {
        "team": "24024",
-       "pos": 5,
-       "pj": 2,
+       "pos": 6,
+       "pj": 3,
        "g": 1,
        "e": 0,
-       "p": 1,
+       "p": 2,
        "gf": 2,
-       "gc": 12,
-       "dg": -10,
+       "gc": 13,
+       "dg": -11,
        "pts": 3
       },
       {
        "team": "24640",
-       "pos": 6,
-       "pj": 2,
-       "g": 0,
-       "e": 0,
-       "p": 2,
-       "gf": 2,
-       "gc": 10,
-       "dg": -8,
-       "pts": 0
-      },
-      {
-       "team": "25268",
        "pos": 7,
-       "pj": 2,
+       "pj": 3,
        "g": 0,
        "e": 0,
-       "p": 2,
-       "gf": 4,
-       "gc": 16,
-       "dg": -12,
+       "p": 3,
+       "gf": 2,
+       "gc": 11,
+       "dg": -9,
        "pts": 0
       }
      ]
@@ -5533,62 +5533,62 @@
     {
      "player": "Jose Giovanni Diaz Castillo",
      "team": "23914",
-     "goals": 7,
-     "matches": 2
+     "goals": 11,
+     "matches": 3
     },
     {
      "player": "Felipe Emmanuel Santana Monero",
      "team": "25201",
-     "goals": 6,
-     "matches": 1
-    },
-    {
-     "player": "Johansel Wilian Abreu Tejada",
-     "team": "24080",
-     "goals": 3,
-     "matches": 2
-    },
-    {
-     "player": "Aitor Jesus Medina Jimenez",
-     "team": "24311",
-     "goals": 3,
-     "matches": 2
-    },
-    {
-     "player": "Guerson Blain",
-     "team": "25201",
-     "goals": 3,
-     "matches": 2
-    },
-    {
-     "player": "Miguel Diaz",
-     "team": "24311",
-     "goals": 3,
-     "matches": 2
-    },
-    {
-     "player": "Alan Emil De La Rosa Martinez",
-     "team": "23914",
-     "goals": 3,
-     "matches": 1
-    },
-    {
-     "player": "Derek Augusto Martinez",
-     "team": "25268",
-     "goals": 2,
-     "matches": 2
-    },
-    {
-     "player": "Esteban José Castillo",
-     "team": "25268",
-     "goals": 2,
+     "goals": 8,
      "matches": 2
     },
     {
      "player": "Reydell Ojeda Nuñez",
      "team": "23914",
-     "goals": 2,
-     "matches": 2
+     "goals": 6,
+     "matches": 3
+    },
+    {
+     "player": "Alan Emil De La Rosa Martinez",
+     "team": "23914",
+     "goals": 5,
+     "matches": 3
+    },
+    {
+     "player": "Emil Nuñez",
+     "team": "24311",
+     "goals": 4,
+     "matches": 4
+    },
+    {
+     "player": "Derek Augusto Martinez",
+     "team": "25268",
+     "goals": 3,
+     "matches": 4
+    },
+    {
+     "player": "Johansel Wilian Abreu Tejada",
+     "team": "24080",
+     "goals": 3,
+     "matches": 3
+    },
+    {
+     "player": "Guerson Blain",
+     "team": "25201",
+     "goals": 3,
+     "matches": 3
+    },
+    {
+     "player": "Aitor Jesus Medina Jimenez",
+     "team": "24311",
+     "goals": 3,
+     "matches": 4
+    },
+    {
+     "player": "Miguel Diaz",
+     "team": "24311",
+     "goals": 3,
+     "matches": 4
     }
    ]
   },
@@ -5598,7 +5598,7 @@
    "name": "Super Copa (Male U-14)",
    "teams": 6,
    "matches": 26,
-   "players": 112,
+   "players": 113,
    "referees": 7,
    "schedule": [
     {
@@ -5674,8 +5674,8 @@
      "venue": "La estación, La Romana",
      "home": "24025",
      "away": "25269",
-     "hs": null,
-     "as": null,
+     "hs": 1,
+     "as": 0,
      "hp": null,
      "ap": null
     },
@@ -5713,8 +5713,8 @@
      "venue": "La estación, La Romana",
      "home": "24641",
      "away": "24475",
-     "hs": null,
-     "as": null,
+     "hs": 0,
+     "as": 4,
      "hp": null,
      "ap": null
     },
@@ -5947,18 +5947,30 @@
       {
        "team": "24025",
        "pos": 1,
+       "pj": 2,
+       "g": 2,
+       "e": 0,
+       "p": 0,
+       "gf": 5,
+       "gc": 1,
+       "dg": 4,
+       "pts": 6
+      },
+      {
+       "team": "24475",
+       "pos": 2,
        "pj": 1,
        "g": 1,
        "e": 0,
        "p": 0,
        "gf": 4,
-       "gc": 1,
-       "dg": 3,
+       "gc": 0,
+       "dg": 4,
        "pts": 3
       },
       {
        "team": "24081",
-       "pos": 2,
+       "pos": 3,
        "pj": 1,
        "g": 1,
        "e": 0,
@@ -5970,7 +5982,7 @@
       },
       {
        "team": "25234",
-       "pos": 3,
+       "pos": 4,
        "pj": 2,
        "g": 1,
        "e": 0,
@@ -5982,38 +5994,26 @@
       },
       {
        "team": "25269",
-       "pos": 4,
-       "pj": 2,
+       "pos": 5,
+       "pj": 3,
        "g": 1,
        "e": 0,
-       "p": 1,
+       "p": 2,
        "gf": 0,
-       "gc": 3,
-       "dg": -3,
+       "gc": 4,
+       "dg": -4,
        "pts": 3
-      },
-      {
-       "team": "24475",
-       "pos": 5,
-       "pj": 0,
-       "g": 0,
-       "e": 0,
-       "p": 0,
-       "gf": 0,
-       "gc": 0,
-       "dg": 0,
-       "pts": 0
       },
       {
        "team": "24641",
        "pos": 6,
-       "pj": 2,
+       "pj": 3,
        "g": 0,
        "e": 0,
-       "p": 2,
+       "p": 3,
        "gf": 0,
-       "gc": 3,
-       "dg": -3,
+       "gc": 7,
+       "dg": -7,
        "pts": 0
       }
      ]
@@ -6027,10 +6027,22 @@
      "matches": 2
     },
     {
+     "player": "Mark David Yosef",
+     "team": "24475",
+     "goals": 3,
+     "matches": 1
+    },
+    {
      "player": "Max Alejandro Fortuna De Olio",
      "team": "24025",
      "goals": 2,
-     "matches": 1
+     "matches": 2
+    },
+    {
+     "player": "Brandon Michael Guerrero Soriano",
+     "team": "24025",
+     "goals": 2,
+     "matches": 2
     },
     {
      "player": "Wesley Alex",
@@ -6045,38 +6057,26 @@
      "matches": 2
     },
     {
+     "player": "Yiram Daniel Calcaño Ramirez",
+     "team": "24025",
+     "goals": 1,
+     "matches": 2
+    },
+    {
      "player": "Edwis Encarnacion",
      "team": "24081",
      "goals": 1,
      "matches": 1
     },
     {
-     "player": "Yiram Daniel Calcaño Ramirez",
-     "team": "24025",
+     "player": "Carlos Hazael Montero Yesen",
+     "team": "24475",
      "goals": 1,
      "matches": 1
     },
     {
-     "player": "Brandon Michael Guerrero Soriano",
+     "player": "Adrian Jose Solano Garcia",
      "team": "24025",
-     "goals": 1,
-     "matches": 1
-    },
-    {
-     "player": "Isaac Benjamin Garcia Reyes",
-     "team": "25234",
-     "goals": 0,
-     "matches": 2
-    },
-    {
-     "player": "Elliot Alexander Sanchez Paulino",
-     "team": "25234",
-     "goals": 0,
-     "matches": 2
-    },
-    {
-     "player": "Tyler Daniel Castellano Ng Zhu",
-     "team": "25234",
      "goals": 0,
      "matches": 2
     }
@@ -6088,7 +6088,7 @@
    "name": "Super Copa (Male U-16)",
    "teams": 6,
    "matches": 27,
-   "players": 98,
+   "players": 100,
    "referees": 7,
    "schedule": [
     {
@@ -6170,19 +6170,6 @@
      "ap": null
     },
     {
-     "id": "42585",
-     "round": 2,
-     "date": "2026-11-21",
-     "time": "14:00",
-     "venue": "La estación, La Romana",
-     "home": "24904",
-     "away": "24028",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "42584",
      "round": 2,
      "date": "2026-11-21",
@@ -6190,8 +6177,21 @@
      "venue": "La estación, La Romana",
      "home": "24079",
      "away": "25235",
-     "hs": null,
-     "as": null,
+     "hs": 2,
+     "as": 1,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42585",
+     "round": 2,
+     "date": "2026-11-21",
+     "time": "14:00",
+     "venue": "La estación, La Romana",
+     "home": "24904",
+     "away": "24028",
+     "hs": 5,
+     "as": 0,
      "hp": null,
      "ap": null
     },
@@ -6216,8 +6216,8 @@
      "venue": "La estación, La Romana",
      "home": "24028",
      "away": "25270",
-     "hs": null,
-     "as": null,
+     "hs": 3,
+     "as": 1,
      "hp": null,
      "ap": null
     },
@@ -6261,19 +6261,6 @@
      "ap": null
     },
     {
-     "id": "42590",
-     "round": 3,
-     "date": "2026-12-05",
-     "time": "12:50",
-     "venue": "La estación, La Romana",
-     "home": "24028",
-     "away": "24079",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "42589",
      "round": 3,
      "date": "2026-12-05",
@@ -6281,6 +6268,19 @@
      "venue": "La estación, La Romana",
      "home": "25235",
      "away": "25270",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42590",
+     "round": 3,
+     "date": "2026-12-05",
+     "time": "12:50",
+     "venue": "La estación, La Romana",
+     "home": "24028",
+     "away": "24079",
      "hs": null,
      "as": null,
      "hp": null,
@@ -6448,52 +6448,52 @@
      "name": "Unico",
      "rows": [
       {
-       "team": "25235",
+       "team": "24904",
        "pos": 1,
-       "pj": 2,
+       "pj": 3,
        "g": 2,
        "e": 0,
-       "p": 0,
-       "gf": 7,
-       "gc": 3,
-       "dg": 4,
+       "p": 1,
+       "gf": 9,
+       "gc": 4,
+       "dg": 5,
        "pts": 6
       },
       {
        "team": "24079",
        "pos": 2,
-       "pj": 1,
-       "g": 1,
+       "pj": 2,
+       "g": 2,
        "e": 0,
        "p": 0,
-       "gf": 4,
-       "gc": 1,
-       "dg": 3,
-       "pts": 3
+       "gf": 6,
+       "gc": 2,
+       "dg": 4,
+       "pts": 6
       },
       {
-       "team": "24904",
+       "team": "25235",
        "pos": 3,
-       "pj": 2,
-       "g": 1,
+       "pj": 3,
+       "g": 2,
        "e": 0,
        "p": 1,
-       "gf": 4,
-       "gc": 4,
-       "dg": 0,
-       "pts": 3
+       "gf": 8,
+       "gc": 5,
+       "dg": 3,
+       "pts": 6
       },
       {
        "team": "24028",
        "pos": 4,
-       "pj": 0,
-       "g": 0,
+       "pj": 2,
+       "g": 1,
        "e": 0,
-       "p": 0,
-       "gf": 0,
-       "gc": 0,
-       "dg": 0,
-       "pts": 0
+       "p": 1,
+       "gf": 3,
+       "gc": 6,
+       "dg": -3,
+       "pts": 3
       },
       {
        "team": "24026",
@@ -6510,13 +6510,13 @@
       {
        "team": "25270",
        "pos": 6,
-       "pj": 2,
+       "pj": 3,
        "g": 0,
        "e": 0,
-       "p": 2,
-       "gf": 2,
-       "gc": 6,
-       "dg": -4,
+       "p": 3,
+       "gf": 3,
+       "gc": 9,
+       "dg": -6,
        "pts": 0
       }
      ]
@@ -6524,64 +6524,64 @@
    ],
    "leaders": [
     {
-     "player": "Raysselle Jesus Modesto Mota",
-     "team": "25235",
-     "goals": 2,
+     "player": "Jeffrey Valmir",
+     "team": "24079",
+     "goals": 4,
      "matches": 2
     },
     {
-     "player": "Jeffrey Valmir",
-     "team": "24079",
-     "goals": 2,
+     "player": "Bryant Reyes Sánchez",
+     "team": "24904",
+     "goals": 3,
      "matches": 1
+    },
+    {
+     "player": "Raysselle Jesus Modesto Mota",
+     "team": "25235",
+     "goals": 2,
+     "matches": 3
     },
     {
      "player": "Ronelson Theligene",
      "team": "25235",
      "goals": 2,
-     "matches": 1
+     "matches": 2
     },
     {
      "player": "Randy Junior",
      "team": "24079",
      "goals": 2,
-     "matches": 0
+     "matches": 1
     },
     {
      "player": "Edu Etienne",
      "team": "25270",
      "goals": 1,
-     "matches": 1
+     "matches": 2
     },
     {
      "player": "Yams Smitshy",
      "team": "25235",
      "goals": 1,
-     "matches": 2
+     "matches": 3
     },
     {
-     "player": "Juan Carlos Garcia Dominguez",
+     "player": "Alexander Presinal Cordero",
      "team": "25235",
      "goals": 1,
      "matches": 2
     },
     {
-     "player": "Samuel Alexander Marte Guzman",
-     "team": "24026",
+     "player": "Elvis Leonardo Halles Rivera",
+     "team": "24028",
      "goals": 1,
-     "matches": 0
+     "matches": 1
     },
     {
-     "player": "Justin Samuel Santana",
-     "team": "24904",
+     "player": "Enyer Enmanuel Richarzon Guzmán",
+     "team": "24028",
      "goals": 1,
-     "matches": 0
-    },
-    {
-     "player": "Marcos Mickaelle Harvey",
-     "team": "24904",
-     "goals": 1,
-     "matches": 0
+     "matches": 1
     }
    ]
   },
@@ -6628,8 +6628,8 @@
      "venue": "La Estación, La Romana",
      "home": "25333",
      "away": "24027",
-     "hs": null,
-     "as": null,
+     "hs": 1,
+     "as": 7,
      "hp": null,
      "ap": null
     },
@@ -6860,19 +6860,19 @@
      "name": "Regular",
      "rows": [
       {
-       "team": "24448",
+       "team": "24027",
        "pos": 1,
-       "pj": 1,
+       "pj": 2,
        "g": 1,
        "e": 0,
-       "p": 0,
-       "gf": 2,
-       "gc": 0,
-       "dg": 2,
+       "p": 1,
+       "gf": 7,
+       "gc": 3,
+       "dg": 4,
        "pts": 3
       },
       {
-       "team": "25300",
+       "team": "24448",
        "pos": 2,
        "pj": 1,
        "g": 1,
@@ -6884,8 +6884,20 @@
        "pts": 3
       },
       {
-       "team": "24706",
+       "team": "25300",
        "pos": 3,
+       "pj": 1,
+       "g": 1,
+       "e": 0,
+       "p": 0,
+       "gf": 2,
+       "gc": 0,
+       "dg": 2,
+       "pts": 3
+      },
+      {
+       "team": "24706",
+       "pos": 4,
        "pj": 0,
        "g": 0,
        "e": 0,
@@ -6897,32 +6909,50 @@
       },
       {
        "team": "25333",
-       "pos": 4,
-       "pj": 1,
-       "g": 0,
-       "e": 0,
-       "p": 1,
-       "gf": 0,
-       "gc": 2,
-       "dg": -2,
-       "pts": 0
-      },
-      {
-       "team": "24027",
        "pos": 5,
-       "pj": 1,
+       "pj": 2,
        "g": 0,
        "e": 0,
-       "p": 1,
-       "gf": 0,
-       "gc": 2,
-       "dg": -2,
+       "p": 2,
+       "gf": 1,
+       "gc": 9,
+       "dg": -8,
        "pts": 0
       }
      ]
     }
    ],
    "leaders": [
+    {
+     "player": "Oly Cadeau",
+     "team": "24027",
+     "goals": 2,
+     "matches": 2
+    },
+    {
+     "player": "Rodney Alejandro Cabrera",
+     "team": "24027",
+     "goals": 2,
+     "matches": 2
+    },
+    {
+     "player": "Julio Cesar Morel",
+     "team": "24027",
+     "goals": 1,
+     "matches": 2
+    },
+    {
+     "player": "Jean Baptiste Georges Junior",
+     "team": "24027",
+     "goals": 1,
+     "matches": 2
+    },
+    {
+     "player": "Miguelito Franzua Yan",
+     "team": "24027",
+     "goals": 1,
+     "matches": 2
+    },
     {
      "player": "Rossemberg Junior Rodriguez Cogollo",
      "team": "25300",
@@ -6936,52 +6966,22 @@
      "matches": 1
     },
     {
-     "player": "Orlando Cedano",
-     "team": "24027",
-     "goals": 0,
-     "matches": 1
-    },
-    {
-     "player": "Julio Cesar Morel",
-     "team": "24027",
-     "goals": 0,
-     "matches": 1
-    },
-    {
-     "player": "Oly Cadeau",
-     "team": "24027",
-     "goals": 0,
-     "matches": 1
-    },
-    {
-     "player": "Miguelito Franzua Yan",
-     "team": "24027",
-     "goals": 0,
-     "matches": 1
-    },
-    {
-     "player": "Jean Baptiste Georges Junior",
-     "team": "24027",
-     "goals": 0,
+     "player": "Luigi Paolo Flores Fajardo",
+     "team": "25333",
+     "goals": 1,
      "matches": 1
     },
     {
      "player": "Bensonne Point Dujour",
      "team": "24027",
      "goals": 0,
-     "matches": 1
+     "matches": 2
     },
     {
      "player": "Andry Estevez Rijo",
      "team": "24027",
      "goals": 0,
-     "matches": 1
-    },
-    {
-     "player": "Francisco Alberto Reyes Paniagua",
-     "team": "25300",
-     "goals": 0,
-     "matches": 1
+     "matches": 2
     }
    ]
   }
