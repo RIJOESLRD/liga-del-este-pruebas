@@ -39,7 +39,7 @@ jobs:
         if: github.event_name != 'push'
         run: |
           python3 scripts/sync_dribbli.py || echo "No se pudo leer Dribbli; se publica con los datos anteriores."
-          git add data/dribbli.json logos/dribbli
+          git add data/dribbli.json data/incidencias.json logos/dribbli
           if git diff --cached --quiet; then
             echo "Sin cambios en Dribbli."
           else

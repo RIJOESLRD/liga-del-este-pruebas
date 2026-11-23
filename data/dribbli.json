@@ -1,6 +1,6 @@
 {
  "source": "Dribbli",
- "updatedAt": "2026-11-23T10:58:28+00:00",
+ "updatedAt": "2026-11-23T22:29:04+00:00",
  "categories": {
   "3754": {
    "division": "premier",
@@ -4156,19 +4156,6 @@
    "referees": 7,
    "schedule": [
     {
-     "id": "40596",
-     "round": 1,
-     "date": "2026-10-31",
-     "time": "09:00",
-     "venue": "La Estacion, La Romana",
-     "home": "25267",
-     "away": "24509",
-     "hs": 7,
-     "as": 1,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "40592",
      "round": 1,
      "date": "2026-10-31",
@@ -4178,6 +4165,19 @@
      "away": "24082",
      "hs": 3,
      "as": 4,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40596",
+     "round": 1,
+     "date": "2026-10-31",
+     "time": "09:00",
+     "venue": "La Estacion, La Romana",
+     "home": "25267",
+     "away": "24509",
+     "hs": 7,
+     "as": 1,
      "hp": null,
      "ap": null
     },
@@ -4260,6 +4260,19 @@
      "ap": null
     },
     {
+     "id": "40603",
+     "round": 2,
+     "date": "2026-11-21",
+     "time": "09:00",
+     "venue": "La Estacion, La Romana",
+     "home": "24082",
+     "away": "24509",
+     "hs": 6,
+     "as": 4,
+     "hp": null,
+     "ap": null
+    },
+    {
      "id": "40602",
      "round": 2,
      "date": "2026-11-21",
@@ -4269,19 +4282,6 @@
      "away": "24023",
      "hs": 2,
      "as": 0,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "40603",
-     "round": 2,
-     "date": "2026-11-21",
-     "time": "09:00",
-     "venue": "La Estacion, La Romana",
-     "home": "24082",
-     "away": "24509",
-     "hs": null,
-     "as": null,
      "hp": null,
      "ap": null
     },
@@ -4351,19 +4351,6 @@
      "ap": null
     },
     {
-     "id": "42636",
-     "round": 3,
-     "date": "2026-12-05",
-     "time": "09:00",
-     "venue": "Casa de Campo, La Romana",
-     "home": "24609",
-     "away": "24739",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "42637",
      "round": 3,
      "date": "2026-12-05",
@@ -4390,13 +4377,13 @@
      "ap": null
     },
     {
-     "id": "40607",
+     "id": "42636",
      "round": 3,
      "date": "2026-12-05",
-     "time": "11:00",
-     "venue": "Parque del Este, Santo Domingo",
-     "home": "24739",
-     "away": "25267",
+     "time": "09:00",
+     "venue": "Casa de Campo, La Romana",
+     "home": "24609",
+     "away": "24739",
      "hs": null,
      "as": null,
      "hp": null,
@@ -4429,6 +4416,19 @@
      "ap": null
     },
     {
+     "id": "40607",
+     "round": 3,
+     "date": "2026-12-05",
+     "time": "11:00",
+     "venue": "Parque del Este, Santo Domingo",
+     "home": "24739",
+     "away": "25267",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
      "id": "40608",
      "round": 3,
      "date": "2026-12-05",
@@ -4436,6 +4436,32 @@
      "venue": "Parque del Este, Santo Domingo",
      "home": "24509",
      "away": "24739",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40612",
+     "round": 4,
+     "date": "2027-02-06",
+     "time": "09:00",
+     "venue": "La Salle, Higuey",
+     "home": "24082",
+     "away": "24609",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40609",
+     "round": 4,
+     "date": "2027-02-06",
+     "time": "09:00",
+     "venue": "La Salle, Higüey",
+     "home": "24609",
+     "away": "24082",
      "hs": null,
      "as": null,
      "hp": null,
@@ -4462,32 +4488,6 @@
      "venue": "Ciudad Deportiva Downtown, Punta Cana",
      "home": "25267",
      "away": "24310",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "40609",
-     "round": 4,
-     "date": "2027-02-06",
-     "time": "09:00",
-     "venue": "La Salle, Higüey",
-     "home": "24609",
-     "away": "24082",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "40612",
-     "round": 4,
-     "date": "2027-02-06",
-     "time": "09:00",
-     "venue": "La Salle, Higuey",
-     "home": "24082",
-     "away": "24609",
      "hs": null,
      "as": null,
      "hp": null,
@@ -4745,8 +4745,20 @@
        "pts": 12
       },
       {
-       "team": "25267",
+       "team": "24082",
        "pos": 2,
+       "pj": 4,
+       "g": 4,
+       "e": 0,
+       "p": 0,
+       "gf": 19,
+       "gc": 12,
+       "dg": 7,
+       "pts": 12
+      },
+      {
+       "team": "25267",
+       "pos": 3,
        "pj": 4,
        "g": 3,
        "e": 0,
@@ -4754,18 +4766,6 @@
        "gf": 20,
        "gc": 5,
        "dg": 15,
-       "pts": 9
-      },
-      {
-       "team": "24082",
-       "pos": 3,
-       "pj": 3,
-       "g": 3,
-       "e": 0,
-       "p": 0,
-       "gf": 13,
-       "gc": 8,
-       "dg": 5,
        "pts": 9
       },
       {
@@ -4795,13 +4795,13 @@
       {
        "team": "24509",
        "pos": 6,
-       "pj": 3,
+       "pj": 4,
        "g": 1,
        "e": 0,
-       "p": 2,
-       "gf": 9,
-       "gc": 17,
-       "dg": -8,
+       "p": 3,
+       "gf": 13,
+       "gc": 23,
+       "dg": -10,
        "pts": 3
       },
       {
@@ -4824,7 +4824,13 @@
      "player": "Angel Manuel Frias",
      "team": "24082",
      "goals": 8,
-     "matches": 3
+     "matches": 4
+    },
+    {
+     "player": "Dylan Pimentel",
+     "team": "24509",
+     "goals": 5,
+     "matches": 4
     },
     {
      "player": "Fraily Antonio Bastardo",
@@ -4839,22 +4845,22 @@
      "matches": 3
     },
     {
+     "player": "Bryant Esteban Adames Sosa",
+     "team": "24509",
+     "goals": 4,
+     "matches": 4
+    },
+    {
      "player": "Ashley Santana Gallego",
      "team": "25267",
      "goals": 4,
      "matches": 4
     },
     {
-     "player": "Bryant Esteban Adames Sosa",
-     "team": "24509",
-     "goals": 4,
-     "matches": 3
-    },
-    {
      "player": "Greilyn Ernesto Castillo Feliz",
      "team": "24509",
      "goals": 3,
-     "matches": 3
+     "matches": 4
     },
     {
      "player": "Eliam Jaasiel Jhonson",
@@ -4873,12 +4879,6 @@
      "team": "24739",
      "goals": 3,
      "matches": 3
-    },
-    {
-     "player": "Salvatore Nolasco Palazzi",
-     "team": "24739",
-     "goals": 3,
-     "matches": 3
     }
    ]
   },
@@ -4892,19 +4892,6 @@
    "referees": 8,
    "schedule": [
     {
-     "id": "40625",
-     "round": 1,
-     "date": "2026-10-31",
-     "time": "09:00",
-     "venue": "La Estacion, La Romana",
-     "home": "24024",
-     "away": "24640",
-     "hs": 2,
-     "as": 1,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "40626",
      "round": 1,
      "date": "2026-10-31",
@@ -4914,6 +4901,19 @@
      "away": "25201",
      "hs": 7,
      "as": 2,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40625",
+     "round": 1,
+     "date": "2026-10-31",
+     "time": "09:00",
+     "venue": "La Estacion, La Romana",
+     "home": "24024",
+     "away": "24640",
+     "hs": 2,
+     "as": 1,
      "hp": null,
      "ap": null
     },
@@ -4983,19 +4983,6 @@
      "ap": null
     },
     {
-     "id": "42574",
-     "round": 21,
-     "date": "2026-11-21",
-     "time": "09:00",
-     "venue": "FC RAMSAR",
-     "home": "25268",
-     "away": "24024",
-     "hs": 1,
-     "as": 0,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "40628",
      "round": 2,
      "date": "2026-11-21",
@@ -5005,6 +4992,19 @@
      "away": "25201",
      "hs": 4,
      "as": 2,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42574",
+     "round": 21,
+     "date": "2026-11-21",
+     "time": "09:00",
+     "venue": "FC RAMSAR",
+     "home": "25268",
+     "away": "24024",
+     "hs": 1,
+     "as": 0,
      "hp": null,
      "ap": null
     },
@@ -5042,8 +5042,8 @@
      "venue": "La Estacion, La Romana",
      "home": "25201",
      "away": "24080",
-     "hs": null,
-     "as": null,
+     "hs": 0,
+     "as": 6,
      "hp": null,
      "ap": null
     },
@@ -5068,8 +5068,8 @@
      "venue": "FC RAMSAR",
      "home": "24640",
      "away": "24024",
-     "hs": null,
-     "as": null,
+     "hs": 1,
+     "as": 2,
      "hp": null,
      "ap": null
     },
@@ -5113,19 +5113,6 @@
      "ap": null
     },
     {
-     "id": "42624",
-     "round": 3,
-     "date": "2026-12-05",
-     "time": "12:00",
-     "venue": "Parque del Este, Santo Domingo",
-     "home": "24024",
-     "away": "25268",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "40633",
      "round": 3,
      "date": "2026-12-05",
@@ -5133,6 +5120,19 @@
      "venue": "Parque del Este, Santo Domingo",
      "home": "25201",
      "away": "24024",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42624",
+     "round": 3,
+     "date": "2026-12-05",
+     "time": "12:00",
+     "venue": "Parque del Este, Santo Domingo",
+     "home": "24024",
+     "away": "25268",
      "hs": null,
      "as": null,
      "hp": null,
@@ -5178,19 +5178,6 @@
      "ap": null
     },
     {
-     "id": "42626",
-     "round": 23,
-     "date": "2027-02-06",
-     "time": "09:00",
-     "venue": "La Salle, Higüey",
-     "home": "24640",
-     "away": "24080",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
      "id": "40659",
      "round": 4,
      "date": "2027-02-06",
@@ -5217,13 +5204,13 @@
      "ap": null
     },
     {
-     "id": "40661",
-     "round": 4,
+     "id": "42626",
+     "round": 23,
      "date": "2027-02-06",
-     "time": "10:45",
-     "venue": "Casa de Campo, La Romana",
-     "home": "25201",
-     "away": "23914",
+     "time": "09:00",
+     "venue": "La Salle, Higüey",
+     "home": "24640",
+     "away": "24080",
      "hs": null,
      "as": null,
      "hp": null,
@@ -5237,6 +5224,19 @@
      "venue": "La Salle, Higüey",
      "home": "24080",
      "away": "24640",
+     "hs": null,
+     "as": null,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "40661",
+     "round": 4,
+     "date": "2027-02-06",
+     "time": "10:45",
+     "venue": "Casa de Campo, La Romana",
+     "home": "25201",
+     "away": "23914",
      "hs": null,
      "as": null,
      "hp": null,
@@ -5457,14 +5457,14 @@
       {
        "team": "24080",
        "pos": 2,
-       "pj": 3,
-       "g": 2,
+       "pj": 4,
+       "g": 3,
        "e": 0,
        "p": 1,
-       "gf": 13,
+       "gf": 19,
        "gc": 8,
-       "dg": 5,
-       "pts": 6
+       "dg": 11,
+       "pts": 9
       },
       {
        "team": "24311",
@@ -5491,39 +5491,39 @@
        "pts": 6
       },
       {
-       "team": "25201",
+       "team": "24024",
        "pos": 5,
-       "pj": 3,
-       "g": 1,
+       "pj": 4,
+       "g": 2,
        "e": 0,
        "p": 2,
-       "gf": 12,
-       "gc": 13,
-       "dg": -1,
-       "pts": 3
+       "gf": 4,
+       "gc": 14,
+       "dg": -10,
+       "pts": 6
       },
       {
-       "team": "24024",
+       "team": "25201",
        "pos": 6,
-       "pj": 3,
+       "pj": 4,
        "g": 1,
        "e": 0,
-       "p": 2,
-       "gf": 2,
-       "gc": 13,
-       "dg": -11,
+       "p": 3,
+       "gf": 12,
+       "gc": 19,
+       "dg": -7,
        "pts": 3
       },
       {
        "team": "24640",
        "pos": 7,
-       "pj": 3,
+       "pj": 4,
        "g": 0,
        "e": 0,
-       "p": 3,
-       "gf": 2,
-       "gc": 11,
-       "dg": -9,
+       "p": 4,
+       "gf": 3,
+       "gc": 13,
+       "dg": -10,
        "pts": 0
       }
      ]
@@ -5549,6 +5549,18 @@
      "matches": 3
     },
     {
+     "player": "Fernando Yan",
+     "team": "24080",
+     "goals": 5,
+     "matches": 3
+    },
+    {
+     "player": "Yordi Darwin",
+     "team": "24080",
+     "goals": 5,
+     "matches": 2
+    },
+    {
      "player": "Alan Emil De La Rosa Martinez",
      "team": "23914",
      "goals": 5,
@@ -5561,32 +5573,20 @@
      "matches": 4
     },
     {
-     "player": "Derek Augusto Martinez",
-     "team": "25268",
-     "goals": 3,
-     "matches": 4
-    },
-    {
      "player": "Johansel Wilian Abreu Tejada",
      "team": "24080",
      "goals": 3,
-     "matches": 3
+     "matches": 4
     },
     {
      "player": "Guerson Blain",
      "team": "25201",
      "goals": 3,
-     "matches": 3
-    },
-    {
-     "player": "Aitor Jesus Medina Jimenez",
-     "team": "24311",
-     "goals": 3,
      "matches": 4
     },
     {
-     "player": "Miguel Diaz",
-     "team": "24311",
+     "player": "Derek Augusto Martinez",
+     "team": "25268",
      "goals": 3,
      "matches": 4
     }
@@ -5599,7 +5599,7 @@
    "teams": 6,
    "matches": 26,
    "players": 113,
-   "referees": 7,
+   "referees": 6,
    "schedule": [
     {
      "id": "42074",
@@ -5687,8 +5687,8 @@
      "venue": "La estación, La Romana",
      "home": "24081",
      "away": "25234",
-     "hs": null,
-     "as": null,
+     "hs": 4,
+     "as": 0,
      "hp": null,
      "ap": null
     },
@@ -5945,8 +5945,20 @@
      "name": "Regular",
      "rows": [
       {
-       "team": "24025",
+       "team": "24081",
        "pos": 1,
+       "pj": 2,
+       "g": 2,
+       "e": 0,
+       "p": 0,
+       "gf": 7,
+       "gc": 0,
+       "dg": 7,
+       "pts": 6
+      },
+      {
+       "team": "24025",
+       "pos": 2,
        "pj": 2,
        "g": 2,
        "e": 0,
@@ -5958,7 +5970,7 @@
       },
       {
        "team": "24475",
-       "pos": 2,
+       "pos": 3,
        "pj": 1,
        "g": 1,
        "e": 0,
@@ -5969,27 +5981,15 @@
        "pts": 3
       },
       {
-       "team": "24081",
-       "pos": 3,
-       "pj": 1,
-       "g": 1,
-       "e": 0,
-       "p": 0,
-       "gf": 3,
-       "gc": 0,
-       "dg": 3,
-       "pts": 3
-      },
-      {
        "team": "25234",
        "pos": 4,
-       "pj": 2,
+       "pj": 3,
        "g": 1,
        "e": 0,
-       "p": 1,
+       "p": 2,
        "gf": 4,
-       "gc": 4,
-       "dg": 0,
+       "gc": 8,
+       "dg": -4,
        "pts": 3
       },
       {
@@ -6024,6 +6024,18 @@
      "player": "Rayniel Acevedo Pacheco",
      "team": "25234",
      "goals": 3,
+     "matches": 3
+    },
+    {
+     "player": "Wesley Alex",
+     "team": "24081",
+     "goals": 3,
+     "matches": 2
+    },
+    {
+     "player": "Edwis Encarnacion",
+     "team": "24081",
+     "goals": 3,
      "matches": 2
     },
     {
@@ -6045,16 +6057,10 @@
      "matches": 2
     },
     {
-     "player": "Wesley Alex",
-     "team": "24081",
-     "goals": 2,
-     "matches": 1
-    },
-    {
      "player": "Angelin Yandel Quezada Linval",
      "team": "25234",
      "goals": 1,
-     "matches": 2
+     "matches": 3
     },
     {
      "player": "Yiram Daniel Calcaño Ramirez",
@@ -6063,22 +6069,16 @@
      "matches": 2
     },
     {
-     "player": "Edwis Encarnacion",
+     "player": "Fabian Ernesto Severino Severino",
      "team": "24081",
      "goals": 1,
-     "matches": 1
+     "matches": 2
     },
     {
      "player": "Carlos Hazael Montero Yesen",
      "team": "24475",
      "goals": 1,
      "matches": 1
-    },
-    {
-     "player": "Adrian Jose Solano Garcia",
-     "team": "24025",
-     "goals": 0,
-     "matches": 2
     }
    ]
   },
@@ -6164,19 +6164,6 @@
      "venue": "La Estación, La Romana",
      "home": "25270",
      "away": "24026",
-     "hs": null,
-     "as": null,
-     "hp": null,
-     "ap": null
-    },
-    {
-     "id": "42584",
-     "round": 2,
-     "date": "2026-11-21",
-     "time": "14:00",
-     "venue": "La estación, La Romana",
-     "home": "24079",
-     "away": "25235",
      "hs": 2,
      "as": 1,
      "hp": null,
@@ -6196,15 +6183,15 @@
      "ap": null
     },
     {
-     "id": "42581",
+     "id": "42584",
      "round": 2,
      "date": "2026-11-21",
-     "time": "22:20",
+     "time": "14:00",
      "venue": "La estación, La Romana",
-     "home": "25235",
-     "away": "24079",
-     "hs": null,
-     "as": null,
+     "home": "24079",
+     "away": "25235",
+     "hs": 2,
+     "as": 1,
      "hp": null,
      "ap": null
     },
@@ -6218,6 +6205,19 @@
      "away": "25270",
      "hs": 3,
      "as": 1,
+     "hp": null,
+     "ap": null
+    },
+    {
+     "id": "42581",
+     "round": 2,
+     "date": "2026-11-21",
+     "time": "22:20",
+     "venue": "La estación, La Romana",
+     "home": "25235",
+     "away": "24079",
+     "hs": 2,
+     "as": 2,
      "hp": null,
      "ap": null
     },
@@ -6448,8 +6448,32 @@
      "name": "Unico",
      "rows": [
       {
-       "team": "24904",
+       "team": "24079",
        "pos": 1,
+       "pj": 3,
+       "g": 2,
+       "e": 1,
+       "p": 0,
+       "gf": 8,
+       "gc": 4,
+       "dg": 4,
+       "pts": 7
+      },
+      {
+       "team": "25235",
+       "pos": 2,
+       "pj": 4,
+       "g": 2,
+       "e": 1,
+       "p": 1,
+       "gf": 10,
+       "gc": 7,
+       "dg": 3,
+       "pts": 7
+      },
+      {
+       "team": "24904",
+       "pos": 3,
        "pj": 3,
        "g": 2,
        "e": 0,
@@ -6457,30 +6481,6 @@
        "gf": 9,
        "gc": 4,
        "dg": 5,
-       "pts": 6
-      },
-      {
-       "team": "24079",
-       "pos": 2,
-       "pj": 2,
-       "g": 2,
-       "e": 0,
-       "p": 0,
-       "gf": 6,
-       "gc": 2,
-       "dg": 4,
-       "pts": 6
-      },
-      {
-       "team": "25235",
-       "pos": 3,
-       "pj": 3,
-       "g": 2,
-       "e": 0,
-       "p": 1,
-       "gf": 8,
-       "gc": 5,
-       "dg": 3,
        "pts": 6
       },
       {
@@ -6496,27 +6496,27 @@
        "pts": 3
       },
       {
-       "team": "24026",
-       "pos": 5,
-       "pj": 1,
-       "g": 0,
-       "e": 0,
-       "p": 1,
-       "gf": 1,
-       "gc": 4,
-       "dg": -3,
-       "pts": 0
-      },
-      {
        "team": "25270",
-       "pos": 6,
-       "pj": 3,
-       "g": 0,
+       "pos": 5,
+       "pj": 4,
+       "g": 1,
        "e": 0,
        "p": 3,
-       "gf": 3,
-       "gc": 9,
-       "dg": -6,
+       "gf": 5,
+       "gc": 10,
+       "dg": -5,
+       "pts": 3
+      },
+      {
+       "team": "24026",
+       "pos": 6,
+       "pj": 2,
+       "g": 0,
+       "e": 0,
+       "p": 2,
+       "gf": 2,
+       "gc": 6,
+       "dg": -4,
        "pts": 0
       }
      ]
@@ -6526,8 +6526,14 @@
     {
      "player": "Jeffrey Valmir",
      "team": "24079",
+     "goals": 5,
+     "matches": 3
+    },
+    {
+     "player": "Ronelson Theligene",
+     "team": "25235",
      "goals": 4,
-     "matches": 2
+     "matches": 3
     },
     {
      "player": "Bryant Reyes Sánchez",
@@ -6536,16 +6542,22 @@
      "matches": 1
     },
     {
+     "player": "Nathan Maloy",
+     "team": "25270",
+     "goals": 2,
+     "matches": 2
+    },
+    {
      "player": "Raysselle Jesus Modesto Mota",
      "team": "25235",
      "goals": 2,
      "matches": 3
     },
     {
-     "player": "Ronelson Theligene",
-     "team": "25235",
+     "player": "Samuel Alexander Marte Guzman",
+     "team": "24026",
      "goals": 2,
-     "matches": 2
+     "matches": 1
     },
     {
      "player": "Randy Junior",
@@ -6554,34 +6566,22 @@
      "matches": 1
     },
     {
-     "player": "Edu Etienne",
-     "team": "25270",
-     "goals": 1,
-     "matches": 2
-    },
-    {
-     "player": "Yams Smitshy",
-     "team": "25235",
+     "player": "Stalin Manuel De La Cruz",
+     "team": "24079",
      "goals": 1,
      "matches": 3
     },
     {
-     "player": "Alexander Presinal Cordero",
-     "team": "25235",
+     "player": "Victor Andher Mota Martinez",
+     "team": "25270",
      "goals": 1,
-     "matches": 2
+     "matches": 3
     },
     {
-     "player": "Elvis Leonardo Halles Rivera",
-     "team": "24028",
+     "player": "Edu Etienne",
+     "team": "25270",
      "goals": 1,
-     "matches": 1
-    },
-    {
-     "player": "Enyer Enmanuel Richarzon Guzmán",
-     "team": "24028",
-     "goals": 1,
-     "matches": 1
+     "matches": 3
     }
    ]
   },
@@ -6592,7 +6592,7 @@
    "teams": 5,
    "matches": 20,
    "players": 176,
-   "referees": 6,
+   "referees": 10,
    "schedule": [
     {
      "id": "41439",
@@ -6992,7 +6992,8 @@
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy (Amarillo) U8   Premier  9.ª Edición",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24112.jpg"
+   "logo": "logos/dribbli/equipo-24112.jpg",
+   "clubId": "1956"
   },
   "24444": {
    "name": "Elite Football Academy",
@@ -7006,49 +7007,56 @@
    "club": "Academia Real Romana",
    "raw": "U8 Azul 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24014.jpg"
+   "logo": "logos/dribbli/equipo-24014.jpg",
+   "clubId": "1966"
   },
   "24607": {
    "name": "Spado Soccer Academy Rojo",
    "club": "Spado Soccer Academy",
    "raw": "Spado Soccer Academy Rojo",
    "ini": "SSA",
-   "logo": "logos/dribbli/equipo-24607.png"
+   "logo": "logos/dribbli/equipo-24607.png",
+   "clubId": "1964"
   },
   "24013": {
    "name": "Academia Real Romana Rojo",
    "club": "Academia Real Romana",
    "raw": "U8 Rojo 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24013.jpg"
+   "logo": "logos/dribbli/equipo-24013.jpg",
+   "clubId": "1966"
   },
   "25036": {
    "name": "Escudefut Jamp",
    "club": "Escudefut Jamp",
    "raw": "⚽⚽U8 Escudefut Jamp⚽⚽ Ix Edition",
    "ini": "EJ",
-   "logo": "logos/dribbli/equipo-25036.jpg"
+   "logo": "logos/dribbli/equipo-25036.jpg",
+   "clubId": "1958"
   },
   "24608": {
    "name": "Spado Soccer Academy Blanco",
    "club": "Spado Soccer Academy",
    "raw": "Spado Soccer Academy Blanco",
    "ini": "SSA",
-   "logo": "logos/dribbli/equipo-24608.png"
+   "logo": "logos/dribbli/equipo-24608.png",
+   "clubId": "1964"
   },
   "24871": {
    "name": "Richard FC",
    "club": "Richard FC",
    "raw": "Richard Fc U8 Premier 2026/27",
    "ini": "RF",
-   "logo": "logos/dribbli/equipo-24871.jpg"
+   "logo": "logos/dribbli/equipo-24871.jpg",
+   "clubId": "4001"
   },
   "24244": {
    "name": "Academia Real Romana Azul",
    "club": "Academia Real Romana",
    "raw": "U10 Azul 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24244.jpg"
+   "logo": "logos/dribbli/equipo-24244.jpg",
+   "clubId": "1966"
   },
   "24578": {
    "name": "Spado Soccer Academy",
@@ -7062,35 +7070,40 @@
    "club": "Academia Real Romana",
    "raw": "U10 Rojo 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24029.jpg"
+   "logo": "logos/dribbli/equipo-24029.jpg",
+   "clubId": "1966"
   },
   "24773": {
    "name": "Escudefut Jamp",
    "club": "Escudefut Jamp",
    "raw": "⚽U10 Escudefut Jamp⚽ Ix Edition",
    "ini": "EJ",
-   "logo": "logos/dribbli/equipo-24773.jpg"
+   "logo": "logos/dribbli/equipo-24773.jpg",
+   "clubId": "1958"
   },
   "24113": {
    "name": "Downtown Soccer Academy Amarillo",
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy U10 (Amarillo) Premier 9.ª Edición",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24113.jpg"
+   "logo": "logos/dribbli/equipo-24113.jpg",
+   "clubId": "1956"
   },
   "24443": {
    "name": "Elite Football Academy",
    "club": "Elite Football Academy",
    "raw": "Elite Football Academy   U10",
    "ini": "EFA",
-   "logo": "logos/dribbli/equipo-24443.png"
+   "logo": "logos/dribbli/equipo-24443.png",
+   "clubId": "1980"
   },
   "24015": {
    "name": "Academia Real Romana Azul",
    "club": "Academia Real Romana",
    "raw": "U12 Azul 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24015.jpg"
+   "logo": "logos/dribbli/equipo-24015.jpg",
+   "clubId": "1966"
   },
   "24577": {
    "name": "Spado Soccer Academy",
@@ -7104,21 +7117,24 @@
    "club": "Academia Real Romana",
    "raw": "U12 Rojo 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24178.jpg"
+   "logo": "logos/dribbli/equipo-24178.jpg",
+   "clubId": "1966"
   },
   "24775": {
    "name": "Escudefut Jamp",
    "club": "Escudefut Jamp",
    "raw": "⚽U12 Escudefut Jamp⚽ Ix Edition",
    "ini": "EJ",
-   "logo": "logos/dribbli/equipo-24775.jpg"
+   "logo": "logos/dribbli/equipo-24775.jpg",
+   "clubId": "1958"
   },
   "24114": {
    "name": "Downtown Soccer Academy Amarillo",
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy U12 (Amarillo) Premier 9.ª Edición",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24114.jpg"
+   "logo": "logos/dribbli/equipo-24114.jpg",
+   "clubId": "1956"
   },
   "24445": {
    "name": "Elite Football Academy",
@@ -7132,28 +7148,32 @@
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy U12 Premier (Azul) 9 Edicion",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24278.jpg"
+   "logo": "logos/dribbli/equipo-24278.jpg",
+   "clubId": "1956"
   },
   "24179": {
    "name": "Academia Real Romana Rojo",
    "club": "Academia Real Romana",
    "raw": "U14 Rojo 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24179.jpg"
+   "logo": "logos/dribbli/equipo-24179.jpg",
+   "clubId": "1966"
   },
   "24778": {
    "name": "Escudefut Jamp",
    "club": "Escudefut Jamp",
    "raw": "⚽U14 Escudefut Jamp⚽ Ix Edition",
    "ini": "EJ",
-   "logo": "logos/dribbli/equipo-24778.jpg"
+   "logo": "logos/dribbli/equipo-24778.jpg",
+   "clubId": "1958"
   },
   "24115": {
    "name": "Downtown Soccer Academy Amarillo",
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy U14 (Amarillo)premier 9.ª Edición",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24115.jpg"
+   "logo": "logos/dribbli/equipo-24115.jpg",
+   "clubId": "1956"
   },
   "24446": {
    "name": "Elite Football Academy",
@@ -7167,21 +7187,24 @@
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy U14 Premier (C Azul) 9 Edicion",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-25432.jpg"
+   "logo": "logos/dribbli/equipo-25432.jpg",
+   "clubId": "1956"
   },
   "25135": {
    "name": "Deportivo Santo Domingo",
    "club": "Deportivo Santo Domingo",
    "raw": "Deportivo Santo Domingo U14",
    "ini": "DSD",
-   "logo": "logos/dribbli/equipo-25135.jpg"
+   "logo": "logos/dribbli/equipo-25135.jpg",
+   "clubId": "4034"
   },
   "24017": {
    "name": "Academia Real Romana Azul",
    "club": "Academia Real Romana",
    "raw": "U14 Azul 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24017.jpg"
+   "logo": "logos/dribbli/equipo-24017.jpg",
+   "clubId": "1966"
   },
   "24576": {
    "name": "Spado Soccer Academy",
@@ -7195,84 +7218,112 @@
    "club": "Academia Real Romana",
    "raw": "U16 Rojo 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24020.jpg"
+   "logo": "logos/dribbli/equipo-24020.jpg",
+   "clubId": "1966"
   },
   "24805": {
    "name": "Escudefut Jamp",
    "club": "Escudefut Jamp",
    "raw": "⚽U16 Escudefut Jamp⚽ Ix Edition",
    "ini": "EJ",
-   "logo": "logos/dribbli/equipo-24805.jpg"
+   "logo": "logos/dribbli/equipo-24805.jpg",
+   "clubId": "1958"
   },
   "24116": {
    "name": "Downtown Soccer Academy Amarillo",
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy (Amarillo) U16 Premier 9.ª Edición",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24116.jpg"
+   "logo": "logos/dribbli/equipo-24116.jpg",
+   "clubId": "1956"
   },
   "24447": {
    "name": "Elite Football Academy",
    "club": "Elite Football Academy",
    "raw": "Elite Football Academy   U16",
    "ini": "EFA",
-   "logo": "logos/dribbli/equipo-24447.png"
+   "logo": "logos/dribbli/equipo-24447.png",
+   "clubId": "1980"
   },
   "24277": {
    "name": "Downtown Soccer Academy Azul",
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy U16 Premier (Azul) 9 Edicion",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24277.jpg"
+   "logo": "logos/dribbli/equipo-24277.jpg",
+   "clubId": "1956"
   },
   "25168": {
    "name": "Deportivo Santo Domingo",
    "club": "Deportivo Santo Domingo",
    "raw": "Deportivo Santo Domingo U16",
    "ini": "DSD",
-   "logo": "logos/dribbli/equipo-25168.jpg"
+   "logo": "logos/dribbli/equipo-25168.jpg",
+   "clubId": "4034"
   },
   "24019": {
    "name": "Academia Real Romana Azul",
    "club": "Academia Real Romana",
    "raw": "U16 Azul 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24019.jpg"
+   "logo": "logos/dribbli/equipo-24019.jpg",
+   "clubId": "1966"
   },
   "24022": {
    "name": "Academia Real Romana Rojo",
    "club": "Academia Real Romana",
    "raw": "U18 Rojo 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24022.jpg"
+   "logo": "logos/dribbli/equipo-24022.jpg",
+   "clubId": "1966"
   },
   "24779": {
    "name": "Escudefut Jamp",
    "club": "Escudefut Jamp",
    "raw": "⚽U18 Escudefut Jamp⚽ Ix Edition",
    "ini": "EJ",
-   "logo": "logos/dribbli/equipo-24779.jpg"
+   "logo": "logos/dribbli/equipo-24779.jpg",
+   "clubId": "1958"
   },
   "24117": {
    "name": "Downtown Soccer Academy Amarillo",
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy (Amarillo) U18 Premier 9.ª Edición",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24117.jpg"
+   "logo": "logos/dribbli/equipo-24117.jpg",
+   "clubId": "1956"
   },
   "9394": {
    "name": "Elite Football Academy",
    "club": "Elite Football Academy",
    "raw": "Elite Football Academy U 18",
    "ini": "EFA",
-   "logo": "logos/dribbli/equipo-9394.png"
+   "logo": "logos/dribbli/equipo-9394.png",
+   "clubId": "1980"
   },
   "24021": {
    "name": "Academia Real Romana Azul",
    "club": "Academia Real Romana",
    "raw": "U18 Azul 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24021.jpg"
+   "logo": "logos/dribbli/equipo-24021.jpg",
+   "clubId": "1966"
+  },
+  "24310": {
+   "name": "Downtown Soccer Academy",
+   "club": "Downtown Soccer Academy",
+   "raw": "Downtown Soccer Academy U10 Súper Copa 9 Edicion",
+   "ini": "DSA",
+   "logo": "logos/dribbli/equipo-24310.jpg",
+   "clubId": "1956"
+  },
+  "24082": {
+   "name": "Romana FC",
+   "club": "Romana FC",
+   "raw": "Romana Fc U10 Super Copa 9na Edition 2026 2027",
+   "ini": "RF",
+   "logo": "logos/dribbli/equipo-24082.png",
+   "clubId": "2186"
   },
   "25267": {
    "name": "FC Ramsar",
@@ -7286,21 +7337,8 @@
    "club": "Rayos Del Este",
    "raw": "Rayos Del Este U10 Supercopa   9na Edición",
    "ini": "RE",
-   "logo": "logos/dribbli/equipo-24509.jpg"
-  },
-  "24310": {
-   "name": "Downtown Soccer Academy",
-   "club": "Downtown Soccer Academy",
-   "raw": "Downtown Soccer Academy U10 Súper Copa 9 Edicion",
-   "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24310.jpg"
-  },
-  "24082": {
-   "name": "Romana FC",
-   "club": "Romana FC",
-   "raw": "Romana Fc U10 Super Copa 9na Edition 2026 2027",
-   "ini": "RF",
-   "logo": "logos/dribbli/equipo-24082.png"
+   "logo": "logos/dribbli/equipo-24509.jpg",
+   "clubId": "3968"
   },
   "24609": {
    "name": "Spado Soccer Academy",
@@ -7314,35 +7352,24 @@
    "club": "Deportivo San Pedro",
    "raw": "Deportivo San Pedro U10 Super Copa 2026/27",
    "ini": "DSP",
-   "logo": "logos/dribbli/equipo-24739.jpg"
+   "logo": "logos/dribbli/equipo-24739.jpg",
+   "clubId": "1963"
   },
   "24023": {
    "name": "Academia Real Romana Azul",
    "club": "Academia Real Romana",
    "raw": "U10 Azul Supercopa 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24023.jpg"
-  },
-  "24024": {
-   "name": "Academia Real Romana Azul",
-   "club": "Academia Real Romana",
-   "raw": "U12 Azul Supercopa 2026/2027 Academia Real Romana",
-   "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24024.jpg"
-  },
-  "24640": {
-   "name": "Spado Soccer Academy",
-   "club": "Spado Soccer Academy",
-   "raw": "Spado Soccer Academy U12 Supercopa",
-   "ini": "SSA",
-   "logo": "logos/dribbli/equipo-24640.png"
+   "logo": "logos/dribbli/equipo-24023.jpg",
+   "clubId": "1966"
   },
   "23914": {
    "name": "Garrincha FC",
    "club": "Garrincha FC",
    "raw": "Garrincha Fc U12",
    "ini": "GF",
-   "logo": "logos/dribbli/equipo-23914.jpg"
+   "logo": "logos/dribbli/equipo-23914.jpg",
+   "clubId": "3837"
   },
   "25201": {
    "name": "Rayos Del Este",
@@ -7351,19 +7378,37 @@
    "ini": "RE",
    "logo": "logos/dribbli/equipo-25201.jpg"
   },
+  "24024": {
+   "name": "Academia Real Romana Azul",
+   "club": "Academia Real Romana",
+   "raw": "U12 Azul Supercopa 2026/2027 Academia Real Romana",
+   "ini": "ARR",
+   "logo": "logos/dribbli/equipo-24024.jpg",
+   "clubId": "1966"
+  },
+  "24640": {
+   "name": "Spado Soccer Academy",
+   "club": "Spado Soccer Academy",
+   "raw": "Spado Soccer Academy U12 Supercopa",
+   "ini": "SSA",
+   "logo": "logos/dribbli/equipo-24640.png",
+   "clubId": "1964"
+  },
   "24080": {
    "name": "Romana FC",
    "club": "Romana FC",
    "raw": "Romana Fc U12 Super Copa 9na Edition 2026 2027",
    "ini": "RF",
-   "logo": "logos/dribbli/equipo-24080.png"
+   "logo": "logos/dribbli/equipo-24080.png",
+   "clubId": "2186"
   },
   "24311": {
    "name": "Downtown Soccer Academy",
    "club": "Downtown Soccer Academy",
    "raw": "Downtown Soccer Academy U12 Super Copa 9 Edicion",
    "ini": "DSA",
-   "logo": "logos/dribbli/equipo-24311.jpg"
+   "logo": "logos/dribbli/equipo-24311.jpg",
+   "clubId": "1956"
   },
   "25268": {
    "name": "FC Ramsar",
@@ -7377,7 +7422,8 @@
    "club": "Spado Soccer Academy",
    "raw": "Spado Soccer Academy   U14 Supercopa",
    "ini": "SSA",
-   "logo": "logos/dribbli/equipo-24641.png"
+   "logo": "logos/dribbli/equipo-24641.png",
+   "clubId": "1964"
   },
   "25234": {
    "name": "Rayos Del Este",
@@ -7391,7 +7437,8 @@
    "club": "Romana FC",
    "raw": "Romana Fc U14 Super Copa 9na Edition 2026 2027",
    "ini": "RF",
-   "logo": "logos/dribbli/equipo-24081.png"
+   "logo": "logos/dribbli/equipo-24081.png",
+   "clubId": "2186"
   },
   "25269": {
    "name": "FC Ramsar",
@@ -7405,14 +7452,16 @@
    "club": "Academia Real Romana",
    "raw": "U14 Azul Supercopa 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24025.jpg"
+   "logo": "logos/dribbli/equipo-24025.jpg",
+   "clubId": "1966"
   },
   "24475": {
    "name": "Academia Real Romana FC Roja",
    "club": "Academia Real Romana FC",
    "raw": "U14 Supercopa Roja 2026/2027 Academia Real Romana Fc",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24475.svg"
+   "logo": "logos/dribbli/equipo-24475.svg",
+   "clubId": "1966"
   },
   "24904": {
    "name": "Spado Soccer Academy",
@@ -7426,7 +7475,8 @@
    "club": "Rayos Del Este",
    "raw": "Rayos Del Este U16 Supercopa   9na Edición",
    "ini": "RE",
-   "logo": "logos/dribbli/equipo-25235.jpg"
+   "logo": "logos/dribbli/equipo-25235.jpg",
+   "clubId": "3968"
   },
   "25270": {
    "name": "FC Ramsar",
@@ -7440,35 +7490,40 @@
    "club": "Romana FC",
    "raw": "Romana Fc U16 Super Copa 9na Edition 2026 2027",
    "ini": "RF",
-   "logo": "logos/dribbli/equipo-24079.png"
+   "logo": "logos/dribbli/equipo-24079.png",
+   "clubId": "2186"
   },
   "24026": {
    "name": "Academia Real Romana Azul",
    "club": "Academia Real Romana",
    "raw": "U16 Azul Supercopa 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24026.jpg"
+   "logo": "logos/dribbli/equipo-24026.jpg",
+   "clubId": "1966"
   },
   "24028": {
    "name": "Academia Real Romana Rojo",
    "club": "Academia Real Romana",
    "raw": "U16 Rojo Supercopa 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24028.jpg"
+   "logo": "logos/dribbli/equipo-24028.jpg",
+   "clubId": "1966"
   },
   "24027": {
    "name": "Academia Real Romana",
    "club": "Academia Real Romana",
    "raw": "Primera 2026/2027 Academia Real Romana",
    "ini": "ARR",
-   "logo": "logos/dribbli/equipo-24027.jpg"
+   "logo": "logos/dribbli/equipo-24027.jpg",
+   "clubId": "1966"
   },
   "25300": {
    "name": "Deportivo Santo Domingo",
    "club": "Deportivo Santo Domingo",
    "raw": "Deportivo Santo Domingo Primera",
    "ini": "DSD",
-   "logo": "logos/dribbli/equipo-25300.jpg"
+   "logo": "logos/dribbli/equipo-25300.jpg",
+   "clubId": "4034"
   },
   "24448": {
    "name": "Elite Football Academy",

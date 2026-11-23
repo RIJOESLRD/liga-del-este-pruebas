@@ -1311,3 +1311,45 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 .faq__table th { text-align: left; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 6px 18px 6px 0; border-bottom: 2px solid var(--line-2); }
 .faq__table td { padding: 8px 18px 8px 0; border-bottom: 1px solid var(--line); color: var(--navy); }
 .faq__table td:first-child { font-weight: 700; }
+
+/* ---------- Incidencias del partido ---------- */
+.match--open { cursor: pointer; }
+.match--open:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.match__venue > span:first-of-type { flex: 1; min-width: 0; }
+.match__more { color: var(--blue); font-weight: 700; white-space: nowrap; }
+.match-dialog {
+  border: none; padding: 24px 20px 20px; border-radius: 24px; background: var(--white); color: var(--navy);
+  width: min(560px, 94vw); max-height: 90vh; overflow-y: auto; position: fixed;
+}
+.match-dialog::backdrop { background: rgba(11, 21, 48, .8); }
+.match-dialog__close {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%; border: none; background: var(--bg); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.inc-head { display: flex; flex-direction: column; gap: 16px; }
+.inc-head .match__top { padding-right: 48px; }
+.inc-sum { margin-top: 18px; background: var(--bg); border-radius: 16px; padding: 6px 16px; }
+.inc-sum__row { display: grid; grid-template-columns: 40px 1fr 40px; align-items: center; padding: 8px 0; font-size: 14px; }
+.inc-sum__row + .inc-sum__row { border-top: 1px solid var(--line); }
+.inc-sum__row b { font-family: var(--font-display); font-size: 22px; text-align: center; }
+.inc-sum__row span { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--muted); font-weight: 600; }
+.inc-title { font-family: var(--font-display); font-size: 20px; text-transform: uppercase; margin: 22px 0 8px; }
+.inc-list { list-style: none; margin: 0; padding: 0; }
+.inc-ev { display: grid; grid-template-columns: minmax(0, 1fr) 52px minmax(0, 1fr); align-items: center; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.inc-ev__min { text-align: center; font-family: var(--font-display); font-weight: 800; font-size: 16px; background: var(--navy); color: var(--white); border-radius: 999px; padding: 4px 0; margin: 0 6px; }
+.inc-ev__side { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; line-height: 1.2; }
+.inc-ev--home .inc-ev__side:first-child { justify-content: flex-end; text-align: right; }
+.inc-ev__who em { display: block; font-style: normal; font-weight: 500; font-size: 12px; color: var(--muted); }
+.inc-ev__who small { color: var(--muted); font-weight: 600; }
+.ev-ico { flex: 0 0 auto; font-size: 18px; line-height: 1; }
+.ev-ico--ag { filter: grayscale(1); opacity: .6; }
+.ev-card { display: inline-block; width: 13px; height: 18px; border-radius: 3px; }
+.ev-card--am { background: #F4C430; }
+.ev-card--ro { background: #D7263D; }
+.inc-empty { color: var(--muted); text-align: center; padding: 16px 0; }
+.inc-link { display: block; text-align: center; margin-top: 18px; color: var(--blue); font-weight: 700; font-size: 14px; }
+
+/* ---------- Historia: misión y visión ---------- */
+.mv { padding-bottom: 0; }
+.mv__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }

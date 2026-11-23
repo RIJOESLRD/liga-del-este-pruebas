@@ -192,10 +192,14 @@ const state = { div: 'premier', cat: '3751', tab: 'res' };
 const TABS = [['res', 'Resultados'], ['prox', 'Próximos'], ['tabla', 'Tabla'], ['lideres', 'Líderes']];
 const MAX_MATCHES = 6;
 
+const MATCHES = {}; // partidos jugados que se pueden abrir (id -> partido)
+
 function matchCard(m) {
   const upcoming = !m.played;
+  const open = !upcoming && m.id && L.live;
+  if (open) MATCHES[m.id] = m;
   const pens = m.hp !== null && m.hp !== undefined ? `<span class="match__pens">(${m.hp}) pen. (${m.ap})</span>` : '';
-  return `<article class="match card">
+  return `<article class="match card${open ? ' match--open' : ''}"${open ? ` data-match="${esc(m.id)}" role="button" tabindex="0" aria-label="Ver incidencias: ${esc(team(m.home).name)} ${m.hs} – ${m.as} ${esc(team(m.away).name)}"` : ''}>
     <div class="match__top">
       <span>${esc(m.dateLabel)}${m.timeLabel ? ` · ${esc(m.timeLabel)}` : ''}${m.round ? ` · J${m.round}` : ''}</span>
       <span class="match__tag ${upcoming ? 'match__tag--sched' : 'match__tag--final'}">${upcoming ? 'PROGRAMADO' : 'FINAL'}</span>
@@ -205,8 +209,80 @@ function matchCard(m) {
       <div class="match__score">${upcoming ? 'VS' : `${m.hs} – ${m.as}`}${pens}</div>
       <div class="match__team">${crest(m.away)}<span>${esc(team(m.away).name)}</span></div>
     </div>
-    <div class="match__venue">${ICON_PIN}${esc(venueShort(m.venue || 'Sede por definir'))}</div>
+    <div class="match__venue">${ICON_PIN}<span>${esc(venueShort(m.venue || 'Sede por definir'))}</span>${open ? '<span class="match__more">Incidencias ›</span>' : ''}</div>
   </article>`;
+}
+
+/* ---------- Incidencias de un partido (ventana al hacer clic en un resultado) ---------- */
+
+let INCIDENCIAS = null;
+const loadIncidencias = () => (INCIDENCIAS ||= fetch('data/incidencias.json', { cache: 'no-cache' })
+  .then((r) => (r.ok ? r.json() : {})).catch(() => ({})));
+
+const EVENTO = {
+  gol: ['<span class="ev-ico ev-ico--gol" aria-hidden="true">⚽</span>', 'Gol'],
+  'gol-penal': ['<span class="ev-ico ev-ico--gol" aria-hidden="true">⚽</span>', 'Gol de penal'],
+  autogol: ['<span class="ev-ico ev-ico--gol ev-ico--ag" aria-hidden="true">⚽</span>', 'Autogol'],
+  amarilla: ['<span class="ev-ico ev-card ev-card--am" aria-hidden="true"></span>', 'Tarjeta amarilla'],
+  roja: ['<span class="ev-ico ev-card ev-card--ro" aria-hidden="true"></span>', 'Tarjeta roja'],
+  'penal-fallado': ['<span class="ev-ico" aria-hidden="true">✕</span>', 'Penal fallado']
+};
+
+function incidenciasHTML(m, ev) {
+  const cuenta = (tipo, lado) => ev.filter((e) => e[1] === tipo && e[2] === lado).length;
+  const fila = (label, tipo, ico) => `<div class="inc-sum__row"><b>${cuenta(tipo, 0)}</b><span>${ico}${label}</span><b>${cuenta(tipo, 1)}</b></div>`;
+  const resumen = ev.length ? `<div class="inc-sum">
+      ${fila('Goles', 'gol', EVENTO.gol[0])}
+      ${fila('Amarillas', 'amarilla', EVENTO.amarilla[0])}
+      ${fila('Rojas', 'roja', EVENTO.roja[0])}
+    </div>` : '';
+  const lista = ev.length
+    ? `<ol class="inc-list">${ev.map(([min, tipo, lado, num, nombre]) => {
+      const [ico, label] = EVENTO[tipo] || ['', tipo];
+      const quien = `<span class="inc-ev__who">${num ? `<small>#${esc(num)}</small> ` : ''}${esc(nombre || '')}<em>${label}</em></span>`;
+      return `<li class="inc-ev inc-ev--${lado ? 'away' : 'home'}">
+        <div class="inc-ev__side">${lado ? '' : quien + ico}</div>
+        <div class="inc-ev__min">${min !== null && min !== undefined ? `${min}'` : ''}</div>
+        <div class="inc-ev__side">${lado ? ico + quien : ''}</div>
+      </li>`;
+    }).join('')}</ol>`
+    : '<p class="inc-empty">Dribbli todavía no tiene incidencias de este partido.</p>';
+  return `<div class="inc-head">
+      <div class="match__top"><span>${esc(m.dateLabel)}${m.timeLabel ? ` · ${esc(m.timeLabel)}` : ''}${m.round ? ` · J${m.round}` : ''}</span><span class="match__tag match__tag--final">FINAL</span></div>
+      <div class="match__teams">
+        <div class="match__team">${crest(m.home)}<span>${esc(team(m.home).name)}</span></div>
+        <div class="match__score">${m.hs} – ${m.as}${m.hp !== null && m.hp !== undefined ? `<span class="match__pens">(${m.hp}) pen. (${m.ap})</span>` : ''}</div>
+        <div class="match__team">${crest(m.away)}<span>${esc(team(m.away).name)}</span></div>
+      </div>
+      <div class="match__venue">${ICON_PIN}<span>${esc(venueShort(m.venue || 'Sede por definir'))}</span></div>
+    </div>
+    ${resumen}
+    <h3 class="inc-title">Incidencias</h3>
+    ${lista}
+    <a class="inc-link" href="https://app.dribbli.com/matches/${esc(m.id)}" target="_blank" rel="noopener">Ver el acta completa en Dribbli ›</a>`;
+}
+
+function bindMatchDialog() {
+  const dlg = $('#match-dialog');
+  if (!dlg) return;
+  const open = async (id) => {
+    const m = MATCHES[id];
+    if (!m) return;
+    $('#match-body').innerHTML = '<p class="inc-empty">Cargando…</p>';
+    dlg.showModal();
+    const data = await loadIncidencias();
+    $('#match-body').innerHTML = incidenciasHTML(m, data[id] || []);
+  };
+  document.addEventListener('click', (e) => {
+    const c = e.target.closest('[data-match]');
+    if (c) open(c.dataset.match);
+  });
+  document.addEventListener('keydown', (e) => {
+    const c = e.target.closest && e.target.closest('[data-match]');
+    if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(c.dataset.match); }
+  });
+  $('#match-close').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
 }
 
 const signed = (n) => (n > 0 ? `+${n}` : String(n));
@@ -311,9 +387,9 @@ function renderCompetition() {
   const link = $('#dribbli-link');
   link.href = `https://app.dribbli.com/categories/${catId}${paths[state.tab]}`;
   link.innerHTML = `${labels[state.tab]}${ICON_OUT}`;
-  // Botón "Descargar para Instagram": solo si hay algo que mostrar en esta vista.
-  const shareRows = !cd ? [] : state.tab === 'res' ? cd.results : state.tab === 'prox' ? cd.upcoming
-    : state.tab === 'tabla' ? ((cd.standings[0] || {}).rows || []) : cd.leaders;
+  // Botón "Descargar para Instagram": solo en Tabla y Líderes, y si hay algo que mostrar.
+  const shareRows = !cd ? [] : state.tab === 'tabla' ? ((cd.standings[0] || {}).rows || [])
+    : state.tab === 'lideres' ? cd.leaders : [];
   const shareBtn = $('#share-ig');
   shareBtn.hidden = !shareRows.length;
   shareBtn.onclick = () => requireSubscription(() => openShare({
@@ -476,6 +552,7 @@ applyBrandAndLinks();
 bindMenu();
 bindLightbox();
 bindVideoDialog();
+bindMatchDialog();
 bindWhatsappLinks();
 bindConfigLinks();
 initForms();

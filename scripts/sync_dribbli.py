@@ -20,6 +20,7 @@ from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_JSON = os.path.join(ROOT, 'data', 'dribbli.json')
+INC_JSON = os.path.join(ROOT, 'data', 'incidencias.json')
 LOGO_DIR = os.path.join(ROOT, 'logos', 'dribbli')
 BASE = 'https://app.dribbli.com'
 UA = 'Mozilla/5.0 (compatible; LigaDelEste-sitio/1.0)'
@@ -280,6 +281,71 @@ def save_logo(src, name):
         return url
 
 
+
+# ---------- Club de cada equipo y las incidencias de cada partido ----------
+
+def parse_club_id(page):
+    m = re.search(r'href="/clubs/(\d+)"', page)
+    return m.group(1) if m else None
+
+
+# Tipos de incidencia de Dribbli que se muestran en la web (los cambios no se muestran).
+EVENT_TYPES = {
+    'goal': 'gol', 'penalty goal': 'gol-penal', 'penalty': 'gol-penal', 'own goal': 'autogol',
+    'yellow card': 'amarilla', 'red card': 'roja', 'second yellow card': 'roja', 'missed penalty': 'penal-fallado',
+}
+
+
+def short_name(raw):
+    """'9 M - Alan Mathias POLANCO SHEFFIELD' -> ('9', 'Alan Mathias P.'): nombre + inicial del primer apellido."""
+    raw = text(raw)
+    num = None
+    # prefijos de Dribbli: dorsal (a veces entre corchetes), posición (una letra) y (C) = capitán
+    m = re.match(r'^\s*\[?(\d+)?\]?\s*(?:[A-Z]{1,3}\b)?\s*(?:\(C\))?\s*-\s*(.+)$', raw)
+    if m:
+        num, raw = m.group(1), m.group(2)
+    words = raw.split()
+    nombres = [w for w in words if not (w.isupper() and len(w) > 1)]
+    apellidos = [w for w in words if w.isupper() and len(w) > 1]
+    if not nombres:  # todo en mayúsculas: primera palabra = nombre
+        nombres, apellidos = words[:1], words[1:]
+    name = ' '.join(w.capitalize() if w.isupper() else w for w in nombres)
+    if apellidos:
+        name += f' {apellidos[0][0].upper()}.'
+    return num, name.strip()
+
+
+OTHER_EVENTS = set()  # tipos que no se muestran (para revisar en el registro)
+
+
+def parse_incidents(page):
+    """Incidencias de la página de un partido: [[minuto, tipo, lado (0 local / 1 visita), dorsal, nombre], ...]."""
+    start = page.find('tw-hidden md:tw-block')
+    if start < 0:
+        return None
+    seg = page[start:]
+    end = seg.find('Loading...')
+    seg = seg[:end] if end > 0 else seg
+    out = []
+    rows = re.split(r'<div class="tw-flex tw-flex-row tw-items-center tw-gap-4 tw-py-3', seg)[1:]
+    for row in rows:
+        left = re.search(r'tw-w-5/12 tw-text-right">(.*?)</div>', row, re.S)
+        right = re.search(r'tw-w-5/12 tw-text-left">(.*?)</div>', row, re.S)
+        minute = re.search(r'<span class="tw-font-bold tw-text-sm">\s*(\d+)', row)
+        title = re.search(r'<img[^>]*title="([^"]+)"', row)
+        if not title:
+            continue
+        tname = html.unescape(title.group(1)).strip()
+        kind = EVENT_TYPES.get(tname.lower())
+        if not kind:
+            OTHER_EVENTS.add(tname)
+            continue
+        lt, rt = text(left.group(1)) if left else '', text(right.group(1)) if right else ''
+        side = 0 if lt else 1
+        num, name = short_name(lt or rt)
+        out.append([int(minute.group(1)) if minute else None, kind, side, num, name])
+    return out
+
 # ---------- Principal ----------
 
 def main():
@@ -339,6 +405,44 @@ def main():
             'name': name, 'club': club_name(name), 'raw': t['raw'], 'ini': initials(name), 'logo': logo,
         }
     out['leagueLogo'] = save_logo(league_logo_src, 'liga')
+
+    # Club de Dribbli de cada equipo (para enlazar el perfil del club). Se guarda y no se vuelve a pedir.
+    prev_teams = previous.get('teams', {})
+    for tid, t in out['teams'].items():
+        club_id = prev_teams.get(tid, {}).get('clubId')
+        if not club_id:
+            try:
+                club_id = parse_club_id(fetch(f'{BASE}/teams/{tid}'))
+                time.sleep(0.3)
+            except Exception as e:  # noqa: BLE001
+                print(f'  no se pudo leer el club del equipo {tid}: {e}', file=sys.stderr)
+        if club_id:
+            t['clubId'] = club_id
+
+    # Incidencias de los partidos jugados (un partido terminado no cambia: se pide una sola vez).
+    incid = {}
+    if os.path.exists(INC_JSON):
+        try:
+            with open(INC_JSON, encoding='utf-8') as f:
+                incid = json.load(f)
+        except Exception:  # noqa: BLE001
+            incid = {}
+    played = [m['id'] for c in out['categories'].values() for m in c.get('schedule', []) if m.get('hs') is not None]
+    nuevos = [mid for mid in played if mid not in incid]
+    print(f'Incidencias: {len(nuevos)} partidos nuevos de {len(played)} jugados')
+    for mid in nuevos:
+        try:
+            ev = parse_incidents(fetch(f'{BASE}/matches/{mid}'))
+            if ev is not None:
+                incid[mid] = ev
+            time.sleep(0.3)
+        except Exception as e:  # noqa: BLE001
+            print(f'  no se pudieron leer las incidencias del partido {mid}: {e}', file=sys.stderr)
+    if OTHER_EVENTS:
+        print(f'  (no se muestran: {", ".join(sorted(OTHER_EVENTS))})')
+    incid = {k: incid[k] for k in sorted(incid, key=int) if k in set(played)}
+    with open(INC_JSON, 'w', encoding='utf-8') as f:
+        json.dump(incid, f, ensure_ascii=False, separators=(',', ':'))
 
     # Si nada cambió en Dribbli, se conserva la fecha anterior para no publicar una versión igual.
     strip = lambda d: {k: v for k, v in d.items() if k != 'updatedAt'}

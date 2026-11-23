@@ -75,7 +75,8 @@ function fromDribbli(json) {
     teams[id] = {
       id, name, club, ini: t.ini || '?', color: hashColor(id),
       logo: (manual && manual[1]) || t.logo || '',
-      url: `https://app.dribbli.com/teams/${id}`
+      url: `https://app.dribbli.com/teams/${id}`,
+      clubUrl: t.clubId ? `https://app.dribbli.com/clubs/${t.clubId}` : ''
     };
   }
   const today = todayISO();
@@ -184,10 +185,12 @@ export function clubs(L) {
     if (t.id === 'tbd') continue;
     const k = clubKey(t.club);
     const cur = map.get(k);
-    if (!cur) map.set(k, { name: t.club, logo: t.logo, color: t.color, ini: t.ini, url: t.url, count: 1 });
+    // El escudo lleva al perfil del club en Dribbli; si Dribbli no tiene el club, al perfil del equipo.
+    if (!cur) map.set(k, { name: t.club, logo: t.logo, color: t.color, ini: t.ini, url: t.clubUrl || t.url, hasClub: !!t.clubUrl, count: 1 });
     else {
       cur.count += 1;
       if (!cur.logo && t.logo) cur.logo = t.logo;
+      if (!cur.hasClub && t.clubUrl) { cur.url = t.clubUrl; cur.hasClub = true; }
     }
   }
   return [...map.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
