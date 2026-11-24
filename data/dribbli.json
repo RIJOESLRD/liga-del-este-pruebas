@@ -1,6 +1,6 @@
 {
  "source": "Dribbli",
- "updatedAt": "2026-11-23T22:29:04+00:00",
+ "updatedAt": "2026-11-24T10:50:43+00:00",
  "categories": {
   "3754": {
    "division": "premier",
@@ -5726,8 +5726,8 @@
      "venue": "La estación, La Romana",
      "home": "25234",
      "away": "24081",
-     "hs": null,
-     "as": null,
+     "hs": 1,
+     "as": 4,
      "hp": null,
      "ap": null
     },
@@ -5947,14 +5947,14 @@
       {
        "team": "24081",
        "pos": 1,
-       "pj": 2,
-       "g": 2,
+       "pj": 3,
+       "g": 3,
        "e": 0,
        "p": 0,
-       "gf": 7,
-       "gc": 0,
-       "dg": 7,
-       "pts": 6
+       "gf": 11,
+       "gc": 1,
+       "dg": 10,
+       "pts": 9
       },
       {
        "team": "24025",
@@ -5981,20 +5981,8 @@
        "pts": 3
       },
       {
-       "team": "25234",
-       "pos": 4,
-       "pj": 3,
-       "g": 1,
-       "e": 0,
-       "p": 2,
-       "gf": 4,
-       "gc": 8,
-       "dg": -4,
-       "pts": 3
-      },
-      {
        "team": "25269",
-       "pos": 5,
+       "pos": 4,
        "pj": 3,
        "g": 1,
        "e": 0,
@@ -6002,6 +5990,18 @@
        "gf": 0,
        "gc": 4,
        "dg": -4,
+       "pts": 3
+      },
+      {
+       "team": "25234",
+       "pos": 5,
+       "pj": 4,
+       "g": 1,
+       "e": 0,
+       "p": 3,
+       "gf": 5,
+       "gc": 12,
+       "dg": -7,
        "pts": 3
       },
       {
@@ -6021,22 +6021,22 @@
    ],
    "leaders": [
     {
-     "player": "Rayniel Acevedo Pacheco",
-     "team": "25234",
-     "goals": 3,
-     "matches": 3
-    },
-    {
      "player": "Wesley Alex",
      "team": "24081",
-     "goals": 3,
-     "matches": 2
+     "goals": 5,
+     "matches": 3
     },
     {
      "player": "Edwis Encarnacion",
      "team": "24081",
-     "goals": 3,
-     "matches": 2
+     "goals": 5,
+     "matches": 3
+    },
+    {
+     "player": "Rayniel Acevedo Pacheco",
+     "team": "25234",
+     "goals": 4,
+     "matches": 4
     },
     {
      "player": "Mark David Yosef",
@@ -6060,17 +6060,17 @@
      "player": "Angelin Yandel Quezada Linval",
      "team": "25234",
      "goals": 1,
+     "matches": 4
+    },
+    {
+     "player": "Fabian Ernesto Severino Severino",
+     "team": "24081",
+     "goals": 1,
      "matches": 3
     },
     {
      "player": "Yiram Daniel Calcaño Ramirez",
      "team": "24025",
-     "goals": 1,
-     "matches": 2
-    },
-    {
-     "player": "Fabian Ernesto Severino Severino",
-     "team": "24081",
      "goals": 1,
      "matches": 2
     },
