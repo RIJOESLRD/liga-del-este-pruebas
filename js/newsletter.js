@@ -90,6 +90,7 @@ function bindForm(form, id, onDone) {
     try {
       await sendToBrevo(v);
       markSubscribed();
+      if (window.gtag) window.gtag('event', 'suscripcion_boletin');
       onDone(v);
     } catch (ex) {
       err.textContent = `${ex.message} Revisa tus datos e inténtalo otra vez.`;
