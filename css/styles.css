@@ -1536,3 +1536,17 @@ mark.todo { background: #FFF1B8; color: #5C4400; border-radius: 4px; padding: 0 
 /* Enlaces a perfiles desde Líderes e incidencias */
 .leaders__player a, .inc-ev__who a { color: inherit; text-decoration: none; border-bottom: 1px dashed var(--soft); }
 .leaders__player a:hover, .inc-ev__who a:hover { color: var(--blue); border-color: var(--blue); }
+
+/* Titular / Refuerzo (jugadores en varias categorías) */
+.jg-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.jg-chip--ref { background: #FFF1D6; color: #8A5A00; }
+.jg-now span.jg-now--ref { background: #F4B72E; color: var(--navy); }
+.jg-rol { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 999px; padding: 3px 8px; margin-left: 4px; vertical-align: middle; }
+.jg-rol--titular { background: var(--navy); color: var(--white); }
+.jg-rol--refuerzo { background: #F4B72E; color: var(--navy); }
+.jg-t tr.jg-t__ref td { background: #FFFBF0; }
+.jg-leyenda { margin: 12px 0 0; font-size: 13px; color: var(--muted); line-height: 1.8; }
+@media (max-width: 640px) {
+  .jg-t tr.jg-t__ref { background: #FFFBF0; border-color: #F4D58A; }
+  .jg-t tr.jg-t__ref td { background: none; }
+}

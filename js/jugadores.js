@@ -31,6 +31,19 @@ const totales = (j) => j.t.reduce((a, t) => ({ pj: a.pj + t[4], min: a.min + t[5
 const temporadas = (j) => new Set(j.t.map((t) => t[0])).size;
 const actual = (j) => j.t.filter((t) => t[0] === ACTUAL);
 
+// Titular / Refuerzo: en cada temporada, la categoría con más minutos es la titular (empate: más
+// partidos; luego la categoría de menor edad). Las demás de esa temporada son de refuerzo.
+const edadCat = (c) => (c === 'Open' ? 99 : parseInt(String(c).replace(/\D/g, ''), 10) || 50);
+const titularDe = (filas) => [...filas].sort((a, b) => b[5] - a[5] || b[4] - a[4] || edadCat(a[2]) - edadCat(b[2]))[0];
+function rol(j, t) {
+  const misma = j.t.filter((x) => x[0] === t[0]);
+  if (misma.length < 2) return '';
+  return titularDe(misma) === t ? 'titular' : 'refuerzo';
+}
+const catTxt = (t) => `${t[1]} ${t[2]}`.replace('Primera División Open', 'Primera División');
+const principal = (j) => titularDe(actual(j)) || j.t[0];
+const refuerzos = (j) => actual(j).filter((t) => t !== principal(j));
+
 /* ---------- Buscador ---------- */
 
 function buscador() {
@@ -62,7 +75,7 @@ function buscador() {
       const tot = totales(j), nt = temporadas(j);
       return `<a class="jg-card" href="jugador.html?id=${esc(j.id)}">
         <span class="jg-av">${esc(iniciales(j.n))}</span>
-        <span class="jg-card__txt"><b>${esc(j.n)}</b><span>${esc(j.a)}</span><span class="jg-chip">${esc(j.cat)}</span></span>
+        <span class="jg-card__txt"><b>${esc(j.n)}</b><span>${esc(j.a)}</span><span class="jg-chips"><span class="jg-chip">${esc(catTxt(principal(j)))}</span>${refuerzos(j).map((t) => `<span class="jg-chip jg-chip--ref" title="Refuerzo">Refuerzo ${esc(t[2] === 'Open' ? 'Primera' : t[2])}</span>`).join('')}</span></span>
         <span class="jg-card__num"><b>${tot.g}</b><small>${tot.g === 1 ? 'gol' : 'goles'}</small><em>${nt} ${nt === 1 ? 'temporada' : 'temporadas'}</em></span>
       </a>`;
     }).join('') || '<p class="jg-vacio">No encontramos jugadores con esa búsqueda.</p>';
@@ -108,7 +121,7 @@ function perfil() {
       <div>
         <span class="jg-kicker">PERFIL DE JUGADOR</span>
         <h1 class="jg-name">${esc(j.n)}</h1>
-        <div class="jg-now"><span>${esc(j.a)}</span><span>${esc(j.cat)}</span>${desdeTxt ? `<span>En la liga desde la ${esc(desdeTxt)}</span>` : ''}</div>
+        <div class="jg-now"><span>${esc(j.a)}</span><span>${esc(catTxt(principal(j)))}${refuerzos(j).length ? ' · Titular' : ''}</span>${refuerzos(j).map((t) => `<span class="jg-now--ref">Refuerzo en ${esc(catTxt(t))}</span>`).join('')}${desdeTxt ? `<span>En la liga desde la ${esc(desdeTxt)}</span>` : ''}</div>
       </div>
     </section>
     <div class="jg-stats">
@@ -123,11 +136,12 @@ function perfil() {
     <h2 class="jg-h">Por temporada</h2>
     <div class="jg-tw"><table class="jg-t">
       <thead><tr><th>Temporada</th><th>Categoría</th><th>Academia</th><th class="n">PJ</th><th class="n">Min.</th><th class="n">Goles</th></tr></thead>
-      <tbody>${j.t.map((t) => `<tr><td><b>${esc(TEMP[t[0]] ? TEMP[t[0]][0] : '')}</b><small>${esc(TEMP[t[0]] ? TEMP[t[0]][1] : '')}</small></td>
-        <td><span class="jg-chip">${esc(t[1])}</span> ${esc(t[2])}</td><td>${esc(t[3])}</td>
+      <tbody>${[...j.t].sort((a, b) => b[0] - a[0] || (rol(j, a) === 'titular' ? -1 : rol(j, b) === 'titular' ? 1 : 0)).map((t) => `<tr${rol(j, t) === 'refuerzo' ? ' class="jg-t__ref"' : ''}><td><b>${esc(TEMP[t[0]] ? TEMP[t[0]][0] : '')}</b><small>${esc(TEMP[t[0]] ? TEMP[t[0]][1] : '')}</small></td>
+        <td><span class="jg-chip">${esc(t[1])}</span> ${esc(t[2])}${(() => { const r = rol(j, t); return r ? ` <span class="jg-rol jg-rol--${r}">${r === 'titular' ? 'Titular' : 'Refuerzo'}</span>` : ''; })()}</td><td>${esc(t[3])}</td>
         <td class="n">${t[4]}</td><td class="n">${fmt(t[5])}</td><td class="n g">${t[6]}</td></tr>`).join('')}
       <tr class="jg-t__total"><td><b>Total</b></td><td></td><td></td><td class="n">${fmt(tot.pj)}</td><td class="n">${fmt(tot.min)}</td><td class="n g">${fmt(tot.g)}</td></tr></tbody>
     </table></div>
+    ${j.t.some((t) => rol(j, t)) ? '<p class="jg-leyenda"><span class="jg-rol jg-rol--titular">Titular</span> la categoría donde jugó más minutos esa temporada · <span class="jg-rol jg-rol--refuerzo">Refuerzo</span> otra categoría donde también jugó</p>' : ''}
     <p class="jg-nota">Datos de Dribbli, la plataforma oficial de la liga, desde la 5.ª edición. Para proteger a los menores mostramos solo el nombre y las iniciales de los apellidos, sin foto ni fecha de nacimiento. Si un dato no coincide, puede ser que el jugador esté escrito distinto en alguna temporada.
       ¿Eres padre, madre o tutor y quieres ocultar este perfil? <a href="${wa}" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>.</p>`;
 }
