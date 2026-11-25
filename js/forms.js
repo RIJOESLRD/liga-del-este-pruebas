@@ -189,6 +189,7 @@ function ensureFormDialog(key) {
     }
     const url = waLink(buildMessage(cfg, vals));
     dlg.querySelector('[data-wa-link]').href = url;
+    if (window.gtag) window.gtag('event', 'formulario_whatsapp', { formulario: dlg.id.replace('form-', '') });
     const w = window.open(url, '_blank');
     if (w) w.opener = null;
     dlg.querySelector('[data-done-text]').textContent = w

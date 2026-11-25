@@ -22,8 +22,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, '_site')
 NEWS_DIR = os.path.join(ROOT, 'contenido', 'noticias')
 TEMPLATE = os.path.join(ROOT, 'plantillas', 'noticia.html')
-MODO_PRUEBA = os.environ.get('MODO_PRUEBA') == '1'  # copia de pruebas: franja de aviso y sin Google
-SITE_BASE = os.environ.get('SITE_BASE', 'https://rijoeslrd.github.io/liga-del-este-web/').rstrip('/') + '/'
+MODO_PRUEBA = os.environ.get('MODO_PRUEBA') == '1'  # copia de pruebas: franja de aviso, sin Google y sin Analytics
+# Google Analytics 4 (propiedad "Web Liga del Este"). Vacío = sin Analytics. En la copia de pruebas, apagado.
+GA_ID = '' if MODO_PRUEBA else os.environ.get('GA_ID', 'G-1M4JF0MMP7')
+SITE_BASE = os.environ.get('SITE_BASE', 'https://ligadeleste.eslrd.com/').rstrip('/') + '/'
 
 # Lo que se publica (todo lo demás —scripts, contenido, plantillas— se queda fuera).
 PUBLIC_DIRS = ['css', 'js', 'data', 'fotos', 'logos', 'admin', 'icons']
@@ -119,7 +121,7 @@ def articulo_html(n):
 
 
 def pagina_noticia(plantilla, n):
-    imagen = SITE_BASE + (n.get('portada') or 'logos/liga.png')
+    imagen = SITE_BASE + (n.get('portada') or 'fotos/vista-previa-portada.jpg')
     reemplazos = {
         '{{TITULO}}': html.escape(n['titulo']),
         '{{DESCRIPCION}}': html.escape(n.get('resumen') or n['titulo']),
@@ -144,6 +146,40 @@ def marcar_prueba(texto):
     return re.sub(r'(<body[^>]*>)', r'\1' + FRANJA_PRUEBA.replace('\\', '\\\\'), texto, count=1)
 
 
+def analytics_html():
+    """Etiqueta de Google Analytics + las acciones importantes de la web como eventos."""
+    if not GA_ID:
+        return ''
+    return f"""<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', '{GA_ID}');
+// Acciones importantes (se ven en Analytics → Informes → Interacción → Eventos)
+document.addEventListener('click', function (e) {{
+  var t = e.target.closest ? e.target : null; if (!t) return;
+  var el, ev = function (n, p) {{ gtag('event', n, p || {{}}); }};
+  if ((el = t.closest('a[href*="wa.me"]'))) ev('clic_whatsapp', {{ ubicacion: location.pathname }});
+  else if ((el = t.closest('[data-match]'))) ev('ver_incidencias', {{ partido: el.dataset.match }});
+  else if ((el = t.closest('[data-download]'))) ev('descarga_instagram');
+  else if ((el = t.closest('#share-ig'))) ev('abrir_descarga_instagram');
+  else if ((el = t.closest('[data-video]'))) ev('ver_video', {{ video: el.dataset.title || el.dataset.video }});
+  else if ((el = t.closest('[data-form]'))) ev('abrir_formulario', {{ formulario: el.dataset.form }});
+  else if ((el = t.closest('[data-cat]'))) ev('ver_categoria', {{ categoria: el.textContent.trim() }});
+  else if ((el = t.closest('[data-div]'))) ev('ver_division', {{ division: el.dataset.div }});
+  else if ((el = t.closest('[data-tab]'))) ev('ver_pestana', {{ pestana: el.dataset.tab }});
+}}, true);
+</script>
+"""
+
+
+def con_analytics(texto):
+    a = analytics_html()
+    return texto.replace('</head>', a + '</head>', 1) if a else texto
+
+
 def main():
     noticias = leer_noticias()
     print(f'{len(noticias)} noticias')
@@ -156,7 +192,7 @@ def main():
         if PUBLIC_FILES_RE.match(nombre) and not nombre.startswith('vista-previa'):
             # %SITE_BASE% = dirección completa de la web (vista previa en WhatsApp, página 404).
             with open(os.path.join(ROOT, nombre), encoding='utf-8') as f:
-                texto = f.read().replace('%SITE_BASE%', SITE_BASE)
+                texto = con_analytics(f.read().replace('%SITE_BASE%', SITE_BASE))
             if MODO_PRUEBA:
                 texto = marcar_prueba(texto)
             with open(os.path.join(OUT, nombre), 'w', encoding='utf-8') as f:
@@ -177,7 +213,7 @@ def main():
         json.dump(indice, f, ensure_ascii=False, indent=1)
 
     with open(TEMPLATE, encoding='utf-8') as f:
-        plantilla = f.read()
+        plantilla = con_analytics(f.read())
     if MODO_PRUEBA:
         plantilla = marcar_prueba(plantilla)
     for n in noticias:
