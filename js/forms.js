@@ -33,6 +33,27 @@ const FORMS = {
       { id: 'mensaje', label: 'Mensaje', type: 'textarea', placeholder: 'Ej.: me interesa patrocinar una categoría o la transmisión en vivo' }
     ]
   },
+  donacion: {
+    kicker: 'DONACIONES Y PATROCINIOS',
+    title: 'Quiero ayudar a la Liga del Este',
+    lead: 'Cuéntanos cómo quieres ayudar y se abre WhatsApp con tu mensaje listo. Te respondemos con los datos de la ONG y los métodos de pago.',
+    intro: 'Hola, quiero ayudar a la Liga del Este.',
+    fields: [
+      { id: 'tipo', label: 'Quiero', type: 'radio', required: true, options: ['Donar', 'Ser patrocinador'] },
+      { id: 'nombre', label: 'Nombre', type: 'text', required: true, autocomplete: 'name' },
+      { id: 'empresa', label: 'Empresa o marca', type: 'text', autocomplete: 'organization' },
+      { id: 'destino', label: 'A quién quieres apoyar', type: 'text', placeholder: 'La Liga del Este en general, o el nombre de una academia' },
+      { id: 'aporte', label: 'Qué quieres aportar', type: 'checks',
+        options: ['Dinero (una vez)', 'Dinero (mensual)', 'Balones y material', 'Uniformes', 'Gastos de operación de la liga',
+          'Inscripción de un equipo', 'Beca para un jugador', 'Transporte y alimentación'] },
+      { id: 'nivel', label: 'Nivel de patrocinio', type: 'radio',
+        options: ['Bronce', 'Plata', 'Oro', 'Patrocinador oficial', 'Plan a medida'] },
+      { id: 'monto', label: 'Monto aproximado', type: 'text', placeholder: 'Ej.: USD 50 o RD$ 3,000' },
+      { id: 'telefono', label: 'Teléfono (WhatsApp)', type: 'tel', required: true, half: true },
+      { id: 'correo', label: 'Correo', type: 'email', half: true, placeholder: 'nombre@correo.com' },
+      { id: 'mensaje', label: 'Mensaje', type: 'textarea', placeholder: 'Ej.: quiero recibir el informe de impacto al final de la temporada' }
+    ]
+  },
   inscripcion: {
     kicker: 'INSCRIPCIONES',
     title: 'Inscríbete en la Liga del Este',
@@ -212,11 +233,25 @@ export function openForm(key) {
   if (first) first.focus();
 }
 
+// Deja marcados o escritos algunos campos al abrir el formulario (por ejemplo, la academia elegida).
+function prefillForm(key, values) {
+  const dlg = document.getElementById(`form-${key}`);
+  if (!dlg) return;
+  for (const [field, value] of Object.entries(values)) {
+    const id = `${key}-${field}`;
+    const choice = [...dlg.querySelectorAll(`input[name="${id}"]`)].find((i) => i.value === value && (i.type === 'radio' || i.type === 'checkbox'));
+    if (choice) { choice.checked = true; continue; }
+    const input = dlg.querySelector(`#${id}`);
+    if (input) input.value = value;
+  }
+}
+
 export function initForms() {
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-form]');
     if (!trigger || !FORMS[trigger.dataset.form]) return;
     e.preventDefault();
     openForm(trigger.dataset.form);
+    if (trigger.dataset.prefill) prefillForm(trigger.dataset.form, JSON.parse(trigger.dataset.prefill));
   });
 }
