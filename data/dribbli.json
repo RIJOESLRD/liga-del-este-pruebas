@@ -1,6 +1,6 @@
 {
  "source": "Dribbli",
- "updatedAt": "2026-11-24T10:50:43+00:00",
+ "updatedAt": "2026-11-25T14:44:24+00:00",
  "categories": {
   "3754": {
    "division": "premier",
@@ -4303,7 +4303,7 @@
      "round": 2,
      "date": "2026-11-21",
      "time": "11:40",
-     "venue": "Ciudad Deportiva, Downtown, Bavaro",
+     "venue": "La Estacion, La Romana",
      "home": "24509",
      "away": "24082",
      "hs": 3,
@@ -5599,7 +5599,7 @@
    "teams": 6,
    "matches": 26,
    "players": 113,
-   "referees": 6,
+   "referees": 7,
    "schedule": [
     {
      "id": "42074",
