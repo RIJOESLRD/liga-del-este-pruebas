@@ -4,7 +4,7 @@
 // a publicar la web sola (.github/workflows/publicar.yml) en 1 o 2 minutos.
 
 const OWNER = 'RIJOESLRD';
-const REPO = 'liga-del-este-web';
+const REPO = 'liga-del-este-pruebas'; // COPIA DE PRUEBAS: las noticias se guardan aquí, no en la web oficial
 const BRANCH = 'main';
 const NEWS_DIR = 'contenido/noticias';
 const PHOTO_DIR = 'fotos/noticias';

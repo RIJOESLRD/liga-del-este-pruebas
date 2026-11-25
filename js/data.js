@@ -213,7 +213,7 @@ export const SITE_URL = 'rijoeslrd.github.io/liga-del-este-web';
    Si se deja vacío, el bloque de suscripción no aparece y las descargas no la piden.
    ========================================================= */
 export const NEWSLETTER = {
-  action: 'https://8263d021.sibforms.com/serve/MUIFAHltghgP_6Ukeq21lfprEw1eyxtMQNVVQyA0rtOtaILEH-6JJC4wwuvKUqEX9VQWHrtMOKskV5JKu_T7zsUQEUXgV3d5mp3VvcIG2E7wq426-0wsVZfVO9wd55A4uI92_Kce6wwMsf_Er8W2Cx3VY1I2mPjzlifDqi_J-j0R4u1wm7EkmVK6TlVpJAIs01w8qOu9EemnHQpYVQ=='
+  action: '' // COPIA DE PRUEBAS: boletín desactivado para no mezclar suscripciones con la lista real
 };
 
 export const LINKS = {

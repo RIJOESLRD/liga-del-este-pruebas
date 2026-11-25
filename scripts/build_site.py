@@ -22,6 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, '_site')
 NEWS_DIR = os.path.join(ROOT, 'contenido', 'noticias')
 TEMPLATE = os.path.join(ROOT, 'plantillas', 'noticia.html')
+MODO_PRUEBA = os.environ.get('MODO_PRUEBA') == '1'  # copia de pruebas: franja de aviso y sin Google
 SITE_BASE = os.environ.get('SITE_BASE', 'https://rijoeslrd.github.io/liga-del-este-web/').rstrip('/') + '/'
 
 # Lo que se publica (todo lo demás —scripts, contenido, plantillas— se queda fuera).
@@ -132,6 +133,17 @@ def pagina_noticia(plantilla, n):
     return out
 
 
+FRANJA_PRUEBA = ('<div style="position:sticky;top:0;z-index:9999;background:#F4C430;color:#0E1B3D;'
+                 'text-align:center;font:700 14px/1.2 Inter,system-ui,sans-serif;padding:8px 12px;letter-spacing:.06em">'
+                 'VERSIÓN DE PRUEBA · Los cambios aquí no afectan la web oficial</div>')
+
+
+def marcar_prueba(texto):
+    """Copia de pruebas: que Google no la indexe y que se vea la franja de aviso."""
+    texto = texto.replace('<head>', '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
+    return re.sub(r'(<body[^>]*>)', r'\1' + FRANJA_PRUEBA.replace('\\', '\\\\'), texto, count=1)
+
+
 def main():
     noticias = leer_noticias()
     print(f'{len(noticias)} noticias')
@@ -145,6 +157,8 @@ def main():
             # %SITE_BASE% = dirección completa de la web (vista previa en WhatsApp, página 404).
             with open(os.path.join(ROOT, nombre), encoding='utf-8') as f:
                 texto = f.read().replace('%SITE_BASE%', SITE_BASE)
+            if MODO_PRUEBA:
+                texto = marcar_prueba(texto)
             with open(os.path.join(OUT, nombre), 'w', encoding='utf-8') as f:
                 f.write(texto)
             if nombre != '404.html':
@@ -164,6 +178,8 @@ def main():
 
     with open(TEMPLATE, encoding='utf-8') as f:
         plantilla = f.read()
+    if MODO_PRUEBA:
+        plantilla = marcar_prueba(plantilla)
     for n in noticias:
         with open(os.path.join(OUT, f'noticia-{n["slug"]}.html'), 'w', encoding='utf-8') as f:
             f.write(pagina_noticia(plantilla, n))
@@ -177,7 +193,10 @@ def main():
             f.write(f'  <url><loc>{html.escape(loc)}</loc>{f"<lastmod>{fecha}</lastmod>" if fecha else ""}</url>\n')
         f.write('</urlset>\n')
     with open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8') as f:
-        f.write(f'User-agent: *\nDisallow: /admin/\nSitemap: {SITE_BASE}sitemap.xml\n')
+        if MODO_PRUEBA:
+            f.write('User-agent: *\nDisallow: /\n')
+        else:
+            f.write(f'User-agent: *\nDisallow: /admin/\nSitemap: {SITE_BASE}sitemap.xml\n')
 
     # GitHub Pages: servir los archivos tal cual (sin Jekyll).
     open(os.path.join(OUT, '.nojekyll'), 'w').close()
