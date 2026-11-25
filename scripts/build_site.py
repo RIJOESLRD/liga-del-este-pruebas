@@ -22,7 +22,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, '_site')
 NEWS_DIR = os.path.join(ROOT, 'contenido', 'noticias')
 TEMPLATE = os.path.join(ROOT, 'plantillas', 'noticia.html')
-SITE_BASE = os.environ.get('SITE_BASE', 'https://rijoeslrd.github.io/liga-del-este-web/').rstrip('/') + '/'
+SITE_BASE = os.environ.get('SITE_BASE', 'https://ligadeleste.eslrd.com/').rstrip('/') + '/'
 
 # Lo que se publica (todo lo demás —scripts, contenido, plantillas— se queda fuera).
 PUBLIC_DIRS = ['css', 'js', 'data', 'fotos', 'logos', 'admin', 'icons']
@@ -118,7 +118,7 @@ def articulo_html(n):
 
 
 def pagina_noticia(plantilla, n):
-    imagen = SITE_BASE + (n.get('portada') or 'logos/liga.png')
+    imagen = SITE_BASE + (n.get('portada') or 'fotos/vista-previa-portada.jpg')
     reemplazos = {
         '{{TITULO}}': html.escape(n['titulo']),
         '{{DESCRIPCION}}': html.escape(n.get('resumen') or n['titulo']),

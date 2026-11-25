@@ -1,7 +1,7 @@
 # Cómo actualizar la web de la Liga del Este
 
-**Dirección de la web:** https://rijoeslrd.github.io/liga-del-este-web/
-**Panel de noticias:** https://rijoeslrd.github.io/liga-del-este-web/admin/
+**Dirección de la web:** https://ligadeleste.eslrd.com/ (la dirección vieja rijoeslrd.github.io/liga-del-este-web redirige sola a esta)
+**Panel de noticias:** https://ligadeleste.eslrd.com/admin/
 
 ## Noticias (desde el panel, sin tocar código)
 1. Entra al panel de noticias desde el celular o la computadora.
