@@ -31,10 +31,10 @@ const totales = (j) => j.t.reduce((a, t) => ({ pj: a.pj + t[4], min: a.min + t[5
 const temporadas = (j) => new Set(j.t.map((t) => t[0])).size;
 const actual = (j) => j.t.filter((t) => t[0] === ACTUAL);
 
-// Titular / Refuerzo: en cada temporada, la categoría con más minutos es la titular (empate: más
-// partidos; luego la categoría de menor edad). Las demás de esa temporada son de refuerzo.
+// Titular / Refuerzo: en cada temporada, la titular es la categoría MENOR en la que jugó (la de su
+// edad); las categorías mayores son de refuerzo. Misma edad en dos divisiones: decide la de más minutos.
 const edadCat = (c) => (c === 'Open' ? 99 : parseInt(String(c).replace(/\D/g, ''), 10) || 50);
-const titularDe = (filas) => [...filas].sort((a, b) => b[5] - a[5] || b[4] - a[4] || edadCat(a[2]) - edadCat(b[2]))[0];
+const titularDe = (filas) => [...filas].sort((a, b) => edadCat(a[2]) - edadCat(b[2]) || b[5] - a[5] || b[4] - a[4])[0];
 function rol(j, t) {
   const misma = j.t.filter((x) => x[0] === t[0]);
   if (misma.length < 2) return '';
@@ -141,7 +141,7 @@ function perfil() {
         <td class="n">${t[4]}</td><td class="n">${fmt(t[5])}</td><td class="n g">${t[6]}</td></tr>`).join('')}
       <tr class="jg-t__total"><td><b>Total</b></td><td></td><td></td><td class="n">${fmt(tot.pj)}</td><td class="n">${fmt(tot.min)}</td><td class="n g">${fmt(tot.g)}</td></tr></tbody>
     </table></div>
-    ${j.t.some((t) => rol(j, t)) ? '<p class="jg-leyenda"><span class="jg-rol jg-rol--titular">Titular</span> la categoría donde jugó más minutos esa temporada · <span class="jg-rol jg-rol--refuerzo">Refuerzo</span> otra categoría donde también jugó</p>' : ''}
+    ${j.t.some((t) => rol(j, t)) ? '<p class="jg-leyenda"><span class="jg-rol jg-rol--titular">Titular</span> la categoría de su edad (la menor en la que jugó esa temporada) · <span class="jg-rol jg-rol--refuerzo">Refuerzo</span> una categoría mayor donde también jugó</p>' : ''}
     <p class="jg-nota">Datos de Dribbli, la plataforma oficial de la liga, desde la 5.ª edición. Para proteger a los menores mostramos solo el nombre y las iniciales de los apellidos, sin foto ni fecha de nacimiento. Si un dato no coincide, puede ser que el jugador esté escrito distinto en alguna temporada.
       ¿Eres padre, madre o tutor y quieres ocultar este perfil? <a href="${wa}" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>.</p>`;
 }
