@@ -22,12 +22,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  publicar:
+  # 1) Armar la web (y leer Dribbli cuando toca)
+  armar:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -62,6 +60,15 @@ jobs:
         with:
           path: _site
 
+  # 2) Publicar en GitHub Pages lo que armó el paso anterior
+  publicar:
+    needs: armar
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
       - name: Publicar en GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
