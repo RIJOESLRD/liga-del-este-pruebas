@@ -1,6 +1,6 @@
 {
  "source": "Dribbli",
- "updatedAt": "2026-11-25T14:44:24+00:00",
+ "updatedAt": "2026-11-25T17:11:25+00:00",
  "categories": {
   "3754": {
    "division": "premier",
@@ -848,61 +848,71 @@
      "player": "Piter Castro Quesada",
      "team": "25036",
      "goals": 11,
-     "matches": 2
+     "matches": 2,
+     "pid": "8e196554dff6"
     },
     {
      "player": "Isaac Liam Baptiste Payoute",
      "team": "24608",
      "goals": 6,
-     "matches": 2
+     "matches": 2,
+     "pid": "7bc9b8537440"
     },
     {
      "player": "Enmanuel Jiménez Severino",
      "team": "25036",
      "goals": 5,
-     "matches": 2
+     "matches": 2,
+     "pid": "1ef5579646f1"
     },
     {
      "player": "Mateo Ruiz",
      "team": "24444",
      "goals": 4,
-     "matches": 2
+     "matches": 2,
+     "pid": "ba4b2d555d48"
     },
     {
      "player": "Alan Mathias Polanco Sheffield",
      "team": "24112",
      "goals": 4,
-     "matches": 1
+     "matches": 1,
+     "pid": "2db5d169fb28"
     },
     {
      "player": "Gonzalo Lopez",
      "team": "24444",
      "goals": 3,
-     "matches": 2
+     "matches": 2,
+     "pid": "5810b83a7987"
     },
     {
      "player": "Gael Infusino",
      "team": "24014",
      "goals": 3,
-     "matches": 2
+     "matches": 2,
+     "pid": "dd55d7f9756b"
     },
     {
      "player": "Ean Eliab Castillo Hidalgo",
      "team": "24608",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "6cf22959c69a"
     },
     {
      "player": "Ezequiel Abdías Ortiz De La Cruz",
      "team": "24013",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "894718fea812"
     },
     {
      "player": "Missael Salvador Castillo",
      "team": "24608",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "45339e1221ea"
     }
    ]
   },
@@ -1390,61 +1400,71 @@
      "player": "Aaron Vana",
      "team": "24113",
      "goals": 7,
-     "matches": 1
+     "matches": 1,
+     "pid": "b53fc1cbbc4b"
     },
     {
      "player": "Aryan Gabriel Vento Marcano",
      "team": "24113",
      "goals": 5,
-     "matches": 2
+     "matches": 2,
+     "pid": "57accf6e7c16"
     },
     {
      "player": "Victor Baret",
      "team": "24244",
      "goals": 4,
-     "matches": 2
+     "matches": 2,
+     "pid": "4bf65d419f1e"
     },
     {
      "player": "Noel Efrain De La Cruz Fleming",
      "team": "24578",
      "goals": 4,
-     "matches": 1
+     "matches": 1,
+     "pid": "42ecb11e44a2"
     },
     {
      "player": "Luis Avila",
      "team": "24443",
      "goals": 3,
-     "matches": 1
+     "matches": 1,
+     "pid": "7a514d98d0e0"
     },
     {
      "player": "Francisco Alberto \"Pequeño\" Jiménez Severino",
      "team": "24773",
      "goals": 3,
-     "matches": 1
+     "matches": 1,
+     "pid": "07e26ad6fbdd"
     },
     {
      "player": "Yairo David Yan Rodriguez",
      "team": "24113",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "da326ce741bb"
     },
     {
      "player": "Edwardo Arturo Mendez",
      "team": "24029",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "2b1fc9c6a325"
     },
     {
      "player": "Dilan Sanchez",
      "team": "24244",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "0f0f983540df"
     },
     {
      "player": "Albert Sole",
      "team": "24113",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "6fd2588a7eb5"
     }
    ]
   },
@@ -2100,61 +2120,71 @@
      "player": "Jose Carlos Abreu Desine",
      "team": "24015",
      "goals": 4,
-     "matches": 2
+     "matches": 2,
+     "pid": "f3a05de10324"
     },
     {
      "player": "Clifford Fecu",
      "team": "24114",
      "goals": 3,
-     "matches": 0
+     "matches": 0,
+     "pid": "d8869d496171"
     },
     {
      "player": "Gerald Alexander De Los Santos Dominguez",
      "team": "24015",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "d7413e109df1"
     },
     {
      "player": "Gerard Leonardo Lewest De Jesús",
      "team": "24178",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "581cb6c5d4ca"
     },
     {
      "player": "Reimy Alexander Juan Valdez",
      "team": "24015",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "b110a7afff4c"
     },
     {
      "player": "Salvatore Benincasa Pazmiño",
      "team": "24445",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "f79c1f149976"
     },
     {
      "player": "Roman Valerio Villar",
      "team": "24015",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "121aa9b25f9d"
     },
     {
      "player": "Carlos Isaac Carpio Cordero",
      "team": "24114",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "0f10dd1e7675"
     },
     {
      "player": "Dilan Medina",
      "team": "24178",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "ad708607c789"
     },
     {
      "player": "Shadai Alejandro Santos",
      "team": "24015",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "78193921f0ea"
     }
    ]
   },
@@ -2978,61 +3008,71 @@
      "player": "Samuel Enrique De La Cruz Sosa",
      "team": "25135",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "1c4f7225e6ff"
     },
     {
      "player": "Aaron Daniel Tavarez Felix",
      "team": "25135",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "39c0a4526e31"
     },
     {
      "player": "Dayel Yael Toribio Antigua",
      "team": "25135",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "239b736dbfd5"
     },
     {
      "player": "Sava Miguel Abreu Miric",
      "team": "24179",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "076651a49287"
     },
     {
      "player": "Alexander \"Alex\" Ramirez",
      "team": "24446",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "51d4ec995747"
     },
     {
      "player": "Alexael Gil Jimenez",
      "team": "24778",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "4fa29dfd3e56"
     },
     {
      "player": "Otoniel Herrera Ruiz",
      "team": "24017",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "ed4659679396"
     },
     {
      "player": "Ethan Santos Adames",
      "team": "25135",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "cf06696b25db"
     },
     {
      "player": "Diego Ernesto Diaz Matos",
      "team": "25135",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "b7ea199622c4"
     },
     {
      "player": "Oscar Román Valerio Villar",
      "team": "24017",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "4ddff593781a"
     }
    ]
   },
@@ -3688,61 +3728,71 @@
      "player": "Crisvier Barrrios",
      "team": "24116",
      "goals": 4,
-     "matches": 2
+     "matches": 2,
+     "pid": "a8fdafddef30"
     },
     {
      "player": "Carlos \"Pit\" Martínez Marrero",
      "team": "24116",
      "goals": 3,
-     "matches": 2
+     "matches": 2,
+     "pid": "1491ee4f7462"
     },
     {
      "player": "Leonardo Abdiel Mercedes",
      "team": "24116",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "b3346394725f"
     },
     {
      "player": "Yadiel Isaac Guzmán",
      "team": "24805",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "46f73d587bcb"
     },
     {
      "player": "Alan David Moreno",
      "team": "25168",
      "goals": 2,
-     "matches": 0
+     "matches": 0,
+     "pid": "c1dae389a0b3"
     },
     {
      "player": "Gustavo Valentiner",
      "team": "24020",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "f1b40a51d215"
     },
     {
      "player": "Matheew Robinson Feliz Rodriguez",
      "team": "24020",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "a9ce9eea74db"
     },
     {
      "player": "Jeremías \"Jere\" Severino",
      "team": "24805",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "3163f189b345"
     },
     {
      "player": "Bryan Alejandro Mercedes Suarez",
      "team": "24116",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "3a4b68d69c23"
     },
     {
      "player": "Luilli Michel Sentilus",
      "team": "24019",
      "goals": 1,
-     "matches": 1
+     "matches": 1,
+     "pid": "0246fc378b91"
     }
    ]
   },
@@ -4088,61 +4138,71 @@
      "player": "Nolido Castro",
      "team": "24117",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "d226495098f3"
     },
     {
      "player": "David Ortiz Mejia",
      "team": "24021",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "906f5310679d"
     },
     {
      "player": "Carlos Martinez",
      "team": "24117",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "222e717da497"
     },
     {
      "player": "Meikel Marte",
      "team": "9394",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "5cd9e96fd9ba"
     },
     {
      "player": "Juan Manuel Morey",
      "team": "9394",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "150b1d891713"
     },
     {
      "player": "Alex Guittot",
      "team": "24117",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "c7104066dc05"
     },
     {
      "player": "Brayan Flores",
      "team": "24021",
      "goals": 1,
-     "matches": 1
+     "matches": 1,
+     "pid": "c3aa630526e2"
     },
     {
      "player": "Harrison. Saintil",
      "team": "24022",
      "goals": 0,
-     "matches": 2
+     "matches": 2,
+     "pid": "8ee48f4d9478"
     },
     {
      "player": "Octavio Javier Gutiérrez Herrera",
      "team": "24022",
      "goals": 0,
-     "matches": 2
+     "matches": 2,
+     "pid": "fbf913194dae"
     },
     {
      "player": "Amiel Jonathan Castillo Ciprian",
      "team": "24022",
      "goals": 0,
-     "matches": 2
+     "matches": 2,
+     "pid": "be022e8263b7"
     }
    ]
   },
@@ -4824,61 +4884,71 @@
      "player": "Angel Manuel Frias",
      "team": "24082",
      "goals": 8,
-     "matches": 4
+     "matches": 4,
+     "pid": "979237dcfffb"
     },
     {
      "player": "Dylan Pimentel",
      "team": "24509",
      "goals": 5,
-     "matches": 4
+     "matches": 4,
+     "pid": "5b84830e62f9"
     },
     {
      "player": "Fraily Antonio Bastardo",
      "team": "25267",
      "goals": 5,
-     "matches": 4
+     "matches": 4,
+     "pid": "448c62e77535"
     },
     {
      "player": "Jatniel Leonardo Santana Mercedes",
      "team": "24023",
      "goals": 5,
-     "matches": 3
+     "matches": 3,
+     "pid": "c60460df21e4"
     },
     {
      "player": "Bryant Esteban Adames Sosa",
      "team": "24509",
      "goals": 4,
-     "matches": 4
+     "matches": 4,
+     "pid": "943ab70de8ea"
     },
     {
      "player": "Ashley Santana Gallego",
      "team": "25267",
      "goals": 4,
-     "matches": 4
+     "matches": 4,
+     "pid": "a5528cdcb540"
     },
     {
      "player": "Greilyn Ernesto Castillo Feliz",
      "team": "24509",
      "goals": 3,
-     "matches": 4
+     "matches": 4,
+     "pid": "0adabac4903f"
     },
     {
      "player": "Eliam Jaasiel Jhonson",
      "team": "25267",
      "goals": 3,
-     "matches": 4
+     "matches": 4,
+     "pid": "ca0b0750f8fc"
     },
     {
      "player": "Liam David Carmona",
      "team": "24310",
      "goals": 3,
-     "matches": 2
+     "matches": 2,
+     "pid": "71053940d7ed"
     },
     {
      "player": "Darío Humberto Ramos Quezada",
      "team": "24739",
      "goals": 3,
-     "matches": 3
+     "matches": 3,
+     "pid": "d1f4355959dc"
     }
    ]
   },
@@ -5534,61 +5604,71 @@
      "player": "Jose Giovanni Diaz Castillo",
      "team": "23914",
      "goals": 11,
-     "matches": 3
+     "matches": 3,
+     "pid": "9b5bfbf09f3e"
     },
     {
      "player": "Felipe Emmanuel Santana Monero",
      "team": "25201",
      "goals": 8,
-     "matches": 2
+     "matches": 2,
+     "pid": "ac752c942e54"
     },
     {
      "player": "Reydell Ojeda Nuñez",
      "team": "23914",
      "goals": 6,
-     "matches": 3
+     "matches": 3,
+     "pid": "d76d870e4ff1"
     },
     {
      "player": "Fernando Yan",
      "team": "24080",
      "goals": 5,
-     "matches": 3
+     "matches": 3,
+     "pid": "3be08abd04e4"
     },
     {
      "player": "Yordi Darwin",
      "team": "24080",
      "goals": 5,
-     "matches": 2
+     "matches": 2,
+     "pid": "424648601dc0"
     },
     {
      "player": "Alan Emil De La Rosa Martinez",
      "team": "23914",
      "goals": 5,
-     "matches": 3
+     "matches": 3,
+     "pid": "2cdf8b6946a8"
     },
     {
      "player": "Emil Nuñez",
      "team": "24311",
      "goals": 4,
-     "matches": 4
+     "matches": 4,
+     "pid": "4c6017242f75"
     },
     {
      "player": "Johansel Wilian Abreu Tejada",
      "team": "24080",
      "goals": 3,
-     "matches": 4
+     "matches": 4,
+     "pid": "0917b22e565e"
     },
     {
      "player": "Guerson Blain",
      "team": "25201",
      "goals": 3,
-     "matches": 4
+     "matches": 4,
+     "pid": "322de1b727ec"
     },
     {
      "player": "Derek Augusto Martinez",
      "team": "25268",
      "goals": 3,
-     "matches": 4
+     "matches": 4,
+     "pid": "a8f908fe6d32"
     }
    ]
   },
@@ -6024,61 +6104,71 @@
      "player": "Wesley Alex",
      "team": "24081",
      "goals": 5,
-     "matches": 3
+     "matches": 3,
+     "pid": "859029282858"
     },
     {
      "player": "Edwis Encarnacion",
      "team": "24081",
      "goals": 5,
-     "matches": 3
+     "matches": 3,
+     "pid": "9643c834e13b"
     },
     {
      "player": "Rayniel Acevedo Pacheco",
      "team": "25234",
      "goals": 4,
-     "matches": 4
+     "matches": 4,
+     "pid": "35f6647052e7"
     },
     {
      "player": "Mark David Yosef",
      "team": "24475",
      "goals": 3,
-     "matches": 1
+     "matches": 1,
+     "pid": "7e99ce0d3b8f"
     },
     {
      "player": "Max Alejandro Fortuna De Olio",
      "team": "24025",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "36fb141cabff"
     },
     {
      "player": "Brandon Michael Guerrero Soriano",
      "team": "24025",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "3d97876d98be"
     },
     {
      "player": "Angelin Yandel Quezada Linval",
      "team": "25234",
      "goals": 1,
-     "matches": 4
+     "matches": 4,
+     "pid": "3963737dbb07"
     },
     {
      "player": "Fabian Ernesto Severino Severino",
      "team": "24081",
      "goals": 1,
-     "matches": 3
+     "matches": 3,
+     "pid": "59a45379451f"
     },
     {
      "player": "Yiram Daniel Calcaño Ramirez",
      "team": "24025",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "eb28074c4ff1"
     },
     {
      "player": "Carlos Hazael Montero Yesen",
      "team": "24475",
      "goals": 1,
-     "matches": 1
+     "matches": 1,
+     "pid": "5b7e4c446c20"
     }
    ]
   },
@@ -6527,61 +6617,71 @@
      "player": "Jeffrey Valmir",
      "team": "24079",
      "goals": 5,
-     "matches": 3
+     "matches": 3,
+     "pid": "b0cbce5bac06"
     },
     {
      "player": "Ronelson Theligene",
      "team": "25235",
      "goals": 4,
-     "matches": 3
+     "matches": 3,
+     "pid": "5210dd7ad7f3"
     },
     {
      "player": "Bryant Reyes Sánchez",
      "team": "24904",
      "goals": 3,
-     "matches": 1
+     "matches": 1,
+     "pid": "cc8b54aaef95"
     },
     {
      "player": "Nathan Maloy",
      "team": "25270",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "6001fded68fc"
     },
     {
      "player": "Raysselle Jesus Modesto Mota",
      "team": "25235",
      "goals": 2,
-     "matches": 3
+     "matches": 3,
+     "pid": "252e961d270a"
     },
     {
      "player": "Samuel Alexander Marte Guzman",
      "team": "24026",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "8e39926d308c"
     },
     {
      "player": "Randy Junior",
      "team": "24079",
      "goals": 2,
-     "matches": 1
+     "matches": 1,
+     "pid": "94afddf217b0"
     },
     {
      "player": "Stalin Manuel De La Cruz",
      "team": "24079",
      "goals": 1,
-     "matches": 3
+     "matches": 3,
+     "pid": "90dfc243d00e"
     },
     {
      "player": "Victor Andher Mota Martinez",
      "team": "25270",
      "goals": 1,
-     "matches": 3
+     "matches": 3,
+     "pid": "dfa86b1e33bd"
     },
     {
      "player": "Edu Etienne",
      "team": "25270",
      "goals": 1,
-     "matches": 3
+     "matches": 3,
+     "pid": "5195ba78c301"
     }
    ]
   },
@@ -6927,61 +7027,71 @@
      "player": "Oly Cadeau",
      "team": "24027",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "5167ea894e0a"
     },
     {
      "player": "Rodney Alejandro Cabrera",
      "team": "24027",
      "goals": 2,
-     "matches": 2
+     "matches": 2,
+     "pid": "b9dc79fdfd43"
     },
     {
      "player": "Julio Cesar Morel",
      "team": "24027",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "13892b7c86d8"
     },
     {
      "player": "Jean Baptiste Georges Junior",
      "team": "24027",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "7dfdf2f16014"
     },
     {
      "player": "Miguelito Franzua Yan",
      "team": "24027",
      "goals": 1,
-     "matches": 2
+     "matches": 2,
+     "pid": "17c77523995a"
     },
     {
      "player": "Rossemberg Junior Rodriguez Cogollo",
      "team": "25300",
      "goals": 1,
-     "matches": 1
+     "matches": 1,
+     "pid": "b31fc9df7cb2"
     },
     {
      "player": "Daniel Alonso Lozada Diaz",
      "team": "25300",
      "goals": 1,
-     "matches": 1
+     "matches": 1,
+     "pid": "f8d3a874a51f"
     },
     {
      "player": "Luigi Paolo Flores Fajardo",
      "team": "25333",
      "goals": 1,
-     "matches": 1
+     "matches": 1,
+     "pid": "89b74545d383"
     },
     {
      "player": "Bensonne Point Dujour",
      "team": "24027",
      "goals": 0,
-     "matches": 2
+     "matches": 2,
+     "pid": "ac889a548b46"
     },
     {
      "player": "Andry Estevez Rijo",
      "team": "24027",
      "goals": 0,
-     "matches": 2
+     "matches": 2,
+     "pid": "97054ca23fc9"
     }
    ]
   }

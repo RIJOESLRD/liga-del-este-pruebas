@@ -237,9 +237,10 @@ function incidenciasHTML(m, ev) {
       ${fila('Rojas', 'roja', EVENTO.roja[0])}
     </div>` : '';
   const lista = ev.length
-    ? `<ol class="inc-list">${ev.map(([min, tipo, lado, num, nombre]) => {
+    ? `<ol class="inc-list">${ev.map(([min, tipo, lado, num, nombre, pid]) => {
       const [ico, label] = EVENTO[tipo] || ['', tipo];
-      const quien = `<span class="inc-ev__who">${num ? `<small>#${esc(num)}</small> ` : ''}${esc(nombre || '')}<em>${label}</em></span>`;
+      const n = esc(nombre || '');
+      const quien = `<span class="inc-ev__who">${num ? `<small>#${esc(num)}</small> ` : ''}${pid && nombre ? `<a href="jugador.html?id=${esc(pid)}">${n}</a>` : n}<em>${label}</em></span>`;
       return `<li class="inc-ev inc-ev--${lado ? 'away' : 'home'}">
         <div class="inc-ev__side">${lado ? '' : quien + ico}</div>
         <div class="inc-ev__min">${min !== null && min !== undefined ? `${min}'` : ''}</div>
@@ -314,7 +315,7 @@ function standingsTable(group, showName) {
 function leadersTable(rows) {
   const body = rows.map((r, i) => `<tr>
       <td><span class="standings__pos${i < 3 ? ' standings__pos--top' : ''}">${i + 1}</span></td>
-      <td class="leaders__player">${esc(r.player)}</td>
+      <td class="leaders__player">${r.pid ? `<a href="jugador.html?id=${esc(r.pid)}">${esc(r.player)}</a>` : esc(r.player)}</td>
       <td><div class="standings__team">${crest(r.team)}${esc(team(r.team).name)}</div></td>
       <td>${r.matches ?? ''}</td>
       <td class="standings__pts">${r.goals}</td>

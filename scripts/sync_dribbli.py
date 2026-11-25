@@ -315,6 +315,15 @@ def short_name(raw):
     return num, name.strip()
 
 
+def huella_jugador(raw):
+    """Id público del jugador (enlace a su perfil) a partir del nombre completo de Dribbli."""
+    from jugadores import huella, normalizar  # import tardío: jugadores.py importa este archivo
+    raw = text(raw)
+    m = re.match(r'^\s*\[?(\d+)?\]?\s*(?:[A-Z]{1,3}\b)?\s*(?:\(C\))?\s*-\s*(.+)$', raw)
+    n = normalizar(m.group(2) if m else raw)
+    return huella(n) if n else None
+
+
 OTHER_EVENTS = set()  # tipos que no se muestran (para revisar en el registro)
 
 
@@ -343,7 +352,7 @@ def parse_incidents(page):
         lt, rt = text(left.group(1)) if left else '', text(right.group(1)) if right else ''
         side = 0 if lt else 1
         num, name = short_name(lt or rt)
-        out.append([int(minute.group(1)) if minute else None, kind, side, num, name])
+        out.append([int(minute.group(1)) if minute else None, kind, side, num, name, huella_jugador(lt or rt)])
     return out
 
 # ---------- Principal ----------
@@ -428,7 +437,7 @@ def main():
         except Exception:  # noqa: BLE001
             incid = {}
     played = [m['id'] for c in out['categories'].values() for m in c.get('schedule', []) if m.get('hs') is not None]
-    nuevos = [mid for mid in played if mid not in incid]
+    nuevos = [mid for mid in played if mid not in incid or any(len(e) < 6 for e in incid[mid])]
     print(f'Incidencias: {len(nuevos)} partidos nuevos de {len(played)} jugados')
     for mid in nuevos:
         try:
@@ -445,6 +454,18 @@ def main():
         json.dump(incid, f, ensure_ascii=False, separators=(',', ':'))
 
     # Si nada cambió en Dribbli, se conserva la fecha anterior para no publicar una versión igual.
+    # Jugadores activos de la temporada con su historial (data/jugadores.json) y enlace desde Líderes.
+    try:
+        import jugadores
+        ids = jugadores.actualizar(out)
+        for c in out['categories'].values():
+            for r in c.get('leaders', []):
+                pid = ids.get(jugadores.huella(jugadores.normalizar(r.get('player', ''))))
+                if pid:
+                    r['pid'] = pid
+    except Exception as e:  # noqa: BLE001
+        print(f'  no se pudieron armar los jugadores: {e}', file=sys.stderr)
+
     strip = lambda d: {k: v for k, v in d.items() if k != 'updatedAt'}
     if previous and strip(previous) == strip(json.loads(json.dumps(out))):
         out['updatedAt'] = previous.get('updatedAt', out['updatedAt'])

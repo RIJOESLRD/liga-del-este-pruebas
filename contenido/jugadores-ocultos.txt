@@ -1,0 +1,5 @@
+# Perfiles de jugador que NO se muestran en la web (por ejemplo, si la familia lo pide).
+# Escribe el id del perfil, uno por línea. El id es lo que sale al final de la dirección del perfil:
+#   ligadeleste.eslrd.com/jugador.html?id=1491ee4f7462   →   1491ee4f7462
+# Puedes agregar una nota después de #. Ejemplo:
+# 1491ee4f7462   # pedido de la familia, 25 nov 2026
